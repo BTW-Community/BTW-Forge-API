@@ -1,12 +1,12 @@
-package btw.community.example;
+package btw.community.forge;
 
 import api.AddonHandler;
 import api.BTWAddon;
 
-public class ExampleAddon extends BTWAddon {
-    private static ExampleAddon instance;
+public class ForgeAPIAddon extends BTWAddon {
+    private static ForgeAPIAddon instance;
 
-    public ExampleAddon() {
+    public ForgeAPIAddon() {
         super();
     }
 

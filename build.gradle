@@ -7,7 +7,7 @@ import java.nio.file.Paths
 import java.nio.file.StandardCopyOption;
 plugins {
 	id 'maven-publish'
-	id 'fabric-loom' version "1.4-SNAPSHOT"
+	id 'fabric-loom' version "1.5-SNAPSHOT"
 }
 
 archivesBaseName = project.archives_base_name
@@ -29,6 +29,18 @@ repositories {
     }
     maven {
         url 'https://btw-community.github.io/btw-mvn/'
+    }
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+        content {
+            includeGroup "maven.modrinth"
+        }
+    }
+
+    maven {
+        name = "Jitpack"
+        url = "https://jitpack.io/"
     }
 	mavenCentral() //For fastutil
 }
@@ -65,9 +77,13 @@ dependencies {
 	// This is what MC 1.6 uses
 	implementation 'com.google.code.gson:gson:2.2.2'
 
-	implementation group: 'it.unimi.dsi', name: 'fastutil', version: '8.5.12'
-
     implementation 'com.typesafe:config:1.4.5'
+    include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.3.2")))
+
+    // Legacy-Fabric API
+    modImplementation("net.legacyfabric.legacy-fabric-api:legacy-fabric-api:${project.lfapi_version}+${project.minecraft_version}")
+    modImplementation("maven.modrinth:legacy-fabric-api-fixes-btw:1.1.0")
+    modImplementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.2.0"))
 }
 
 configurations.all {
@@ -110,6 +126,7 @@ jar {
 loom {
 	sourceCompatibility = JavaVersion.VERSION_17
 	targetCompatibility = JavaVersion.VERSION_17
+    accessWidenerPath = file('src/main/resources/forge.accesswidener')
 }
 
 tasks.register('copyBtwJar', Copy) {

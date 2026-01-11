@@ -1,33 +1,30 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "forge",
   "version": "${version}",
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Forge API",
+  "description": "A port of the Forge API to Better Than Wolves",
   "authors": [
-    "Me!"
+    "All of the Forge maintainers at the time of 1.7.10",
+    "TheWinABagel (Port)"
   ],
   "contact": {
-    "homepage": "https://legacyfabric.net/",
-    "sources": "https://github.com/Legacy-Fabric/fabric-example-mod"
+    "homepage": "https://github.com/BTW-Community/BTW-Forge-API",
+    "sources": "https://github.com/BTW-Community/BTW-Forge-API",
+    "issues": "https://github.com/BTW-Community/BTW-Forge-API/issues"
   },
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "LGPL",
+  "icon": "assets/forge/icon.png",
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "net.fabricmc.example.ExampleMod"
-    ],
     "btw:addon": [
-      "btw.community.example.ExampleAddon"
+      "btw.community.forge.ForgeAPIAddon"
     ]
   },
-  "custom": {
-    "btw:addon_prefix": "EX"
-  },
   "mixins": [
-    "modid.mixins.json"
+    "forge.mixins.json"
   ],
+  "accessWidener": "forge.accesswidener",
   "depends": {
     "fabricloader": ">=0.14.19",
     "minecraft": "1.6.4"
