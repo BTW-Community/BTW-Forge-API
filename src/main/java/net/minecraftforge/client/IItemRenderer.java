@@ -1,6 +1,6 @@
 package net.minecraftforge.client;
 
-import net.minecraft.item.ItemStack;
+import net.minecraft.src.ItemStack;
 
 public interface IItemRenderer
 {

@@ -15,7 +15,7 @@ package cpw.mods.fml.client;
 import cpw.mods.fml.common.MissingModsException;
 import cpw.mods.fml.common.versioning.ArtifactVersion;
 import cpw.mods.fml.common.versioning.DefaultArtifactVersion;
-import net.minecraft.client.gui.GuiErrorScreen;
+import net.minecraft.src.GuiErrorScreen;
 
 public class GuiModsMissing extends GuiErrorScreen
 {

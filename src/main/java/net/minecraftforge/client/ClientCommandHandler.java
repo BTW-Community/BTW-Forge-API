@@ -1,11 +1,11 @@
 package net.minecraftforge.client;
 
 import cpw.mods.fml.client.FMLClientHandler;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiChat;
+import net.minecraft.src.Minecraft;
+import net.minecraft.src.GuiChat;
 import net.minecraft.command.*;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.src.ChatComponentTranslation;
+import net.minecraft.src.EnumChatFormatting;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CommandEvent;
 

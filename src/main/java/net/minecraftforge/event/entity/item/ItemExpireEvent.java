@@ -1,7 +1,7 @@
 package net.minecraftforge.event.entity.item;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import net.minecraft.entity.item.EntityItem;
+import net.minecraft.src.EntityItem;
 
 /**
  * Event that is fired when an EntityItem's age has reached its maximum

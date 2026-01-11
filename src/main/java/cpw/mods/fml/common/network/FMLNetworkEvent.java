@@ -4,10 +4,10 @@ import com.google.common.collect.ImmutableSet;
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
 import cpw.mods.fml.relauncher.Side;
-import net.minecraft.network.INetHandler;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.play.INetHandlerPlayClient;
-import net.minecraft.network.play.INetHandlerPlayServer;
+import net.minecraft.src.INetHandler;
+import net.minecraft.src.NetworkManager;
+import net.minecraft.src.INetHandlerPlayClient;
+import net.minecraft.src.INetHandlerPlayServer;
 
 import java.util.Set;
 

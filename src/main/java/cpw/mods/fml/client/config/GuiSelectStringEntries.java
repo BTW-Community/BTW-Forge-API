@@ -13,9 +13,9 @@
 package cpw.mods.fml.client.config;
 
 import cpw.mods.fml.client.config.GuiConfigEntries.SelectValueEntry;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiListExtended;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.src.Minecraft;
+import net.minecraft.src.GuiListExtended;
+import net.minecraft.src.Tessellator;
 
 import java.util.*;
 import java.util.Map.Entry;

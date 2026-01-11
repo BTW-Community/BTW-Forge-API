@@ -2,8 +2,8 @@ package net.minecraftforge.client.event;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import cpw.mods.fml.common.eventhandler.Event;
-import net.minecraft.client.renderer.entity.RendererLivingEntity;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.src.RendererLivingEntity;
+import net.minecraft.src.EntityLivingBase;
 
 public abstract class RenderLivingEvent extends Event
 {

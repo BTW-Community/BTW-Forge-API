@@ -5,7 +5,7 @@
 
 package net.minecraftforge.common;
 
-import net.minecraft.stats.Achievement;
+import net.minecraft.src.Achievement;
 
 import java.util.*;
 

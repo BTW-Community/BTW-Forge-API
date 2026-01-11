@@ -1,12 +1,12 @@
 package net.minecraftforge.oredict;
 
-import net.minecraft.block.Block;
-import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.ShapelessRecipes;
-import net.minecraft.world.World;
+import net.minecraft.src.Block;
+import net.minecraft.src.InventoryCrafting;
+import net.minecraft.src.Item;
+import net.minecraft.src.ItemStack;
+import net.minecraft.src.IRecipe;
+import net.minecraft.src.ShapelessRecipes;
+import net.minecraft.src.World;
 
 import java.util.ArrayList;
 import java.util.Iterator;

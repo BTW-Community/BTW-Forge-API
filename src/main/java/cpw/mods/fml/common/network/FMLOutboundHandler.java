@@ -13,8 +13,8 @@ import io.netty.channel.ChannelOutboundHandlerAdapter;
 import io.netty.channel.ChannelPromise;
 import io.netty.channel.embedded.EmbeddedChannel;
 import io.netty.util.AttributeKey;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.network.NetworkManager;
+import net.minecraft.src.EntityPlayerMP;
+import net.minecraft.src.NetworkManager;
 
 import java.util.List;
 

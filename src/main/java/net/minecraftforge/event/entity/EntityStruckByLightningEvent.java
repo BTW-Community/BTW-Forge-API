@@ -1,8 +1,8 @@
 package net.minecraftforge.event.entity;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.effect.EntityLightningBolt;
+import net.minecraft.src.Entity;
+import net.minecraft.src.EntityLightningBolt;
 
 /**
  * EntityStruckByLightningEvent is fired when an Entity is about to be struck by lightening.<br>

@@ -1,8 +1,8 @@
 package net.minecraftforge.event.entity.player;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.src.Entity;
+import net.minecraft.src.EntityPlayer;
 
 /**
  * AttackEntityEvent is fired when a player attacks an Entity.<br>

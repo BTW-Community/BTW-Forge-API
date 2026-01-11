@@ -25,9 +25,9 @@ import cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker;
 import cpw.mods.fml.common.launcher.FMLTweaker;
 import cpw.mods.fml.common.toposort.TopologicalSort;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.*;
-import net.minecraft.launchwrapper.ITweaker;
-import net.minecraft.launchwrapper.Launch;
-import net.minecraft.launchwrapper.LaunchClassLoader;
+import net.minecraft.src.ITweaker;
+import net.minecraft.src.Launch;
+import net.minecraft.src.LaunchClassLoader;
 import org.apache.logging.log4j.Level;
 
 import java.io.File;

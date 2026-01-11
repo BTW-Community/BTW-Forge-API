@@ -14,8 +14,8 @@ package cpw.mods.fml.common.asm.transformers;
 
 import cpw.mods.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper;
 import cpw.mods.fml.common.asm.transformers.deobf.FMLRemappingAdapter;
-import net.minecraft.launchwrapper.IClassNameTransformer;
-import net.minecraft.launchwrapper.IClassTransformer;
+import net.minecraft.src.IClassNameTransformer;
+import net.minecraft.src.IClassTransformer;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.commons.RemappingClassAdapter;

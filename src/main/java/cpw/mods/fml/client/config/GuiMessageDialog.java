@@ -1,10 +1,10 @@
 package cpw.mods.fml.client.config;
 
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiDisconnected;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.util.IChatComponent;
+import net.minecraft.src.GuiButton;
+import net.minecraft.src.GuiDisconnected;
+import net.minecraft.src.GuiScreen;
+import net.minecraft.src.I18n;
+import net.minecraft.src.IChatComponent;
 
 public class GuiMessageDialog extends GuiDisconnected
 {

@@ -2,8 +2,8 @@ package net.minecraftforge.event;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import cpw.mods.fml.common.eventhandler.Event;
-import net.minecraft.command.ICommand;
-import net.minecraft.command.ICommandSender;
+import net.minecraft.src.ICommand;
+import net.minecraft.src.ICommandSender;
 
 /**
  * CommandEvent is fired whenever a command is scheduled to be executed. 

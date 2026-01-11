@@ -1,12 +1,12 @@
 package net.minecraftforge.common;
 
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.WeightedRandom;
-import net.minecraft.util.WeightedRandomChestContent;
-import net.minecraft.world.WorldServer;
-import net.minecraft.world.gen.feature.WorldGenDungeons;
+import net.minecraft.src.Items;
+import net.minecraft.src.Item;
+import net.minecraft.src.ItemStack;
+import net.minecraft.src.WeightedRandom;
+import net.minecraft.src.WeightedRandomChestContent;
+import net.minecraft.src.WorldServer;
+import net.minecraft.src.WorldGenDungeons;
 import net.minecraft.world.gen.structure.*;
 import net.minecraft.world.gen.structure.ComponentScatteredFeaturePieces.DesertPyramid;
 import net.minecraft.world.gen.structure.ComponentScatteredFeaturePieces.JunglePyramid;

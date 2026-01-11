@@ -1,8 +1,8 @@
 package net.minecraftforge.event.entity.player;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.world.World;
+import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.World;
 
 import static cpw.mods.fml.common.eventhandler.Event.Result.DEFAULT;
 import static cpw.mods.fml.common.eventhandler.Event.Result.DENY;

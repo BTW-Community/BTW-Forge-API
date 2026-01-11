@@ -7,12 +7,12 @@ import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.registry.RegistryDelegate;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.nbt.NBTTagString;
-import net.minecraft.util.StatCollector;
+import net.minecraft.src.Block;
+import net.minecraft.src.Blocks;
+import net.minecraft.src.NBTTagCompound;
+import net.minecraft.src.NBTTagList;
+import net.minecraft.src.NBTTagString;
+import net.minecraft.src.StatCollector;
 import net.minecraftforge.common.MinecraftForge;
 import org.apache.logging.log4j.Level;
 

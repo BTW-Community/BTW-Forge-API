@@ -16,8 +16,8 @@ import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.ImmutableList;
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.Instance;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.src.ItemStack;
+import net.minecraft.src.NBTTagCompound;
 
 /**
  * Simple intermod communications to receive simple messages directed at you

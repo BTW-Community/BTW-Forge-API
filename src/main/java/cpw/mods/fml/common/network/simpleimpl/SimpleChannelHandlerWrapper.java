@@ -8,7 +8,7 @@ import cpw.mods.fml.relauncher.Side;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import net.minecraft.network.INetHandler;
+import net.minecraft.src.INetHandler;
 import org.apache.logging.log4j.Level;
 
 public class SimpleChannelHandlerWrapper<REQ extends IMessage, REPLY extends IMessage> extends SimpleChannelInboundHandler<REQ> {

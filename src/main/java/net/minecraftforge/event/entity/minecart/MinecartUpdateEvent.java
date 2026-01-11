@@ -1,6 +1,6 @@
 package net.minecraftforge.event.entity.minecart;
 
-import net.minecraft.entity.item.EntityMinecart;
+import net.minecraft.src.EntityMinecart;
 
 /**
  * MinecartUpdateEvent is fired when a minecart is updated.<br>

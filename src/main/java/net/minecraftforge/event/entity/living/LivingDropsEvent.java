@@ -1,9 +1,9 @@
 package net.minecraftforge.event.entity.living;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.util.DamageSource;
+import net.minecraft.src.EntityLivingBase;
+import net.minecraft.src.EntityItem;
+import net.minecraft.src.DamageSource;
 
 import java.util.ArrayList;
 

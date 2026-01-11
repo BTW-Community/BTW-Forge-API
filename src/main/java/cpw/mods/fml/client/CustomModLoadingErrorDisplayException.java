@@ -16,8 +16,8 @@ import cpw.mods.fml.common.EnhancedRuntimeException;
 import cpw.mods.fml.common.IFMLHandledException;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.gui.GuiErrorScreen;
+import net.minecraft.src.FontRenderer;
+import net.minecraft.src.GuiErrorScreen;
 
 /**
  * If a mod throws this exception during loading, it will be called back to render

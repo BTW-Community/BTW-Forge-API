@@ -1,15 +1,15 @@
 package net.minecraftforge.fluids;
 
 import com.google.common.collect.Maps;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.Entity;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.Vec3;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
+import net.minecraft.src.Block;
+import net.minecraft.src.Material;
+import net.minecraft.src.Entity;
+import net.minecraft.src.Blocks;
+import net.minecraft.src.Item;
+import net.minecraft.src.AxisAlignedBB;
+import net.minecraft.src.Vec3;
+import net.minecraft.src.IBlockAccess;
+import net.minecraft.src.World;
 
 import java.util.Map;
 import java.util.Random;

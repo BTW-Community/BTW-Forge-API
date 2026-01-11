@@ -3,8 +3,8 @@ package net.minecraftforge.common.util;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import net.minecraft.block.*;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
+import net.minecraft.src.Blocks;
+import net.minecraft.src.World;
 
 import java.util.HashMap;
 import java.util.Map;

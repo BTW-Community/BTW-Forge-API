@@ -22,7 +22,7 @@ import cpw.mods.fml.relauncher.FMLLaunchHandler;
 import cpw.mods.fml.relauncher.FMLRelaunchLog;
 import cpw.mods.fml.relauncher.IFMLCallHook;
 import cpw.mods.fml.relauncher.Side;
-import net.minecraft.launchwrapper.LaunchClassLoader;
+import net.minecraft.src.LaunchClassLoader;
 import org.apache.logging.log4j.Level;
 
 import java.io.File;

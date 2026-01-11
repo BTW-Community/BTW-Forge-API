@@ -8,7 +8,7 @@ import cpw.mods.fml.common.ModAPIManager;
 import cpw.mods.fml.common.discovery.ASMDataTable;
 import cpw.mods.fml.common.discovery.ASMDataTable.ASMData;
 import cpw.mods.fml.relauncher.FMLRelaunchLog;
-import net.minecraft.launchwrapper.IClassTransformer;
+import net.minecraft.src.IClassTransformer;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;

@@ -12,8 +12,8 @@
 
 package cpw.mods.fml.common.network;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.world.World;
+import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.World;
 
 public interface IGuiHandler
 {

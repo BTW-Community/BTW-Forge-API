@@ -2,9 +2,9 @@ package net.minecraftforge.client.event;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import cpw.mods.fml.common.eventhandler.Event;
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.src.Block;
+import net.minecraft.src.EntityRenderer;
+import net.minecraft.src.EntityLivingBase;
 
 /**
  * Event that hooks into EntityRenderer, allowing any feature to customize visual attributes of

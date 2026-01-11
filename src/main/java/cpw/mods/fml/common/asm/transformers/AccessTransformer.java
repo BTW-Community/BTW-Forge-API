@@ -22,7 +22,7 @@ import com.google.common.io.CharSource;
 import com.google.common.io.LineProcessor;
 import com.google.common.io.Resources;
 import cpw.mods.fml.relauncher.FMLRelaunchLog;
-import net.minecraft.launchwrapper.IClassTransformer;
+import net.minecraft.src.IClassTransformer;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.*;

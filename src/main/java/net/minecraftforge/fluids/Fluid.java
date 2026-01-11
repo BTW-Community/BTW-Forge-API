@@ -1,11 +1,11 @@
 package net.minecraftforge.fluids;
 
 import cpw.mods.fml.common.FMLLog;
-import net.minecraft.block.Block;
-import net.minecraft.item.EnumRarity;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.StatCollector;
-import net.minecraft.world.World;
+import net.minecraft.src.Block;
+import net.minecraft.src.EnumRarity;
+import net.minecraft.src.IIcon;
+import net.minecraft.src.StatCollector;
+import net.minecraft.src.World;
 
 import java.util.Locale;
 

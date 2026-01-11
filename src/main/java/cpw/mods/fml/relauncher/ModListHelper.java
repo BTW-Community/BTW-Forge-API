@@ -6,7 +6,7 @@ import com.google.common.collect.Sets;
 import com.google.common.io.Files;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
-import net.minecraft.launchwrapper.Launch;
+import net.minecraft.src.Launch;
 import org.apache.logging.log4j.Level;
 
 import java.io.File;

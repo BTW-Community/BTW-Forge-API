@@ -14,7 +14,7 @@ package cpw.mods.fml.common.asm.transformers;
 
 import cpw.mods.fml.relauncher.FMLLaunchHandler;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.launchwrapper.IClassTransformer;
+import net.minecraft.src.IClassTransformer;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Type;

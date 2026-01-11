@@ -14,7 +14,7 @@ package cpw.mods.fml.client.config;
 
 import cpw.mods.fml.client.config.GuiConfigEntries.IConfigEntry;
 import cpw.mods.fml.client.config.GuiEditArrayEntries.IArrayEntry;
-import net.minecraft.client.resources.I18n;
+import net.minecraft.src.I18n;
 
 import java.util.ArrayList;
 import java.util.Arrays;

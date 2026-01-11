@@ -13,7 +13,7 @@ import com.google.common.io.Files;
 import cpw.mods.fml.relauncher.FMLRelaunchLog;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.repackage.com.nothome.delta.GDiffPatcher;
-import net.minecraft.launchwrapper.LaunchClassLoader;
+import net.minecraft.src.LaunchClassLoader;
 import org.apache.logging.log4j.Level;
 
 import java.io.*;

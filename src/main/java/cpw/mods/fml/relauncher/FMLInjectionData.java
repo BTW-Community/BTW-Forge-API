@@ -12,7 +12,7 @@
 
 package cpw.mods.fml.relauncher;
 
-import net.minecraft.launchwrapper.LaunchClassLoader;
+import net.minecraft.src.LaunchClassLoader;
 import org.apache.logging.log4j.Level;
 
 import java.io.File;

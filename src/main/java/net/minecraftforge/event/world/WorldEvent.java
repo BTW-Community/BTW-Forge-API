@@ -2,10 +2,10 @@ package net.minecraftforge.event.world;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import cpw.mods.fml.common.eventhandler.Event;
-import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldSettings;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
+import net.minecraft.src.EnumCreatureType;
+import net.minecraft.src.World;
+import net.minecraft.src.WorldSettings;
+import net.minecraft.src.SpawnListEntry;
 
 import java.util.ArrayList;
 import java.util.List;

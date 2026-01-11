@@ -1,7 +1,7 @@
 package net.minecraftforge.event.terraingen;
 
-import net.minecraft.world.World;
-import net.minecraft.world.gen.NoiseGenerator;
+import net.minecraft.src.World;
+import net.minecraft.src.NoiseGenerator;
 import net.minecraftforge.event.world.WorldEvent;
 
 import java.util.Random;

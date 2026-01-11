@@ -3,9 +3,9 @@ package cpw.mods.fml.common.network;
 import com.google.common.base.Charsets;
 import com.google.common.base.Throwables;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.PacketBuffer;
+import net.minecraft.src.ItemStack;
+import net.minecraft.src.NBTTagCompound;
+import net.minecraft.src.PacketBuffer;
 import org.apache.commons.lang3.Validate;
 
 import java.io.IOException;

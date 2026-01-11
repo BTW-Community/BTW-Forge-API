@@ -1,7 +1,7 @@
 package net.minecraftforge.common;
 
-import net.minecraft.block.Block;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.src.Block;
+import net.minecraft.src.IBlockAccess;
 
 public interface IPlantable
 {

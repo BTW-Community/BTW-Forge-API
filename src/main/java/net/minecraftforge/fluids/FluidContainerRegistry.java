@@ -5,8 +5,8 @@ import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.Event;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
+import net.minecraft.src.Items;
+import net.minecraft.src.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 
 import java.util.Map;

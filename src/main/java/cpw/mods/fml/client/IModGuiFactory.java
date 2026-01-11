@@ -1,8 +1,8 @@
 package cpw.mods.fml.client;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
-import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.src.Minecraft;
+import net.minecraft.src.Gui;
+import net.minecraft.src.GuiScreen;
 
 import java.util.List;
 import java.util.Set;

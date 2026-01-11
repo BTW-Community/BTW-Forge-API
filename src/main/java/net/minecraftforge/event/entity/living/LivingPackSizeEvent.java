@@ -1,7 +1,7 @@
 package net.minecraftforge.event.entity.living;
 
 import cpw.mods.fml.common.eventhandler.Event.HasResult;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.src.EntityLiving;
 
 @HasResult
 public class LivingPackSizeEvent extends LivingEvent

@@ -1,6 +1,6 @@
 package net.minecraftforge.common;
 
-import net.minecraft.util.WeightedRandom;
+import net.minecraft.src.WeightedRandom;
 
 import java.util.ArrayList;
 import java.util.Random;

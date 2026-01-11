@@ -14,9 +14,9 @@ package cpw.mods.fml.common;
 
 import cpw.mods.fml.common.eventhandler.EventBus;
 import cpw.mods.fml.relauncher.Side;
-import net.minecraft.network.INetHandler;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.server.MinecraftServer;
+import net.minecraft.src.INetHandler;
+import net.minecraft.src.NetworkManager;
+import net.minecraft.src.MinecraftServer;
 
 import java.io.File;
 import java.util.List;

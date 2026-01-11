@@ -3,8 +3,8 @@ package net.minecraftforge.server;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMap.Builder;
 import com.google.common.collect.MapMaker;
-import net.minecraft.entity.Entity;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.src.Entity;
+import net.minecraft.src.TileEntity;
 
 import java.lang.ref.WeakReference;
 import java.util.Arrays;

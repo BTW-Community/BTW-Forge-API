@@ -1,7 +1,7 @@
 package net.minecraftforge.client.event;
 
 import cpw.mods.fml.common.eventhandler.Event;
-import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.src.TextureMap;
 
 
 public class TextureStitchEvent extends Event

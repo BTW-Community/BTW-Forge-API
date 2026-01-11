@@ -19,12 +19,12 @@ import com.google.common.collect.Multimap;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.entity.passive.EntityVillager;
-import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.Tuple;
-import net.minecraft.village.MerchantRecipeList;
-import net.minecraft.world.gen.structure.StructureVillagePieces;
+import net.minecraft.src.EntityVillager;
+import net.minecraft.src.Item;
+import net.minecraft.src.ResourceLocation;
+import net.minecraft.src.Tuple;
+import net.minecraft.src.MerchantRecipeList;
+import net.minecraft.src.StructureVillagePieces;
 
 import java.util.*;
 

@@ -1,7 +1,7 @@
 package cpw.mods.fml.common.launcher;
 
 import cpw.mods.fml.relauncher.FMLLaunchHandler;
-import net.minecraft.launchwrapper.LaunchClassLoader;
+import net.minecraft.src.LaunchClassLoader;
 
 public class FMLServerTweaker extends FMLTweaker {
     @Override

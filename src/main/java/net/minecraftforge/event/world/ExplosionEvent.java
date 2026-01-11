@@ -2,10 +2,10 @@ package net.minecraftforge.event.world;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import cpw.mods.fml.common.eventhandler.Event;
-import net.minecraft.entity.Entity;
-import net.minecraft.world.ChunkPosition;
-import net.minecraft.world.Explosion;
-import net.minecraft.world.World;
+import net.minecraft.src.Entity;
+import net.minecraft.src.ChunkPosition;
+import net.minecraft.src.Explosion;
+import net.minecraft.src.World;
 
 import java.util.List;
 

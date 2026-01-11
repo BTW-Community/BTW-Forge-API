@@ -2,10 +2,10 @@ package net.minecraftforge.client.model.obj;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.resources.IResource;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.src.Minecraft;
+import net.minecraft.src.Tessellator;
+import net.minecraft.src.IResource;
+import net.minecraft.src.ResourceLocation;
 import net.minecraftforge.client.model.IModelCustom;
 import net.minecraftforge.client.model.ModelFormatException;
 import org.lwjgl.opengl.GL11;

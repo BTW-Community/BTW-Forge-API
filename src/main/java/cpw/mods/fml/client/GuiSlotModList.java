@@ -15,7 +15,7 @@ package cpw.mods.fml.client;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.LoaderState.ModState;
 import cpw.mods.fml.common.ModContainer;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.src.Tessellator;
 
 import java.util.ArrayList;
 

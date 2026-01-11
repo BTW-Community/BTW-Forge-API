@@ -19,11 +19,11 @@ import cpw.mods.fml.client.event.ConfigChangedEvent.PostConfigChangedEvent;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.eventhandler.Event.Result;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.util.ChatComponentText;
+import net.minecraft.src.Minecraft;
+import net.minecraft.src.GuiButton;
+import net.minecraft.src.GuiScreen;
+import net.minecraft.src.I18n;
+import net.minecraft.src.ChatComponentText;
 import org.lwjgl.input.Keyboard;
 
 import java.util.ArrayList;

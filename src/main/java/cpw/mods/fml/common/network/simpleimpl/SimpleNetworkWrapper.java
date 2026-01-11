@@ -8,10 +8,10 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import cpw.mods.fml.relauncher.Side;
 import io.netty.channel.ChannelFutureListener;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.network.INetHandler;
-import net.minecraft.network.Packet;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.src.EntityPlayerMP;
+import net.minecraft.src.INetHandler;
+import net.minecraft.src.Packet;
+import net.minecraft.src.TileEntity;
 
 import java.util.EnumMap;
 

@@ -1,6 +1,6 @@
 package net.minecraftforge.event.world;
 
-import net.minecraft.world.chunk.Chunk;
+import net.minecraft.src.Chunk;
 
 /**
  * ChunkEvent is fired when an event involving a chunk occurs.<br>

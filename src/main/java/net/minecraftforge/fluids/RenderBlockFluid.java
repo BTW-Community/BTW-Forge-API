@@ -1,14 +1,14 @@
 package net.minecraftforge.fluids;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
-import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.src.Block;
+import net.minecraft.src.Minecraft;
+import net.minecraft.src.RenderBlocks;
+import net.minecraft.src.Tessellator;
+import net.minecraft.src.TextureMap;
+import net.minecraft.src.IIcon;
+import net.minecraft.src.MathHelper;
+import net.minecraft.src.IBlockAccess;
 
 /**
  * Default renderer for Forge fluid blocks.

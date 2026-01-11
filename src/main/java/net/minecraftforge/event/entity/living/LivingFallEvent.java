@@ -1,7 +1,7 @@
 package net.minecraftforge.event.entity.living;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.src.EntityLivingBase;
 
 /**
  * LivingFallEvent is fired when an Entity is set to be falling.<br>

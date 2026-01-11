@@ -1,10 +1,10 @@
 package net.minecraftforge.fluids;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
+import net.minecraft.src.Block;
+import net.minecraft.src.Material;
+import net.minecraft.src.Blocks;
+import net.minecraft.src.IBlockAccess;
+import net.minecraft.src.World;
 
 import java.util.Random;
 

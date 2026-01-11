@@ -15,8 +15,8 @@ package cpw.mods.fml.common;
 import com.google.common.collect.ImmutableList;
 import cpw.mods.fml.common.asm.transformers.ModAPITransformer;
 import cpw.mods.fml.common.discovery.ASMDataTable;
-import net.minecraft.launchwrapper.IClassTransformer;
-import net.minecraft.launchwrapper.LaunchClassLoader;
+import net.minecraft.src.IClassTransformer;
+import net.minecraft.src.LaunchClassLoader;
 import org.apache.logging.log4j.Level;
 
 import java.io.File;

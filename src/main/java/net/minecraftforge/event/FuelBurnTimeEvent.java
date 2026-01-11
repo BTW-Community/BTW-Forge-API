@@ -2,7 +2,7 @@ package net.minecraftforge.event;
 
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.Event.HasResult;
-import net.minecraft.item.ItemStack;
+import net.minecraft.src.ItemStack;
 
 /**
  * FuelBurnTimeEvent is fired whenever a furnace needs the burn time of a fuel. <br>

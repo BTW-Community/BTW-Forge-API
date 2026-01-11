@@ -1,9 +1,9 @@
 package cpw.mods.fml.common.network.simpleimpl;
 
 import cpw.mods.fml.relauncher.Side;
-import net.minecraft.client.network.NetHandlerPlayClient;
-import net.minecraft.network.INetHandler;
-import net.minecraft.network.NetHandlerPlayServer;
+import net.minecraft.src.NetHandlerPlayClient;
+import net.minecraft.src.INetHandler;
+import net.minecraft.src.NetHandlerPlayServer;
 
 /**
  * Context for the {@link IMessageHandler}

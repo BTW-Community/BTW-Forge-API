@@ -1,7 +1,7 @@
 package net.minecraftforge.client.event;
 
 import cpw.mods.fml.common.eventhandler.Event;
-import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.src.EntityPlayerSP;
 
 /**
  * Author: MachineMuse (Claire Semple)

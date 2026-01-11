@@ -8,7 +8,7 @@ import cpw.mods.fml.common.network.internal.FMLProxyPacket;
 import cpw.mods.fml.relauncher.Side;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import net.minecraft.network.NetworkManager;
+import net.minecraft.src.NetworkManager;
 import org.apache.logging.log4j.Level;
 
 import java.util.Set;

@@ -1,7 +1,7 @@
 package net.minecraftforge.common.chunkio;
 
 
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.src.ChunkCoordIntPair;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.AsynchronousExecutor;
 import net.minecraftforge.event.world.ChunkDataEvent;

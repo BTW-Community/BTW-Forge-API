@@ -1,11 +1,11 @@
 package net.minecraftforge.event.terraingen;
 
 import cpw.mods.fml.common.eventhandler.Event.*;
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.MapGenBase;
-import net.minecraft.world.gen.NoiseGenerator;
-import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraft.src.World;
+import net.minecraft.src.IChunkProvider;
+import net.minecraft.src.MapGenBase;
+import net.minecraft.src.NoiseGenerator;
+import net.minecraft.src.WorldGenerator;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate;
 import net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable;

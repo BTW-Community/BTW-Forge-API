@@ -1,6 +1,6 @@
 package net.minecraftforge.fluids;
 
-import net.minecraft.world.World;
+import net.minecraft.src.World;
 
 /**
  * Implement this interface on Block classes which represent world-placeable Fluids.

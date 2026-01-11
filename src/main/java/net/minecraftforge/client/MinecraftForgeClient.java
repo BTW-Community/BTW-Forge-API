@@ -6,8 +6,8 @@
 package net.minecraftforge.client;
 
 import com.google.common.collect.Maps;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.src.Item;
+import net.minecraft.src.ItemStack;
 import net.minecraftforge.client.IItemRenderer.ItemRenderType;
 
 import java.util.BitSet;

@@ -1,7 +1,7 @@
 package cpw.mods.fml.common.asm.transformers;
 
 import cpw.mods.fml.common.patcher.ClassPatchManager;
-import net.minecraft.launchwrapper.IClassTransformer;
+import net.minecraft.src.IClassTransformer;
 
 public class PatchingTransformer implements IClassTransformer {
     @Override

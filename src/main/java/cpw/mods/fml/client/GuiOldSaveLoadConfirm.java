@@ -5,7 +5,7 @@ import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.StartupQuery;
 import cpw.mods.fml.common.ZipperUtil;
 import net.minecraft.client.gui.*;
-import net.minecraft.world.WorldSettings;
+import net.minecraft.src.WorldSettings;
 import org.apache.logging.log4j.Level;
 
 import java.io.File;

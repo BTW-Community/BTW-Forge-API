@@ -1,7 +1,7 @@
 package net.minecraftforge.client.event.sound;
 
-import net.minecraft.client.audio.SoundManager;
-import net.minecraft.client.audio.SoundPoolEntry;
+import net.minecraft.src.SoundManager;
+import net.minecraft.src.SoundPoolEntry;
 
 @Deprecated //Remove in 1.8
 public class PlaySoundEffectEvent extends SoundResultEvent

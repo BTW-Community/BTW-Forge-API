@@ -12,7 +12,7 @@
 
 package cpw.mods.fml.client;
 
-import net.minecraft.client.gui.GuiErrorScreen;
+import net.minecraft.src.GuiErrorScreen;
 
 public class GuiCustomModLoadingErrorScreen extends GuiErrorScreen
 {

@@ -1,8 +1,8 @@
 package net.minecraftforge.event.entity.minecart;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import net.minecraft.entity.item.EntityMinecart;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.src.EntityMinecart;
+import net.minecraft.src.EntityPlayer;
 
 /**
  * MinecartInteractEvent is fired when a player interacts with a minecart. <br>

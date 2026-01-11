@@ -2,8 +2,8 @@ package net.minecraftforge.event;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import cpw.mods.fml.common.eventhandler.Event;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.src.EntityPlayerMP;
+import net.minecraft.src.ChatComponentTranslation;
 
 /**
  * ServerChatEvent is fired whenever a C01PacketChatMessage is processed. <br>

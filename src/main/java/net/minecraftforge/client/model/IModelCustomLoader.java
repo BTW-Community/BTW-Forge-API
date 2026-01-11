@@ -1,6 +1,6 @@
 package net.minecraftforge.client.model;
 
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.src.ResourceLocation;
 
 /**
  * Instances of this class act as factories for their model type

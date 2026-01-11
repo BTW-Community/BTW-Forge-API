@@ -1,6 +1,6 @@
 package net.minecraftforge.fluids;
 
-import net.minecraft.item.ItemStack;
+import net.minecraft.src.ItemStack;
 
 /**
  * Implement this interface on Item classes that support external manipulation of their internal

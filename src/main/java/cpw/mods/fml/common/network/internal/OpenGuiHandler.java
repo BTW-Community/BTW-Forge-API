@@ -5,7 +5,7 @@ import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.internal.FMLMessage.OpenGui;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.src.EntityPlayer;
 import org.apache.logging.log4j.Level;
 
 public class OpenGuiHandler extends SimpleChannelInboundHandler<OpenGui> {

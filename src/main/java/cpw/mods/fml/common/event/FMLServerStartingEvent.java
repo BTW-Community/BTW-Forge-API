@@ -13,9 +13,9 @@
 package cpw.mods.fml.common.event;
 
 import cpw.mods.fml.common.LoaderState.ModState;
-import net.minecraft.command.CommandHandler;
-import net.minecraft.command.ICommand;
-import net.minecraft.server.MinecraftServer;
+import net.minecraft.src.CommandHandler;
+import net.minecraft.src.ICommand;
+import net.minecraft.src.MinecraftServer;
 
 public class FMLServerStartingEvent extends FMLStateEvent
 {

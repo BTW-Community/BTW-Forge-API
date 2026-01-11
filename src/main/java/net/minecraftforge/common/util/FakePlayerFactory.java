@@ -2,7 +2,7 @@ package net.minecraftforge.common.util;
 
 import com.google.common.collect.Maps;
 import com.mojang.authlib.GameProfile;
-import net.minecraft.world.WorldServer;
+import net.minecraft.src.WorldServer;
 
 import java.util.Iterator;
 import java.util.Map;

@@ -12,8 +12,8 @@
 
 package cpw.mods.fml.common;
 
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.src.World;
+import net.minecraft.src.IChunkProvider;
 
 import java.util.Random;
 

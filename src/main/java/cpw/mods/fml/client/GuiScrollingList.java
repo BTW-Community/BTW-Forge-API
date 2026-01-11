@@ -12,11 +12,11 @@
 
 package cpw.mods.fml.client;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.src.Minecraft;
+import net.minecraft.src.Gui;
+import net.minecraft.src.GuiButton;
+import net.minecraft.src.OpenGlHelper;
+import net.minecraft.src.Tessellator;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 

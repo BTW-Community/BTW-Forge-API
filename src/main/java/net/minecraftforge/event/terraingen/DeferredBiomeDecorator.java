@@ -1,8 +1,8 @@
 package net.minecraftforge.event.terraingen;
 
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeDecorator;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.src.World;
+import net.minecraft.src.BiomeDecorator;
+import net.minecraft.src.BiomeGenBase;
 import net.minecraftforge.common.MinecraftForge;
 
 import java.util.Random;

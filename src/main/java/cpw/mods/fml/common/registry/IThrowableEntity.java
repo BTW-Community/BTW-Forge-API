@@ -12,7 +12,7 @@
 
 package cpw.mods.fml.common.registry;
 
-import net.minecraft.entity.Entity;
+import net.minecraft.src.Entity;
 
 /**
  * This interface should be implemented by an Entity that can be 'thrown', like snowballs.

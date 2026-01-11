@@ -12,12 +12,12 @@ import cpw.mods.fml.relauncher.Side;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.embedded.EmbeddedChannel;
-import net.minecraft.network.INetHandler;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.Packet;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.network.play.client.C17PacketCustomPayload;
-import net.minecraft.network.play.server.S3FPacketCustomPayload;
+import net.minecraft.src.INetHandler;
+import net.minecraft.src.NetworkManager;
+import net.minecraft.src.Packet;
+import net.minecraft.src.PacketBuffer;
+import net.minecraft.src.C17PacketCustomPayload;
+import net.minecraft.src.S3FPacketCustomPayload;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.helpers.Integers;
 

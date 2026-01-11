@@ -3,9 +3,9 @@ package cpw.mods.fml.common.registry;
 import com.google.common.base.Throwables;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.registry.GameRegistry.ObjectHolder;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
+import net.minecraft.src.Block;
+import net.minecraft.src.Blocks;
+import net.minecraft.src.Item;
 import org.apache.logging.log4j.Level;
 
 import java.lang.reflect.Field;

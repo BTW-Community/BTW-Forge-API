@@ -1,7 +1,7 @@
 package net.minecraftforge.event.entity;
 
 import cpw.mods.fml.common.eventhandler.Event;
-import net.minecraft.entity.Entity;
+import net.minecraft.src.Entity;
 
 /**
  * EntityEvent is fired when an event involving any Entity occurs.<br>

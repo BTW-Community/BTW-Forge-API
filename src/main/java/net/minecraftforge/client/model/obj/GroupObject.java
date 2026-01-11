@@ -2,7 +2,7 @@ package net.minecraftforge.client.model.obj;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.src.Tessellator;
 
 import java.util.ArrayList;
 

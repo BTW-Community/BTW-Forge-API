@@ -1,6 +1,6 @@
 package net.minecraftforge.event.entity.living;
 
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.src.EntityLivingBase;
 
 /**
  * LivingSetAttackTargetEvent is fired when an Entity sets a target to attack.<br>

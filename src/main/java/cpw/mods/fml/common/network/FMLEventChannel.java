@@ -7,9 +7,9 @@ import cpw.mods.fml.common.network.internal.FMLProxyPacket;
 import cpw.mods.fml.relauncher.Side;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
-import net.minecraft.client.network.NetHandlerPlayClient;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.network.NetHandlerPlayServer;
+import net.minecraft.src.NetHandlerPlayClient;
+import net.minecraft.src.EntityPlayerMP;
+import net.minecraft.src.NetHandlerPlayServer;
 
 import java.util.EnumMap;
 

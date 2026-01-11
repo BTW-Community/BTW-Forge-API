@@ -3,7 +3,7 @@ package cpw.mods.fml.common.registry;
 import com.google.common.base.Throwables;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.registry.GameRegistry.ItemStackHolder;
-import net.minecraft.item.ItemStack;
+import net.minecraft.src.ItemStack;
 import org.apache.logging.log4j.Level;
 
 import java.lang.reflect.Field;

@@ -1,8 +1,8 @@
 package net.minecraftforge.event.entity.item;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.src.EntityItem;
+import net.minecraft.src.EntityPlayer;
 
 /**
  * Event that is fired whenever a player tosses (Q) an item or drag-n-drops a

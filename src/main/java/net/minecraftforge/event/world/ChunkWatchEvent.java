@@ -1,8 +1,8 @@
 package net.minecraftforge.event.world;
 
 import cpw.mods.fml.common.eventhandler.Event;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.src.EntityPlayerMP;
+import net.minecraft.src.ChunkCoordIntPair;
 
 /**
  * ChunkWatchEvent is fired when an event involving a chunk being watched occurs.<br>

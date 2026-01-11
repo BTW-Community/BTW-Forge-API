@@ -21,7 +21,7 @@ import com.google.common.collect.ImmutableBiMap.Builder;
 import com.google.common.io.CharSource;
 import cpw.mods.fml.common.patcher.ClassPatchManager;
 import cpw.mods.fml.relauncher.FMLRelaunchLog;
-import net.minecraft.launchwrapper.LaunchClassLoader;
+import net.minecraft.src.LaunchClassLoader;
 import org.apache.logging.log4j.Level;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.commons.Remapper;

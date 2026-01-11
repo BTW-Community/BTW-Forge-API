@@ -7,11 +7,11 @@ import com.google.common.collect.Iterators;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.functions.GenericIterableFactory;
 import cpw.mods.fml.common.registry.RegistryDelegate.Delegate;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.util.ObjectIntIdentityMap;
-import net.minecraft.util.RegistryNamespaced;
+import net.minecraft.src.Block;
+import net.minecraft.src.Item;
+import net.minecraft.src.ItemBlock;
+import net.minecraft.src.ObjectIntIdentityMap;
+import net.minecraft.src.RegistryNamespaced;
 import org.apache.logging.log4j.Level;
 
 import java.util.*;

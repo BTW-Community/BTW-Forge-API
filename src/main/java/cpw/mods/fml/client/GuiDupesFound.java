@@ -14,7 +14,7 @@ package cpw.mods.fml.client;
 
 import cpw.mods.fml.common.DuplicateModsFoundException;
 import cpw.mods.fml.common.ModContainer;
-import net.minecraft.client.gui.GuiErrorScreen;
+import net.minecraft.src.GuiErrorScreen;
 
 import java.io.File;
 import java.util.Map.Entry;

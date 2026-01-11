@@ -12,7 +12,7 @@
 
 package cpw.mods.fml.common;
 
-import net.minecraft.item.ItemStack;
+import net.minecraft.src.ItemStack;
 
 public interface IFuelHandler
 {

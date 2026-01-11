@@ -1,6 +1,6 @@
 package net.minecraftforge.event.entity.player;
 
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.src.EntityPlayer;
 
 /**
  * This event is fired when the player is waking up.<br/>

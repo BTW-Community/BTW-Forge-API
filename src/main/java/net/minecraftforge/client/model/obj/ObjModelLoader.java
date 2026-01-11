@@ -1,6 +1,6 @@
 package net.minecraftforge.client.model.obj;
 
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.src.ResourceLocation;
 import net.minecraftforge.client.model.IModelCustom;
 import net.minecraftforge.client.model.IModelCustomLoader;
 import net.minecraftforge.client.model.ModelFormatException;

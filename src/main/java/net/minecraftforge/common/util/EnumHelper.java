@@ -1,21 +1,21 @@
 package net.minecraftforge.common.util;
 
 import cpw.mods.fml.common.FMLLog;
-import net.minecraft.block.BlockPressurePlate.Sensitivity;
-import net.minecraft.block.material.Material;
-import net.minecraft.enchantment.EnumEnchantmentType;
-import net.minecraft.entity.Entity.EnumEntitySize;
-import net.minecraft.entity.EnumCreatureAttribute;
-import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.entity.item.EntityPainting.EnumArt;
-import net.minecraft.entity.player.EntityPlayer.EnumStatus;
-import net.minecraft.item.EnumAction;
-import net.minecraft.item.EnumRarity;
-import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.MovingObjectPosition.MovingObjectType;
-import net.minecraft.world.EnumSkyBlock;
+import net.minecraft.src.Sensitivity;
+import net.minecraft.src.Material;
+import net.minecraft.src.EnumEnchantmentType;
+import net.minecraft.src.EnumEntitySize;
+import net.minecraft.src.EnumCreatureAttribute;
+import net.minecraft.src.EnumCreatureType;
+import net.minecraft.src.EnumArt;
+import net.minecraft.src.EnumStatus;
+import net.minecraft.src.EnumAction;
+import net.minecraft.src.EnumRarity;
+import net.minecraft.src.ToolMaterial;
+import net.minecraft.src.ArmorMaterial;
+import net.minecraft.src.EnumChatFormatting;
+import net.minecraft.src.MovingObjectType;
+import net.minecraft.src.EnumSkyBlock;
 import net.minecraft.world.gen.structure.StructureStrongholdPieces.Stronghold.Door;
 import net.minecraftforge.classloading.FMLForgePlugin;
 

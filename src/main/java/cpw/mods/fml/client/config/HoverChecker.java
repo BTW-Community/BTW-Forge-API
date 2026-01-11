@@ -12,7 +12,7 @@
 
 package cpw.mods.fml.client.config;
 
-import net.minecraft.client.gui.GuiButton;
+import net.minecraft.src.GuiButton;
 
 /**
  * This class implements an easy way to check if the mouse has hovered within a certain region of the screen for a given 

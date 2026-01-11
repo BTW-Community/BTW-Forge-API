@@ -1,7 +1,7 @@
 package net.minecraftforge.event.entity;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import net.minecraft.entity.Entity;
+import net.minecraft.src.Entity;
 
 /**
  * PlaySoundAtEntityEvent is fired a sound is to be played at an Entity<br>

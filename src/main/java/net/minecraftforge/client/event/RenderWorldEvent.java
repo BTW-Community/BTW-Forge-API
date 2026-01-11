@@ -1,9 +1,9 @@
 package net.minecraftforge.client.event;
 
 import cpw.mods.fml.common.eventhandler.Event;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.WorldRenderer;
-import net.minecraft.world.ChunkCache;
+import net.minecraft.src.RenderBlocks;
+import net.minecraft.src.WorldRenderer;
+import net.minecraft.src.ChunkCache;
 
 public abstract class RenderWorldEvent extends Event
 {

@@ -1,10 +1,10 @@
 package net.minecraftforge.event.terraingen;
 
 import cpw.mods.fml.common.eventhandler.Event;
-import net.minecraft.block.Block;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.src.Block;
+import net.minecraft.src.World;
+import net.minecraft.src.BiomeGenBase;
+import net.minecraft.src.IChunkProvider;
 
 public class ChunkProviderEvent extends Event
 {

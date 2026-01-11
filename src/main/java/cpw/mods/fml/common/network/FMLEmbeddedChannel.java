@@ -7,7 +7,7 @@ import cpw.mods.fml.common.network.internal.FMLProxyPacket;
 import cpw.mods.fml.relauncher.Side;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.embedded.EmbeddedChannel;
-import net.minecraft.network.Packet;
+import net.minecraft.src.Packet;
 
 import java.util.Map.Entry;
 

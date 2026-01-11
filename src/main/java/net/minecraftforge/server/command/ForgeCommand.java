@@ -1,10 +1,10 @@
 package net.minecraftforge.server.command;
 
-import net.minecraft.command.CommandBase;
-import net.minecraft.command.ICommandSender;
-import net.minecraft.command.WrongUsageException;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.src.CommandBase;
+import net.minecraft.src.ICommandSender;
+import net.minecraft.src.WrongUsageException;
+import net.minecraft.src.MinecraftServer;
+import net.minecraft.src.ChatComponentTranslation;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.server.ForgeTimeTracker;
 

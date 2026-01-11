@@ -1,13 +1,13 @@
 package net.minecraftforge.common;
 
 import com.google.common.base.Predicate;
-import net.minecraft.entity.projectile.EntityFishHook;
-import net.minecraft.item.ItemStack;
-import net.minecraft.stats.StatBase;
-import net.minecraft.stats.StatList;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.WeightedRandom;
-import net.minecraft.util.WeightedRandomFishable;
+import net.minecraft.src.EntityFishHook;
+import net.minecraft.src.ItemStack;
+import net.minecraft.src.StatBase;
+import net.minecraft.src.StatList;
+import net.minecraft.src.MathHelper;
+import net.minecraft.src.WeightedRandom;
+import net.minecraft.src.WeightedRandomFishable;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -12,9 +12,9 @@
 
 package cpw.mods.fml.client.registry;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.src.Block;
+import net.minecraft.src.RenderBlocks;
+import net.minecraft.src.IBlockAccess;
 
 public interface ISimpleBlockRenderingHandler
 {

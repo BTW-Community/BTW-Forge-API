@@ -1,13 +1,13 @@
 package net.minecraftforge.common;
 
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.MinecraftException;
-import net.minecraft.world.WorldProvider;
-import net.minecraft.world.WorldServer;
-import net.minecraft.world.chunk.storage.IChunkLoader;
-import net.minecraft.world.storage.IPlayerFileData;
-import net.minecraft.world.storage.ISaveHandler;
-import net.minecraft.world.storage.WorldInfo;
+import net.minecraft.src.NBTTagCompound;
+import net.minecraft.src.MinecraftException;
+import net.minecraft.src.WorldProvider;
+import net.minecraft.src.WorldServer;
+import net.minecraft.src.IChunkLoader;
+import net.minecraft.src.IPlayerFileData;
+import net.minecraft.src.ISaveHandler;
+import net.minecraft.src.WorldInfo;
 
 import java.io.File;
 

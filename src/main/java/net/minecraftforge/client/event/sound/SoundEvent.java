@@ -1,9 +1,9 @@
 package net.minecraftforge.client.event.sound;
 
 import cpw.mods.fml.common.eventhandler.Event;
-import net.minecraft.client.audio.ISound;
-import net.minecraft.client.audio.SoundManager;
-import net.minecraft.client.audio.SoundPoolEntry;
+import net.minecraft.src.ISound;
+import net.minecraft.src.SoundManager;
+import net.minecraft.src.SoundPoolEntry;
 import net.minecraftforge.common.MinecraftForge;
 
 public class SoundEvent extends Event

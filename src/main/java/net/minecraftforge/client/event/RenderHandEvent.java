@@ -2,7 +2,7 @@ package net.minecraftforge.client.event;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import cpw.mods.fml.common.eventhandler.Event;
-import net.minecraft.client.renderer.RenderGlobal;
+import net.minecraft.src.RenderGlobal;
 
 @Cancelable
 public class RenderHandEvent extends Event

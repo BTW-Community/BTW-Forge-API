@@ -12,10 +12,10 @@
 
 package cpw.mods.fml.client.config;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.src.Minecraft;
+import net.minecraft.src.OpenGlHelper;
+import net.minecraft.src.Tessellator;
+import net.minecraft.src.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 /**

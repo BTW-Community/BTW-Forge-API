@@ -2,8 +2,8 @@ package net.minecraftforge.client.model.obj;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.util.Vec3;
+import net.minecraft.src.Tessellator;
+import net.minecraft.src.Vec3;
 
 public class Face
 {

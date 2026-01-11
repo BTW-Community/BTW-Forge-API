@@ -1,9 +1,9 @@
 package cpw.mods.fml.client;
 
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.resources.I18n;
+import net.minecraft.src.FontRenderer;
+import net.minecraft.src.GuiButton;
+import net.minecraft.src.GuiScreen;
+import net.minecraft.src.I18n;
 
 public class GuiIngameModOptions extends GuiScreen
 {

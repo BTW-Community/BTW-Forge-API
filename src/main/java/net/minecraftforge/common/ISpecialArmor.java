@@ -5,11 +5,11 @@
 
 package net.minecraftforge.common;
 
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
+import net.minecraft.src.EntityLivingBase;
+import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.ItemArmor;
+import net.minecraft.src.ItemStack;
+import net.minecraft.src.DamageSource;
 
 import java.util.ArrayList;
 import java.util.Arrays;

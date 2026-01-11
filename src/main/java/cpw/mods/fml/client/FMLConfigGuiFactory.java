@@ -8,11 +8,11 @@ import cpw.mods.fml.client.config.DummyConfigElement.DummyListElement;
 import cpw.mods.fml.client.config.GuiConfig;
 import cpw.mods.fml.client.config.GuiConfigEntries.NumberSliderEntry;
 import cpw.mods.fml.client.config.IConfigElement;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.resources.I18n;
+import net.minecraft.src.Minecraft;
+import net.minecraft.src.Gui;
+import net.minecraft.src.GuiButton;
+import net.minecraft.src.GuiScreen;
+import net.minecraft.src.I18n;
 
 import java.util.ArrayList;
 import java.util.List;

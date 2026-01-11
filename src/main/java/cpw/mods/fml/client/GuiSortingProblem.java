@@ -3,7 +3,7 @@ package cpw.mods.fml.client;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.toposort.ModSortingException;
 import cpw.mods.fml.common.toposort.ModSortingException.SortingExceptionData;
-import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.src.GuiScreen;
 
 public class GuiSortingProblem extends GuiScreen {
     private SortingExceptionData<ModContainer> failedList;

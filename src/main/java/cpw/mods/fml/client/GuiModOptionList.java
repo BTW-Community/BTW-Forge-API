@@ -1,6 +1,6 @@
 package cpw.mods.fml.client;
 
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.src.Tessellator;
 
 public class GuiModOptionList extends GuiScrollingList {
 

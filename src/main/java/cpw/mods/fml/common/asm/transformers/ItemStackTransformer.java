@@ -1,6 +1,6 @@
 package cpw.mods.fml.common.asm.transformers;
 
-import net.minecraft.launchwrapper.IClassTransformer;
+import net.minecraft.src.IClassTransformer;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;

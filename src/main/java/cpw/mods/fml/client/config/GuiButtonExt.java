@@ -12,8 +12,8 @@
 
 package cpw.mods.fml.client.config;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiButton;
+import net.minecraft.src.Minecraft;
+import net.minecraft.src.GuiButton;
 
 /**
  * This class provides a button that fixes several bugs present in the vanilla GuiButton drawing code.

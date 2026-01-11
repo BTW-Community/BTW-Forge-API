@@ -4,7 +4,7 @@ import com.google.common.base.Charsets;
 import cpw.mods.fml.common.FMLContainerHolder;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.ModContainer;
-import net.minecraft.client.resources.FileResourcePack;
+import net.minecraft.src.FileResourcePack;
 import org.apache.logging.log4j.Level;
 
 import javax.imageio.ImageIO;

@@ -2,9 +2,9 @@ package net.minecraftforge.event.terraingen;
 
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.Event.HasResult;
-import net.minecraft.block.Block;
-import net.minecraft.world.biome.BiomeDecorator;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.src.Block;
+import net.minecraft.src.BiomeDecorator;
+import net.minecraft.src.BiomeGenBase;
 
 /**
  * BiomeEvent is fired whenever an event involving biomes occurs.<br>

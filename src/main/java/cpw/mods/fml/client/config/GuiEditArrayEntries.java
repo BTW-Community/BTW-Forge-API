@@ -14,12 +14,12 @@ package cpw.mods.fml.client.config;
 
 import cpw.mods.fml.client.config.GuiConfigEntries.ArrayEntry;
 import cpw.mods.fml.common.FMLLog;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiListExtended;
-import net.minecraft.client.gui.GuiTextField;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.src.Minecraft;
+import net.minecraft.src.GuiListExtended;
+import net.minecraft.src.GuiTextField;
+import net.minecraft.src.Tessellator;
+import net.minecraft.src.I18n;
+import net.minecraft.src.EnumChatFormatting;
 import org.lwjgl.input.Keyboard;
 
 import java.util.ArrayList;

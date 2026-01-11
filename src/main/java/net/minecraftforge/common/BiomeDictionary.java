@@ -1,7 +1,7 @@
 package net.minecraftforge.common;
 
 import cpw.mods.fml.common.FMLLog;
-import net.minecraft.init.Blocks;
+import net.minecraft.src.Blocks;
 import net.minecraft.world.biome.*;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.terraingen.DeferredBiomeDecorator;

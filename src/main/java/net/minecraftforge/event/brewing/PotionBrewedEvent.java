@@ -1,7 +1,7 @@
 package net.minecraftforge.event.brewing;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import net.minecraft.item.ItemStack;
+import net.minecraft.src.ItemStack;
 
 /**
  * PotionBrewedEvent is fired when a potion is brewed in the brewing stand.

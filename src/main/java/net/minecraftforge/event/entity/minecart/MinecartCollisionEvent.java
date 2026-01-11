@@ -1,7 +1,7 @@
 package net.minecraftforge.event.entity.minecart;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.item.EntityMinecart;
+import net.minecraft.src.Entity;
+import net.minecraft.src.EntityMinecart;
 
 /**
  * MinecartCollisionEvent is fired when a minecart collides with an Entity.

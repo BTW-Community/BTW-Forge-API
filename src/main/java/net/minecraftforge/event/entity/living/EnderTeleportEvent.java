@@ -1,7 +1,7 @@
 package net.minecraftforge.event.entity.living;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.src.EntityLivingBase;
 
 /**
  * Event for when an Enderman teleports or an ender pearl is used.  Can be used to either modify the target position, or cancel the teleport outright.

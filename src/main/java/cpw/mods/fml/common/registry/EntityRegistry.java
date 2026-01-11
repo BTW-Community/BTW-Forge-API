@@ -21,8 +21,8 @@ import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.network.internal.FMLMessage.EntitySpawnMessage;
 import net.minecraft.entity.*;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
+import net.minecraft.src.BiomeGenBase;
+import net.minecraft.src.SpawnListEntry;
 import org.apache.logging.log4j.Level;
 
 import java.util.BitSet;

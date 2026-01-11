@@ -2,8 +2,8 @@ package net.minecraftforge.client;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.WorldClient;
+import net.minecraft.src.Minecraft;
+import net.minecraft.src.WorldClient;
 
 public abstract class IRenderHandler
 {

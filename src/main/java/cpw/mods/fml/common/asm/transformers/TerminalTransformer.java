@@ -2,7 +2,7 @@ package cpw.mods.fml.common.asm.transformers;
 
 import cpw.mods.fml.relauncher.FMLRelaunchLog;
 import cpw.mods.fml.relauncher.FMLSecurityManager.ExitTrappedException;
-import net.minecraft.launchwrapper.IClassTransformer;
+import net.minecraft.src.IClassTransformer;
 import org.objectweb.asm.*;
 
 public class TerminalTransformer implements IClassTransformer

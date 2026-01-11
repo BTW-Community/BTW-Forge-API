@@ -1,6 +1,6 @@
 package net.minecraftforge.client.event.sound;
 
-import net.minecraft.client.audio.SoundManager;
+import net.minecraft.src.SoundManager;
 
 @Deprecated //Remove in 1.8
 public class PlaySoundEffectSourceEvent extends SoundEvent

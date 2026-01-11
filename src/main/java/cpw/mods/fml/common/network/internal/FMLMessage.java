@@ -10,11 +10,11 @@ import cpw.mods.fml.common.registry.IThrowableEntity;
 import cpw.mods.fml.relauncher.Side;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import net.minecraft.entity.DataWatcher;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.MathHelper;
+import net.minecraft.src.DataWatcher;
+import net.minecraft.src.Entity;
+import net.minecraft.src.EntityLivingBase;
+import net.minecraft.src.PacketBuffer;
+import net.minecraft.src.MathHelper;
 import org.apache.logging.log4j.Level;
 
 import java.io.IOException;

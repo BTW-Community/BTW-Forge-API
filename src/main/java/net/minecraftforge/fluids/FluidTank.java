@@ -1,8 +1,8 @@
 
 package net.minecraftforge.fluids;
 
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.src.NBTTagCompound;
+import net.minecraft.src.TileEntity;
 
 /**
  * Reference implementation of {@link IFluidTank}. Use/extend this or implement your own.

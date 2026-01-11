@@ -1,7 +1,7 @@
 package net.minecraftforge.common.util;
 
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.src.EntityPlayerMP;
+import net.minecraft.src.ChunkCoordIntPair;
 
 // Sorter to load nearby chunks first
 public class ChunkCoordComparator implements java.util.Comparator<ChunkCoordIntPair>

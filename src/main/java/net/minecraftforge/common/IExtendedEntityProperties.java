@@ -1,8 +1,8 @@
 package net.minecraftforge.common;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.World;
+import net.minecraft.src.Entity;
+import net.minecraft.src.NBTTagCompound;
+import net.minecraft.src.World;
 
 /**
  * Allows for custom entity data and logic to be hooked to existing entity classes.

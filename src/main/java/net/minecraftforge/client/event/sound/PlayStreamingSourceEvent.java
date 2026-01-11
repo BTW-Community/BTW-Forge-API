@@ -1,7 +1,7 @@
 package net.minecraftforge.client.event.sound;
 
-import net.minecraft.client.audio.ISound;
-import net.minecraft.client.audio.SoundManager;
+import net.minecraft.src.ISound;
+import net.minecraft.src.SoundManager;
 import net.minecraftforge.client.event.sound.SoundEvent.SoundSourceEvent;
 
 public class PlayStreamingSourceEvent extends SoundSourceEvent

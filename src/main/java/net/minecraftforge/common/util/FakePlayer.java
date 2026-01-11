@@ -2,16 +2,16 @@ package net.minecraftforge.common.util;
 
 import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.common.FMLCommonHandler;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.network.play.client.C15PacketClientSettings;
-import net.minecraft.server.management.ItemInWorldManager;
-import net.minecraft.stats.StatBase;
-import net.minecraft.util.ChunkCoordinates;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.IChatComponent;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
+import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.EntityPlayerMP;
+import net.minecraft.src.C15PacketClientSettings;
+import net.minecraft.src.ItemInWorldManager;
+import net.minecraft.src.StatBase;
+import net.minecraft.src.ChunkCoordinates;
+import net.minecraft.src.DamageSource;
+import net.minecraft.src.IChatComponent;
+import net.minecraft.src.World;
+import net.minecraft.src.WorldServer;
 
 //Preliminary, simple Fake Player class 
 public class FakePlayer extends EntityPlayerMP

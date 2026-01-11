@@ -1,10 +1,10 @@
 package net.minecraftforge.common;
 
 import com.google.common.collect.ImmutableList;
-import net.minecraft.util.WeightedRandom;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.WorldChunkManager;
-import net.minecraft.world.gen.structure.MapGenVillage;
+import net.minecraft.src.WeightedRandom;
+import net.minecraft.src.BiomeGenBase;
+import net.minecraft.src.WorldChunkManager;
+import net.minecraft.src.MapGenVillage;
 import net.minecraftforge.common.util.EnumHelper;
 
 import java.util.ArrayList;
