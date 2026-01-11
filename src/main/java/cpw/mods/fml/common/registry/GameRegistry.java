@@ -25,9 +25,7 @@ import net.minecraft.src.ItemStack;
 import net.minecraft.src.CraftingManager;
 import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.IRecipe;
-import net.minecraft.src.JsonToNBT;
 import net.minecraft.src.NBTBase;
-import net.minecraft.src.NBTException;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.TileEntity;
 import net.minecraft.src.World;
@@ -113,7 +111,7 @@ public class GameRegistry
      * @param item The item to register
      * @param name The mod-unique name of the item
      */
-    public static void registerItem(net.minecraft.item.Item item, String name)
+    public static void registerItem(net.minecraft.src.Item item, String name)
     {
         registerItem(item, name, null);
     }
@@ -244,17 +242,17 @@ public class GameRegistry
 
     public static void addSmelting(Block input, ItemStack output, float xp)
     {
-        FurnaceRecipes.smelting().func_151393_a(input, output, xp);
+        FurnaceRecipes.smelting().addSmelting(input.blockID, output, xp);
     }
 
     public static void addSmelting(Item input, ItemStack output, float xp)
     {
-        FurnaceRecipes.smelting().func_151396_a(input, output, xp);
+        FurnaceRecipes.smelting().addSmelting(input.itemID, output, xp);
     }
 
     public static void addSmelting(ItemStack input, ItemStack output, float xp)
     {
-        FurnaceRecipes.smelting().func_151394_a(input, output, xp);
+        FurnaceRecipes.smelting().addSmelting(input.itemID, output, xp);
     }
 
     public static void registerTileEntity(Class<? extends TileEntity> tileEntityClass, String id)

@@ -29,32 +29,11 @@ import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.common.toposort.ModSortingException;
 import cpw.mods.fml.relauncher.Side;
-import net.minecraft.src.Minecraft;
-import net.minecraft.src.EntityClientPlayerMP;
-import net.minecraft.client.gui.*;
-import net.minecraft.src.GuiConnecting;
-import net.minecraft.src.ServerData;
-import net.minecraft.src.WorldClient;
-import net.minecraft.src.NetHandlerPlayClient;
-import net.minecraft.src.OldServerPinger;
-import net.minecraft.src.Render;
-import net.minecraft.src.RenderManager;
-import net.minecraft.client.resources.*;
-import net.minecraft.src.CrashReport;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.Launch;
-import net.minecraft.src.CompressedStreamTools;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.INetHandler;
-import net.minecraft.src.NetHandlerPlayServer;
-import net.minecraft.src.NetworkManager;
-import net.minecraft.src.ServerStatusResponse;
-import net.minecraft.src.MinecraftServer;
-import net.minecraft.src.ResourceLocation;
-import net.minecraft.src.StringUtils;
-import net.minecraft.src.WorldSettings;
-import net.minecraft.src.SaveFormatOld;
+import net.minecraft.src.*;
+import net.minecraft.src.NetClientHandler;
+import net.minecraft.src.NetServerHandler;
+import net.minecraft.src.INetworkManager;
+import net.minecraft.server.MinecraftServer;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -124,19 +103,19 @@ public class FMLClientHandler implements IFMLSidedHandler
 
     private boolean serverShouldBeKilledQuietly;
 
-    private List<IResourcePack> resourcePackList;
+    private List<ResourcePack> resourcePackList;
 
     @SuppressWarnings("unused")
-    private IReloadableResourceManager resourceManager;
+    private ReloadableResourceManager resourceManager;
 
-    private Map<String, IResourcePack> resourcePackMap;
+    private Map<String, ResourcePack> resourcePackMap;
 
     private BiMap<ModContainer, IModGuiFactory> guiFactories;
 
     private Map<ServerStatusResponse,JsonObject> extraServerListData;
     private Map<ServerData, ExtendedServerListData> serverDataTag;
 
-    private WeakReference<NetHandlerPlayClient> currentPlayClient;
+    private WeakReference<NetClientHandler> currentPlayClient;
 
     /**
      * Called to start the whole game off
@@ -146,7 +125,7 @@ public class FMLClientHandler implements IFMLSidedHandler
      * @param resourceManager The resource manager
      */
     @SuppressWarnings("unchecked")
-    public void beginMinecraftLoading(Minecraft minecraft, @SuppressWarnings("rawtypes") List resourcePackList, IReloadableResourceManager resourceManager)
+    public void beginMinecraftLoading(Minecraft minecraft, @SuppressWarnings("rawtypes") List resourcePackList, ReloadableResourceManager resourceManager)
     {
         detectOptifine();
         SplashProgress.start();
@@ -211,12 +190,12 @@ public class FMLClientHandler implements IFMLSidedHandler
             haltGame("There was a severe problem during mod loading that has caused the game to fail", le);
             return;
         }
-        Map<String,Map<String,String>> sharedModList = (Map<String, Map<String, String>>) Launch.blackboard.get("modList");
-        if (sharedModList == null)
-        {
-            sharedModList = Maps.newHashMap();
-            Launch.blackboard.put("modList", sharedModList);
-        }
+//        Map<String,Map<String,String>> sharedModList = (Map<String, Map<String, String>>) Launch.blackboard.get("modList");
+//        if (sharedModList == null)
+//        {
+//            sharedModList = Maps.newHashMap();
+//            Launch.blackboard.put("modList", sharedModList);
+//        }
         for (ModContainer mc : Loader.instance().getActiveModList())
         {
             Map<String,String> sharedModDescriptor = mc.getSharedModDescriptor();
@@ -309,33 +288,33 @@ public class FMLClientHandler implements IFMLSidedHandler
         client.gameSettings.loadOptions(); //Reload options to load any mod added keybindings.
     }
 
-    @SuppressWarnings("unused")
-    public void extendModList()
-    {
-        @SuppressWarnings("unchecked")
-        Map<String,Map<String,String>> modList = (Map<String, Map<String, String>>) Launch.blackboard.get("modList");
-        if (modList != null)
-        {
-            for (Entry<String, Map<String, String>> modEntry : modList.entrySet())
-            {
-                String sharedModId = modEntry.getKey();
-                String system = sharedModId.split(":")[0];
-                if ("fml".equals(system))
-                {
-                    continue;
-                }
-                Map<String, String> mod = modEntry.getValue();
-                String modSystem = mod.get("modsystem"); // the modsystem (FML uses FML or ModLoader)
-                String modId = mod.get("id"); // unique ID
-                String modVersion = mod.get("version"); // version
-                String modName = mod.get("name"); // a human readable name
-                String modURL = mod.get("url"); // a URL for the mod (can be empty string)
-                String modAuthors = mod.get("authors"); // a csv of authors (can be empty string)
-                String modDescription = mod.get("description"); // a (potentially) multiline description (can be empty string)
-            }
-        }
-
-    }
+//    @SuppressWarnings("unused")
+//    public void extendModList()
+//    {
+//        @SuppressWarnings("unchecked")
+//        Map<String,Map<String,String>> modList = (Map<String, Map<String, String>>) Launch.blackboard.get("modList");
+//        if (modList != null)
+//        {
+//            for (Entry<String, Map<String, String>> modEntry : modList.entrySet())
+//            {
+//                String sharedModId = modEntry.getKey();
+//                String system = sharedModId.split(":")[0];
+//                if ("fml".equals(system))
+//                {
+//                    continue;
+//                }
+//                Map<String, String> mod = modEntry.getValue();
+//                String modSystem = mod.get("modsystem"); // the modsystem (FML uses FML or ModLoader)
+//                String modId = mod.get("id"); // unique ID
+//                String modVersion = mod.get("version"); // version
+//                String modName = mod.get("name"); // a human readable name
+//                String modURL = mod.get("url"); // a URL for the mod (can be empty string)
+//                String modAuthors = mod.get("authors"); // a csv of authors (can be empty string)
+//                String modDescription = mod.get("description"); // a (potentially) multiline description (can be empty string)
+//            }
+//        }
+//
+//    }
     public void onInitializationComplete()
     {
         if (wrongMC != null)
@@ -449,12 +428,12 @@ public class FMLClientHandler implements IFMLSidedHandler
             {
                 if (Thread.interrupted()) throw new InterruptedException();
 
-                client.loadingScreen.resetProgresAndWorkingMessage("");
+//                client.loadingScreen.resetProgresAndWorkingMessage("");
 
                 Thread.sleep(50);
             }
 
-            client.loadingScreen.resetProgresAndWorkingMessage(""); // make sure the blank screen is being drawn at the end
+//            client.loadingScreen.resetProgresAndWorkingMessage(""); // make sure the blank screen is being drawn at the end
         }
     }
 
@@ -553,7 +532,7 @@ public class FMLClientHandler implements IFMLSidedHandler
         {
             try
             {
-                IResourcePack pack = (IResourcePack) resourcePackType.getConstructor(ModContainer.class).newInstance(container);
+                ResourcePack pack = (ResourcePack) resourcePackType.getConstructor(ModContainer.class).newInstance(container);
                 resourcePackList.add(pack);
                 resourcePackMap.put(container.getModId(), pack);
             }
@@ -570,7 +549,7 @@ public class FMLClientHandler implements IFMLSidedHandler
         }
     }
 
-    public IResourcePack getResourcePackFor(String modId)
+    public ResourcePack getResourcePackFor(String modId)
     {
         return resourcePackMap.get(modId);
     }
@@ -594,19 +573,19 @@ public class FMLClientHandler implements IFMLSidedHandler
     }
 
     @Override
-    public INetHandler getClientPlayHandler()
+    public NetHandler getClientPlayHandler()
     {
         return this.currentPlayClient == null ? null : this.currentPlayClient.get();
     }
     @Override
-    public NetworkManager getClientToServerNetworkManager()
+    public INetworkManager getClientToServerNetworkManager()
     {
-        return this.client.getNetHandler()!=null ? this.client.getNetHandler().getNetworkManager() : null;
+        return this.client.getNetHandler()!=null ? this.client.getNetHandler().getNetManager() : null;
     }
 
     public void handleClientWorldClosing(WorldClient world)
     {
-        NetworkManager client = getClientToServerNetworkManager();
+        INetworkManager client = getClientToServerNetworkManager();
         // ONLY revert a non-local connection
         if (client != null && !client.isLocalChannel())
         {
@@ -674,100 +653,100 @@ public class FMLClientHandler implements IFMLSidedHandler
 
     public void setupServerList()
     {
-        extraServerListData = Collections.synchronizedMap(Maps.<ServerStatusResponse,JsonObject>newHashMap());
-        serverDataTag = Collections.synchronizedMap(Maps.<ServerData,ExtendedServerListData>newHashMap());
+//        extraServerListData = Collections.synchronizedMap(Maps.<ServerStatusResponse,JsonObject>newHashMap());
+//        serverDataTag = Collections.synchronizedMap(Maps.<ServerData,ExtendedServerListData>newHashMap());
     }
 
-    public void captureAdditionalData(ServerStatusResponse serverstatusresponse, JsonObject jsonobject)
-    {
-        if (jsonobject.has("modinfo"))
-        {
-            JsonObject fmlData = jsonobject.get("modinfo").getAsJsonObject();
-            extraServerListData.put(serverstatusresponse, fmlData);
-        }
-    }
-    public void bindServerListData(ServerData data, ServerStatusResponse originalResponse)
-    {
-        if (extraServerListData.containsKey(originalResponse))
-        {
-            JsonObject jsonData = extraServerListData.get(originalResponse);
-            String type = jsonData.get("type").getAsString();
-            JsonArray modDataArray = jsonData.get("modList").getAsJsonArray();
-            boolean moddedClientAllowed = jsonData.has("clientModsAllowed") ? jsonData.get("clientModsAllowed").getAsBoolean() : true;
-            Builder<String, String> modListBldr = ImmutableMap.<String,String>builder();
-            for (JsonElement obj : modDataArray)
-            {
-                JsonObject modObj = obj.getAsJsonObject();
-                modListBldr.put(modObj.get("modid").getAsString(), modObj.get("version").getAsString());
-            }
-
-            Map<String,String> modListMap = modListBldr.build();
-            serverDataTag.put(data, new ExtendedServerListData(type, FMLNetworkHandler.checkModList(modListMap, Side.SERVER) == null, modListMap, !moddedClientAllowed));
-        }
-        else
-        {
-            String serverDescription = data.serverMOTD;
-            boolean moddedClientAllowed = true;
-            if (!Strings.isNullOrEmpty(serverDescription))
-            {
-                moddedClientAllowed = !serverDescription.endsWith(":NOFML§r");
-            }
-            serverDataTag.put(data, new ExtendedServerListData("VANILLA", false, ImmutableMap.<String,String>of(), !moddedClientAllowed));
-        }
-        startupConnectionData.countDown();
-    }
+//    public void captureAdditionalData(ServerStatusResponse serverstatusresponse, JsonObject jsonobject)
+//    {
+//        if (jsonobject.has("modinfo"))
+//        {
+//            JsonObject fmlData = jsonobject.get("modinfo").getAsJsonObject();
+//            extraServerListData.put(serverstatusresponse, fmlData);
+//        }
+//    }
+//    public void bindServerListData(ServerData data, ServerStatusResponse originalResponse)
+//    {
+//        if (extraServerListData.containsKey(originalResponse))
+//        {
+//            JsonObject jsonData = extraServerListData.get(originalResponse);
+//            String type = jsonData.get("type").getAsString();
+//            JsonArray modDataArray = jsonData.get("modList").getAsJsonArray();
+//            boolean moddedClientAllowed = jsonData.has("clientModsAllowed") ? jsonData.get("clientModsAllowed").getAsBoolean() : true;
+//            Builder<String, String> modListBldr = ImmutableMap.<String,String>builder();
+//            for (JsonElement obj : modDataArray)
+//            {
+//                JsonObject modObj = obj.getAsJsonObject();
+//                modListBldr.put(modObj.get("modid").getAsString(), modObj.get("version").getAsString());
+//            }
+//
+//            Map<String,String> modListMap = modListBldr.build();
+//            serverDataTag.put(data, new ExtendedServerListData(type, FMLNetworkHandler.checkModList(modListMap, Side.SERVER) == null, modListMap, !moddedClientAllowed));
+//        }
+//        else
+//        {
+//            String serverDescription = data.serverMOTD;
+//            boolean moddedClientAllowed = true;
+//            if (!Strings.isNullOrEmpty(serverDescription))
+//            {
+//                moddedClientAllowed = !serverDescription.endsWith(":NOFML§r");
+//            }
+//            serverDataTag.put(data, new ExtendedServerListData("VANILLA", false, ImmutableMap.<String,String>of(), !moddedClientAllowed));
+//        }
+//        startupConnectionData.countDown();
+//    }
 
     private static final ResourceLocation iconSheet = new ResourceLocation("fml:textures/gui/icons.png");
     private static final CountDownLatch startupConnectionData = new CountDownLatch(1);
 
-    public String enhanceServerListEntry(ServerListEntryNormal serverListEntry, ServerData serverEntry, int x, int width, int y, int relativeMouseX, int relativeMouseY)
-    {
-        String tooltip;
-        int idx;
-        boolean blocked = false;
-        if (serverDataTag.containsKey(serverEntry))
-        {
-            ExtendedServerListData extendedData = serverDataTag.get(serverEntry);
-            if ("FML".equals(extendedData.type) && extendedData.isCompatible)
-            {
-                idx = 0;
-                tooltip = String.format("Compatible FML modded server\n%d mods present", extendedData.modData.size());
-            }
-            else if ("FML".equals(extendedData.type) && !extendedData.isCompatible)
-            {
-                idx = 16;
-                tooltip = String.format("Incompatible FML modded server\n%d mods present", extendedData.modData.size());
-            }
-            else if ("BUKKIT".equals(extendedData.type))
-            {
-                idx = 32;
-                tooltip = String.format("Bukkit modded server");
-            }
-            else if ("VANILLA".equals(extendedData.type))
-            {
-                idx = 48;
-                tooltip = String.format("Vanilla server");
-            }
-            else
-            {
-                idx = 64;
-                tooltip = String.format("Unknown server data");
-            }
-            blocked = extendedData.isBlocked;
-        }
-        else
-        {
-            return null;
-        }
-        this.client.getTextureManager().bindTexture(iconSheet);
-        Gui.func_146110_a(x + width - 18, y + 10, 0, (float)idx, 16, 16, 256.0f, 256.0f);
-        if (blocked)
-        {
-            Gui.func_146110_a(x + width - 18, y + 10, 0, 80, 16, 16, 256.0f, 256.0f);
-        }
-
-        return relativeMouseX > width - 15 && relativeMouseX < width && relativeMouseY > 10 && relativeMouseY < 26 ? tooltip : null;
-    }
+//    public String enhanceServerListEntry(ServerListEntryNormal serverListEntry, ServerData serverEntry, int x, int width, int y, int relativeMouseX, int relativeMouseY)
+//    {
+//        String tooltip;
+//        int idx;
+//        boolean blocked = false;
+//        if (serverDataTag.containsKey(serverEntry))
+//        {
+//            ExtendedServerListData extendedData = serverDataTag.get(serverEntry);
+//            if ("FML".equals(extendedData.type) && extendedData.isCompatible)
+//            {
+//                idx = 0;
+//                tooltip = String.format("Compatible FML modded server\n%d mods present", extendedData.modData.size());
+//            }
+//            else if ("FML".equals(extendedData.type) && !extendedData.isCompatible)
+//            {
+//                idx = 16;
+//                tooltip = String.format("Incompatible FML modded server\n%d mods present", extendedData.modData.size());
+//            }
+//            else if ("BUKKIT".equals(extendedData.type))
+//            {
+//                idx = 32;
+//                tooltip = String.format("Bukkit modded server");
+//            }
+//            else if ("VANILLA".equals(extendedData.type))
+//            {
+//                idx = 48;
+//                tooltip = String.format("Vanilla server");
+//            }
+//            else
+//            {
+//                idx = 64;
+//                tooltip = String.format("Unknown server data");
+//            }
+//            blocked = extendedData.isBlocked;
+//        }
+//        else
+//        {
+//            return null;
+//        }
+//        this.client.getTextureManager().bindTexture(iconSheet);
+//        Gui.func_146110_a(x + width - 18, y + 10, 0, (float)idx, 16, 16, 256.0f, 256.0f);
+//        if (blocked)
+//        {
+//            Gui.func_146110_a(x + width - 18, y + 10, 0, 80, 16, 16, 256.0f, 256.0f);
+//        }
+//
+//        return relativeMouseX > width - 15 && relativeMouseX < width && relativeMouseY > 10 && relativeMouseY < 26 ? tooltip : null;
+//    }
 
     public String fixDescription(String description)
     {
@@ -776,13 +755,13 @@ public class FMLClientHandler implements IFMLSidedHandler
 
     public void connectToServerAtStartup(String host, int port)
     {
-        setupServerList();
-        OldServerPinger osp = new OldServerPinger();
+//        setupServerList();
+//        OldServerPinger osp = new OldServerPinger();
         ServerData serverData = new ServerData("Command Line", host+":"+port);
         try
         {
-            osp.func_147224_a(serverData);
-            startupConnectionData.await(30, TimeUnit.SECONDS);
+//            osp.func_147224_a(serverData);
+//            startupConnectionData.await(30, TimeUnit.SECONDS);
         }
         catch (Exception e)
         {
@@ -813,12 +792,12 @@ public class FMLClientHandler implements IFMLSidedHandler
 
     private CountDownLatch playClientBlock;
 
-    public void setPlayClient(NetHandlerPlayClient netHandlerPlayClient)
+    public void setPlayClient(NetClientHandler NetClientHandler)
     {
         if (playClientBlock == null)
             playClientBlock = new CountDownLatch(1);
         playClientBlock.countDown();
-        this.currentPlayClient = new WeakReference<NetHandlerPlayClient>(netHandlerPlayClient);
+        this.currentPlayClient = new WeakReference<NetClientHandler>(NetClientHandler);
     }
 
     @Override
@@ -838,16 +817,16 @@ public class FMLClientHandler implements IFMLSidedHandler
     }
 
     @Override
-    public void fireNetRegistrationEvent(EventBus bus, NetworkManager manager, Set<String> channelSet, String channel, Side side)
+    public void fireNetRegistrationEvent(EventBus bus, INetworkManager manager, Set<String> channelSet, String channel, Side side)
     {
         if (side == Side.CLIENT)
         {
             waitForPlayClient();
-            bus.post(new FMLNetworkEvent.CustomPacketRegistrationEvent<NetHandlerPlayClient>(manager, channelSet, channel, side, NetHandlerPlayClient.class));
+            bus.post(new FMLNetworkEvent.CustomPacketRegistrationEvent<NetClientHandler>(manager, channelSet, channel, side, NetClientHandler.class));
         }
         else
         {
-            bus.post(new FMLNetworkEvent.CustomPacketRegistrationEvent<NetHandlerPlayServer>(manager, channelSet, channel, side, NetHandlerPlayServer.class));
+            bus.post(new FMLNetworkEvent.CustomPacketRegistrationEvent<NetServerHandler>(manager, channelSet, channel, side, NetServerHandler.class));
         }
     }
 
@@ -909,9 +888,9 @@ public class FMLClientHandler implements IFMLSidedHandler
             }
             else
             {
-                List<IResourcePack> resPacks = ObfuscationReflectionHelper.getPrivateValue(FallbackResourceManager.class, fallbackResourceManager, "resourcePacks","field_110540"+"_a");
+                List<ResourcePack> resPacks = ObfuscationReflectionHelper.getPrivateValue(FallbackResourceManager.class, fallbackResourceManager, "resourcePacks","field_110540"+"_a");
                 logger.error("    domain {} has {} location{}:",resourceDomain, resPacks.size(), resPacks.size() != 1 ? "s" :"");
-                for (IResourcePack resPack : resPacks)
+                for (ResourcePack resPack : resPacks)
                 {
                     if (resPack instanceof FMLContainerHolder) {
                         FMLContainerHolder containerHolder = (FMLContainerHolder) resPack;

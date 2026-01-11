@@ -19,8 +19,6 @@ import com.google.common.eventbus.Subscribe;
 import cpw.mods.fml.common.LoaderState.ModState;
 import cpw.mods.fml.common.ProgressManager.ProgressBar;
 import cpw.mods.fml.common.event.*;
-import cpw.mods.fml.common.functions.ArtifactVersionNameFunction;
-import cpw.mods.fml.common.versioning.ArtifactVersion;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.ThreadContext;
 
@@ -179,16 +177,16 @@ public class LoadController
     private void sendEventToModContainer(FMLEvent stateEvent, ModContainer mc)
     {
         String modId = mc.getModId();
-        Collection<String> requirements =  Collections2.transform(mc.getRequirements(),new ArtifactVersionNameFunction());
-        for (ArtifactVersion av : mc.getDependencies())
-        {
-            if (av.getLabel()!= null && requirements.contains(av.getLabel()) && modStates.containsEntry(av.getLabel(),ModState.ERRORED))
-            {
-                FMLLog.log(modId, Level.ERROR, "Skipping event %s and marking errored mod %s since required dependency %s has errored", stateEvent.getEventType(), modId, av.getLabel());
-                modStates.put(modId, ModState.ERRORED);
-                return;
-            }
-        }
+//        Collection<String> requirements =  Collections2.transform(mc.getRequirements(),new ArtifactVersionNameFunction());
+//        for (ArtifactVersion av : mc.getDependencies())
+//        {
+//            if (av.getLabel()!= null && requirements.contains(av.getLabel()) && modStates.containsEntry(av.getLabel(),ModState.ERRORED))
+//            {
+//                FMLLog.log(modId, Level.ERROR, "Skipping event %s and marking errored mod %s since required dependency %s has errored", stateEvent.getEventType(), modId, av.getLabel());
+//                modStates.put(modId, ModState.ERRORED);
+//                return;
+//            }
+//        }
         activeContainer = mc;
         stateEvent.applyModContainer(activeContainer());
         ThreadContext.put("mod", modId);
@@ -313,36 +311,36 @@ public class LoadController
 
     private ModContainer findActiveContainerFromStack()
     {
-        for (Class<?> c : getCallingStack())
-        {
-            int idx = c.getName().lastIndexOf('.');
-            if (idx == -1)
-            {
-                continue;
-            }
-            String pkg = c.getName().substring(0,idx);
-            if (packageOwners.containsKey(pkg))
-            {
-                return packageOwners.get(pkg).get(0);
-            }
-        }
+//        for (Class<?> c : getCallingStack())
+//        {
+//            int idx = c.getName().lastIndexOf('.');
+//            if (idx == -1)
+//            {
+//                continue;
+//            }
+//            String pkg = c.getName().substring(0,idx);
+//            if (packageOwners.containsKey(pkg))
+//            {
+//                return packageOwners.get(pkg).get(0);
+//            }
+//        }
 
         return null;
     }
-    private FMLSecurityManager accessibleManager = new FMLSecurityManager();
-
-    class FMLSecurityManager extends SecurityManager
-    {
-        Class<?>[] getStackClasses()
-        {
-            return getClassContext();
-        }
-    }
-
-    Class<?>[] getCallingStack()
-    {
-        return accessibleManager.getStackClasses();
-    }
+//    private FMLSecurityManager accessibleManager = new FMLSecurityManager();
+//
+//    class FMLSecurityManager extends SecurityManager
+//    {
+//        Class<?>[] getStackClasses()
+//        {
+//            return getClassContext();
+//        }
+//    }
+//
+//    Class<?>[] getCallingStack()
+//    {
+//        return accessibleManager.getStackClasses();
+//    }
 
     LoaderState getState()
     {

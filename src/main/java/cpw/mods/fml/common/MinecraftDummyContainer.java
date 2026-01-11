@@ -14,7 +14,6 @@ package cpw.mods.fml.common;
 
 import cpw.mods.fml.common.versioning.VersionParser;
 import cpw.mods.fml.common.versioning.VersionRange;
-import cpw.mods.fml.relauncher.FMLLaunchHandler;
 import cpw.mods.fml.relauncher.Side;
 
 import java.security.cert.Certificate;

@@ -1,6 +1,6 @@
 package cpw.mods.fml.common;
 
-import net.minecraft.src.MinecraftServer;
+import net.minecraft.server.MinecraftServer;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;

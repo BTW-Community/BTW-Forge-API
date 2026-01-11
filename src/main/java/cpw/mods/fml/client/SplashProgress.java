@@ -2,13 +2,12 @@ package cpw.mods.fml.client;
 
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.ProgressManager.ProgressBar;
-import cpw.mods.fml.common.asm.FMLSanityChecker;
 import net.minecraft.src.Minecraft;
 import net.minecraft.src.FontRenderer;
 import net.minecraft.src.TextureManager;
 import net.minecraft.src.FileResourcePack;
 import net.minecraft.src.FolderResourcePack;
-import net.minecraft.src.IResourcePack;
+import net.minecraft.src.ResourcePack;
 import net.minecraft.src.CrashReport;
 import net.minecraft.src.Launch;
 import net.minecraft.src.ResourceLocation;
@@ -54,9 +53,9 @@ public class SplashProgress
     private static final Lock lock = new ReentrantLock(true);
     private static SplashFontRenderer fontRenderer;
 
-    private static final IResourcePack mcPack = Minecraft.getMinecraft().mcDefaultResourcePack;
-    private static final IResourcePack fmlPack = createResourcePack(FMLSanityChecker.fmlLocation);
-    private static IResourcePack miscPack;
+    private static final ResourcePack mcPack = Minecraft.getMinecraft().mcDefaultResourcePack;
+    private static final ResourcePack fmlPack = createResourcePack(FMLSanityChecker.fmlLocation);
+    private static ResourcePack miscPack;
 
     private static Texture fontTexture;
     private static Texture logoTexture;
@@ -549,7 +548,7 @@ public class SplashProgress
         return true;
     }
 
-    private static IResourcePack createResourcePack(File file)
+    private static ResourcePack createResourcePack(File file)
     {
         if(file.isDirectory())
         {

@@ -15,7 +15,7 @@ import net.minecraft.src.ContainerRepair;
 import net.minecraft.src.IInventory;
 import net.minecraft.item.*;
 import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.NetHandlerPlayServer;
+import net.minecraft.src.NetServerHandler;
 import net.minecraft.src.Packet;
 import net.minecraft.src.S23PacketBlockChange;
 import net.minecraft.src.StatList;
@@ -357,7 +357,7 @@ public class ForgeHooks
         return world.getBlock(x, y, z).getEnchantPowerBonus(world, x, y, z);
     }
 
-    public static ChatComponentTranslation onServerChatEvent(NetHandlerPlayServer net, String raw, ChatComponentTranslation comp)
+    public static ChatComponentTranslation onServerChatEvent(NetServerHandler net, String raw, ChatComponentTranslation comp)
     {
         ServerChatEvent event = new ServerChatEvent(net.playerEntity, raw, comp);
         if (MinecraftForge.EVENT_BUS.post(event))

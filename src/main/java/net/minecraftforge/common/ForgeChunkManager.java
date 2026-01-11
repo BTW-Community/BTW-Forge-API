@@ -16,7 +16,7 @@ import net.minecraft.src.Entity;
 import net.minecraft.src.CompressedStreamTools;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.NBTTagList;
-import net.minecraft.src.MinecraftServer;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.MathHelper;
 import net.minecraft.src.ChunkCoordIntPair;
 import net.minecraft.src.World;

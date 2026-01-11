@@ -27,7 +27,7 @@ import net.minecraft.src.Tessellator;
 import net.minecraft.src.DynamicTexture;
 import net.minecraft.src.TextureManager;
 import net.minecraft.src.I18n;
-import net.minecraft.src.IResourcePack;
+import net.minecraft.src.ResourcePack;
 import net.minecraft.src.ResourceLocation;
 import org.apache.logging.log4j.Level;
 import org.lwjgl.opengl.GL11;
@@ -132,7 +132,7 @@ public class GuiModList extends GuiScreen
 
     public int drawLine(String line, int offset, int shifty)
     {
-        this.fontRendererObj.drawString(line, offset, shifty, 0xd7edea);
+        this.fontRenderer.drawString(line, offset, shifty, 0xd7edea);
         return shifty + 10;
     }
 
@@ -143,7 +143,7 @@ public class GuiModList extends GuiScreen
     public void drawScreen(int p_571_1_, int p_571_2_, float p_571_3_)
     {
         this.modList.drawScreen(p_571_1_, p_571_2_, p_571_3_);
-        this.drawCenteredString(this.fontRendererObj, "Mod List", this.width / 2, 16, 0xFFFFFF);
+        this.drawCenteredString(this.fontRenderer, "Mod List", this.width / 2, 16, 0xFFFFFF);
         int offset = this.listWidth  + 20;
         if (selectedMod != null) {
             GL11.glEnable(GL11.GL_BLEND);
@@ -158,7 +158,7 @@ public class GuiModList extends GuiScreen
                 {
                     GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
                     TextureManager tm = mc.getTextureManager();
-                    IResourcePack pack = FMLClientHandler.instance().getResourcePackFor(selectedMod.getModId());
+                    ResourcePack pack = FMLClientHandler.instance().getResourcePackFor(selectedMod.getModId());
                     try
                     {
                         if (cachedLogo == null)
@@ -211,7 +211,7 @@ public class GuiModList extends GuiScreen
                         ;
                     }
                 }
-                this.fontRendererObj.drawStringWithShadow(selectedMod.getMetadata().name, offset, shifty, 0xFFFFFF);
+                this.fontRenderer.drawStringWithShadow(selectedMod.getMetadata().name, offset, shifty, 0xFFFFFF);
                 shifty += 12;
 
                 shifty = drawLine(String.format("Version: %s (%s)", selectedMod.getDisplayVersion(), selectedMod.getVersion()), offset, shifty);
@@ -259,11 +259,11 @@ public class GuiModList extends GuiScreen
                 }
             } else {
                 offset = ( this.listWidth + this.width ) / 2;
-                this.drawCenteredString(this.fontRendererObj, selectedMod.getName(), offset, 35, 0xFFFFFF);
-                this.drawCenteredString(this.fontRendererObj, String.format("Version: %s",selectedMod.getVersion()), offset, 45, 0xFFFFFF);
-                this.drawCenteredString(this.fontRendererObj, String.format("Mod State: %s",Loader.instance().getModState(selectedMod)), offset, 55, 0xFFFFFF);
-                this.drawCenteredString(this.fontRendererObj, "No mod information found", offset, 65, 0xDDDDDD);
-                this.drawCenteredString(this.fontRendererObj, "Ask your mod author to provide a mod mcmod.info file", offset, 75, 0xDDDDDD);
+                this.drawCenteredString(this.fontRenderer, selectedMod.getName(), offset, 35, 0xFFFFFF);
+                this.drawCenteredString(this.fontRenderer, String.format("Version: %s",selectedMod.getVersion()), offset, 45, 0xFFFFFF);
+                this.drawCenteredString(this.fontRenderer, String.format("Mod State: %s",Loader.instance().getModState(selectedMod)), offset, 55, 0xFFFFFF);
+                this.drawCenteredString(this.fontRenderer, "No mod information found", offset, 65, 0xDDDDDD);
+                this.drawCenteredString(this.fontRenderer, "Ask your mod author to provide a mod mcmod.info file", offset, 75, 0xDDDDDD);
                 configModButton.visible = false;
                 disableModButton.visible = false;
             }
@@ -282,7 +282,7 @@ public class GuiModList extends GuiScreen
     }
 
     FontRenderer getFontRenderer() {
-        return fontRendererObj;
+        return fontRenderer;
     }
 
     /**

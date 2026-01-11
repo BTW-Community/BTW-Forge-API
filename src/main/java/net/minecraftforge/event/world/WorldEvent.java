@@ -30,7 +30,7 @@ public class WorldEvent extends Event
     /**
      * WorldEvent.Load is fired when Minecraft loads a world.<br>
      * This event is fired when a world is loaded in
-     * WorldClient#WorldClient(NetHandlerPlayClient, WorldSettings, int, EnumDifficulty, Profiler),
+     * WorldClient#WorldClient(NetClientHandler, WorldSettings, int, EnumDifficulty, Profiler),
      * MinecraftServer#loadAllWorlds(String, String, long, WorldType, String),
      * DimensionManager#initDimension(int),
      * and ForgeInternalHandler#onDimensionLoad(Load). <br>

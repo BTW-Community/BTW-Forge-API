@@ -41,23 +41,23 @@ public class ObfuscationReflectionHelper
         }
     }
 
-    public static String[] remapFieldNames(String className, String... fieldNames)
-    {
-        String internalClassName = FMLDeobfuscatingRemapper.INSTANCE.unmap(className.replace('.', '/'));
-        String[] mappedNames = new String[fieldNames.length];
-        int i = 0;
-        for (String fName : fieldNames)
-        {
-            mappedNames[i++] = FMLDeobfuscatingRemapper.INSTANCE.mapFieldName(internalClassName, fName, null);
-        }
-        return mappedNames;
-    }
+//    public static String[] remapFieldNames(String className, String... fieldNames)
+//    {
+//        String internalClassName = FMLDeobfuscatingRemapper.INSTANCE.unmap(className.replace('.', '/'));
+//        String[] mappedNames = new String[fieldNames.length];
+//        int i = 0;
+//        for (String fName : fieldNames)
+//        {
+//            mappedNames[i++] = FMLDeobfuscatingRemapper.INSTANCE.mapFieldName(internalClassName, fName, null);
+//        }
+//        return mappedNames;
+//    }
 
     public static <T, E> T getPrivateValue(Class<? super E> classToAccess, E instance, String... fieldNames)
     {
         try
         {
-            return ReflectionHelper.getPrivateValue(classToAccess, instance, remapFieldNames(classToAccess.getName(),fieldNames));
+            return ReflectionHelper.getPrivateValue(classToAccess, instance, fieldNames);
         }
         catch (UnableToFindFieldException e)
         {
@@ -88,7 +88,7 @@ public class ObfuscationReflectionHelper
     {
         try
         {
-            ReflectionHelper.setPrivateValue(classToAccess, instance, value, remapFieldNames(classToAccess.getName(), fieldNames));
+            ReflectionHelper.setPrivateValue(classToAccess, instance, value, fieldNames);
         }
         catch (UnableToFindFieldException e)
         {

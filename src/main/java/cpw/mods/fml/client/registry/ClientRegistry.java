@@ -14,7 +14,7 @@ package cpw.mods.fml.client.registry;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.src.Minecraft;
-import net.minecraft.src.TileEntityRendererDispatcher;
+import net.minecraft.src.TileEntityRenderer;
 import net.minecraft.src.TileEntitySpecialRenderer;
 import net.minecraft.src.KeyBinding;
 import net.minecraft.src.TileEntity;
@@ -39,8 +39,8 @@ public class ClientRegistry
     @SuppressWarnings("unchecked")
     public static void bindTileEntitySpecialRenderer(Class <? extends TileEntity> tileEntityClass, TileEntitySpecialRenderer specialRenderer)
     {
-        TileEntityRendererDispatcher.instance.mapSpecialRenderers.put(tileEntityClass, specialRenderer);
-        specialRenderer.func_147497_a(TileEntityRendererDispatcher.instance);
+        TileEntityRenderer.instance.specialRendererMap.put(tileEntityClass, specialRenderer);
+        specialRenderer.setTileEntityRenderer(TileEntityRenderer.instance);
     }
 
     public static void registerKeyBinding(KeyBinding key)

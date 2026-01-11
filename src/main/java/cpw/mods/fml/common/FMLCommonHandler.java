@@ -31,9 +31,9 @@ import net.minecraft.src.IInventory;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.NBTBase;
 import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.INetHandler;
-import net.minecraft.src.NetworkManager;
-import net.minecraft.src.MinecraftServer;
+import net.minecraft.src.NetHandler;
+import net.minecraft.src.INetworkManager;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.World;
 import net.minecraft.src.SaveHandler;
 import net.minecraft.src.WorldInfo;
@@ -518,7 +518,7 @@ public class FMLCommonHandler
     {
     }
 
-    public NetworkManager getClientToServerNetworkManager()
+    public INetworkManager getClientToServerNetworkManager()
     {
         return sidedDelegate.getClientToServerNetworkManager();
     }
@@ -568,7 +568,7 @@ public class FMLCommonHandler
         bus().post(new PlayerEvent.ItemSmeltedEvent(player, smelted));
     }
 
-    public INetHandler getClientPlayHandler()
+    public NetHandler getClientPlayHandler()
     {
         return sidedDelegate.getClientPlayHandler();
     }
@@ -578,7 +578,7 @@ public class FMLCommonHandler
         sidedDelegate.waitForPlayClient();
     }
 
-    public void fireNetRegistrationEvent(NetworkManager manager, Set<String> channelSet, String channel, Side side)
+    public void fireNetRegistrationEvent(INetworkManager manager, Set<String> channelSet, String channel, Side side)
     {
         sidedDelegate.fireNetRegistrationEvent(bus(), manager, channelSet, channel, side);
     }

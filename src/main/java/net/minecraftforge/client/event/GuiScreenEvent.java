@@ -42,7 +42,7 @@ public class GuiScreenEvent extends Event
         }
         
         /**
-         * This event fires just after initializing {@code GuiScreen.mc}, {@code GuiScreen.fontRendererObj}, 
+         * This event fires just after initializing {@code GuiScreen.mc}, {@code GuiScreen.fontRenderer}, 
          * {@code GuiScreen.width}, and {@code GuiScreen.height}, and just before calling {@code GuiScreen.buttonList.clear()} 
          * and {@code GuiScreen.initGui()}. To skip or override a screen's initGui() method cancel the event.<br/><br/>
          * 

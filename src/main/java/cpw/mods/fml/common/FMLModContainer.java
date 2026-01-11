@@ -21,9 +21,6 @@ import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.Metadata;
-import cpw.mods.fml.common.discovery.ASMDataTable;
-import cpw.mods.fml.common.discovery.ASMDataTable.ASMData;
-import cpw.mods.fml.common.discovery.ModCandidate;
 import cpw.mods.fml.common.event.FMLConstructionEvent;
 import cpw.mods.fml.common.event.FMLEvent;
 import cpw.mods.fml.common.event.FMLFingerprintViolationEvent;
@@ -32,6 +29,7 @@ import cpw.mods.fml.common.versioning.ArtifactVersion;
 import cpw.mods.fml.common.versioning.DefaultArtifactVersion;
 import cpw.mods.fml.common.versioning.VersionParser;
 import cpw.mods.fml.common.versioning.VersionRange;
+import net.fabricmc.loader.impl.discovery.ModCandidate;
 import org.apache.logging.log4j.Level;
 
 import java.io.File;
@@ -74,7 +72,7 @@ public class FMLModContainer implements ModContainer
     public FMLModContainer(String className, ModCandidate container, Map<String,Object> modDescriptor)
     {
         this.className = className;
-        this.source = container.getModContainer();
+//        this.source = container.getModContainer();
         this.candidate = container;
         this.descriptor = modDescriptor;
         this.eventMethods = ArrayListMultimap.create();
@@ -338,83 +336,83 @@ public class FMLModContainer implements ModContainer
         return factoryMethod;
     }
 
-    private void processFieldAnnotations(ASMDataTable asmDataTable) throws Exception
-    {
-        SetMultimap<String, ASMData> annotations = asmDataTable.getAnnotationsFor(this);
+//    private void processFieldAnnotations(ASMDataTable asmDataTable) throws Exception
+//    {
+//        SetMultimap<String, ASMData> annotations = asmDataTable.getAnnotationsFor(this);
+//
+//        parseSimpleFieldAnnotation(annotations, Instance.class.getName(), new Function<ModContainer, Object>()
+//        {
+//            @Override
+//            public Object apply(ModContainer mc)
+//            {
+//                return mc.getMod();
+//            }
+//        });
+//        parseSimpleFieldAnnotation(annotations, Metadata.class.getName(), new Function<ModContainer, Object>()
+//        {
+//            @Override
+//            public Object apply(ModContainer mc)
+//            {
+//                return mc.getMetadata();
+//            }
+//        });
+//    }
 
-        parseSimpleFieldAnnotation(annotations, Instance.class.getName(), new Function<ModContainer, Object>()
-        {
-            @Override
-            public Object apply(ModContainer mc)
-            {
-                return mc.getMod();
-            }
-        });
-        parseSimpleFieldAnnotation(annotations, Metadata.class.getName(), new Function<ModContainer, Object>()
-        {
-            @Override
-            public Object apply(ModContainer mc)
-            {
-                return mc.getMetadata();
-            }
-        });
-    }
-
-    private void parseSimpleFieldAnnotation(SetMultimap<String, ASMData> annotations, String annotationClassName, Function<ModContainer, Object> retreiver) throws IllegalAccessException
-    {
-        String[] annName = annotationClassName.split("\\.");
-        String annotationName = annName[annName.length - 1];
-        for (ASMData targets : annotations.get(annotationClassName))
-        {
-            String targetMod = (String) targets.getAnnotationInfo().get("value");
-            Field f = null;
-            Object injectedMod = null;
-            ModContainer mc = this;
-            boolean isStatic = false;
-            Class<?> clz = modInstance.getClass();
-            if (!Strings.isNullOrEmpty(targetMod))
-            {
-                if (Loader.isModLoaded(targetMod))
-                {
-                    mc = Loader.instance().getIndexedModList().get(targetMod);
-                }
-                else
-                {
-                    mc = null;
-                }
-            }
-            if (mc != null)
-            {
-                try
-                {
-                    clz = Class.forName(targets.getClassName(), true, Loader.instance().getModClassLoader());
-                    f = clz.getDeclaredField(targets.getObjectName());
-                    f.setAccessible(true);
-                    isStatic = Modifier.isStatic(f.getModifiers());
-                    injectedMod = retreiver.apply(mc);
-                }
-                catch (Exception e)
-                {
-                    Throwables.propagateIfPossible(e);
-                    FMLLog.log(getModId(), Level.WARN, e, "Attempting to load @%s in class %s for %s and failing", annotationName, targets.getClassName(), mc.getModId());
-                }
-            }
-            if (f != null)
-            {
-                Object target = null;
-                if (!isStatic)
-                {
-                    target = modInstance;
-                    if (!modInstance.getClass().equals(clz))
-                    {
-                        FMLLog.log(getModId(), Level.WARN, "Unable to inject @%s in non-static field %s.%s for %s as it is NOT the primary mod instance", annotationName, targets.getClassName(), targets.getObjectName(), mc.getModId());
-                        continue;
-                    }
-                }
-                f.set(target, injectedMod);
-            }
-        }
-    }
+//    private void parseSimpleFieldAnnotation(SetMultimap<String, ASMData> annotations, String annotationClassName, Function<ModContainer, Object> retreiver) throws IllegalAccessException
+//    {
+//        String[] annName = annotationClassName.split("\\.");
+//        String annotationName = annName[annName.length - 1];
+//        for (ASMData targets : annotations.get(annotationClassName))
+//        {
+//            String targetMod = (String) targets.getAnnotationInfo().get("value");
+//            Field f = null;
+//            Object injectedMod = null;
+//            ModContainer mc = this;
+//            boolean isStatic = false;
+//            Class<?> clz = modInstance.getClass();
+//            if (!Strings.isNullOrEmpty(targetMod))
+//            {
+//                if (Loader.isModLoaded(targetMod))
+//                {
+//                    mc = Loader.instance().getIndexedModList().get(targetMod);
+//                }
+//                else
+//                {
+//                    mc = null;
+//                }
+//            }
+//            if (mc != null)
+//            {
+//                try
+//                {
+//                    clz = Class.forName(targets.getClassName(), true, Loader.instance().getModClassLoader());
+//                    f = clz.getDeclaredField(targets.getObjectName());
+//                    f.setAccessible(true);
+//                    isStatic = Modifier.isStatic(f.getModifiers());
+//                    injectedMod = retreiver.apply(mc);
+//                }
+//                catch (Exception e)
+//                {
+//                    Throwables.propagateIfPossible(e);
+//                    FMLLog.log(getModId(), Level.WARN, e, "Attempting to load @%s in class %s for %s and failing", annotationName, targets.getClassName(), mc.getModId());
+//                }
+//            }
+//            if (f != null)
+//            {
+//                Object target = null;
+//                if (!isStatic)
+//                {
+//                    target = modInstance;
+//                    if (!modInstance.getClass().equals(clz))
+//                    {
+//                        FMLLog.log(getModId(), Level.WARN, "Unable to inject @%s in non-static field %s.%s for %s as it is NOT the primary mod instance", annotationName, targets.getClassName(), targets.getObjectName(), mc.getModId());
+//                        continue;
+//                    }
+//                }
+//                f.set(target, injectedMod);
+//            }
+//        }
+//    }
 
     @Subscribe
     public void constructMod(FMLConstructionEvent event)
@@ -423,7 +421,7 @@ public class FMLModContainer implements ModContainer
         {
             ModClassLoader modClassLoader = event.getModClassLoader();
             modClassLoader.addFile(source);
-            modClassLoader.clearNegativeCacheFor(candidate.getClassList());
+//            modClassLoader.clearNegativeCacheFor(candidate.getClassList());
             Class<?> clazz = Class.forName(className, true, modClassLoader);
 
             Certificate[] certificates = clazz.getProtectionDomain().getCodeSource().getCertificates();
@@ -496,8 +494,8 @@ public class FMLModContainer implements ModContainer
             {
                 eventBus.post(new FMLFingerprintViolationEvent(source.isDirectory(), source, ImmutableSet.copyOf(this.sourceFingerprints), expectedFingerprint));
             }
-            ProxyInjector.inject(this, event.getASMHarvestedData(), FMLCommonHandler.instance().getSide(), getLanguageAdapter());
-            processFieldAnnotations(event.getASMHarvestedData());
+//            ProxyInjector.inject(this, event.getASMHarvestedData(), FMLCommonHandler.instance().getSide(), getLanguageAdapter());
+//            processFieldAnnotations(event.getASMHarvestedData());
         }
         catch (Throwable e)
         {

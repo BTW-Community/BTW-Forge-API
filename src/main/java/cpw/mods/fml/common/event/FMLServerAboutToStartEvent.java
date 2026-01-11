@@ -13,7 +13,7 @@
 package cpw.mods.fml.common.event;
 
 import cpw.mods.fml.common.LoaderState.ModState;
-import net.minecraft.src.MinecraftServer;
+import net.minecraft.server.MinecraftServer;
 
 public class FMLServerAboutToStartEvent extends FMLStateEvent {
 

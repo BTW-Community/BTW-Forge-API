@@ -8,8 +8,8 @@ import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
 import org.apache.logging.log4j.Level;
+import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nonnull;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -32,7 +32,7 @@ public class EventBus implements IEventExceptionHandler
         exceptionHandler = this;
     }
 
-    public EventBus(@Nonnull IEventExceptionHandler handler)
+    public EventBus(@NotNull IEventExceptionHandler handler)
     {
         this();
         Preconditions.checkArgument(handler != null, "EventBus exception handler can not be null");

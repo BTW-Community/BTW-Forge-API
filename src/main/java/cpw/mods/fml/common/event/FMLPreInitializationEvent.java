@@ -16,7 +16,6 @@ import cpw.mods.fml.common.FMLModContainer;
 import cpw.mods.fml.common.LoaderState.ModState;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.ModMetadata;
-import cpw.mods.fml.common.discovery.ASMDataTable;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -31,13 +30,13 @@ public class FMLPreInitializationEvent extends FMLStateEvent
     private File sourceFile;
     private File configurationDir;
     private File suggestedConfigFile;
-    private ASMDataTable asmData;
+//    private ASMDataTable asmData;
     private ModContainer modContainer;
 
     public FMLPreInitializationEvent(Object... data)
     {
         super(data);
-        this.asmData = (ASMDataTable)data[0];
+//        this.asmData = (ASMDataTable)data[0];
         this.configurationDir = (File)data[1];
     }
 
@@ -76,10 +75,10 @@ public class FMLPreInitializationEvent extends FMLStateEvent
         return suggestedConfigFile;
     }
 
-    public ASMDataTable getAsmData()
-    {
-        return asmData;
-    }
+//    public ASMDataTable getAsmData()
+//    {
+//        return asmData;
+//    }
 
     public Properties getVersionProperties()
     {

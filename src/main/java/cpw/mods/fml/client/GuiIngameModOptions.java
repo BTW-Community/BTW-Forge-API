@@ -50,12 +50,12 @@ public class GuiIngameModOptions extends GuiScreen
         // force a non-transparent background
         this.drawDefaultBackground();
         this.optionList.drawScreen(mouseX, mouseY, partialTicks);
-        this.drawCenteredString(this.fontRendererObj, this.title, this.width / 2, 15, 0xFFFFFF);
+        this.drawCenteredString(this.fontRenderer, this.title, this.width / 2, 15, 0xFFFFFF);
         super.drawScreen(mouseX, mouseY, partialTicks);
     }
 
     FontRenderer getFontRenderer() {
-        return fontRendererObj;
+        return fontRenderer;
     }
 
 }

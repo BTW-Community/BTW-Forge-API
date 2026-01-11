@@ -12,7 +12,7 @@ import static cpw.mods.fml.common.eventhandler.Event.Result.DENY;
  * <br>
  * This event is fired whenever a player interacts in
  * Minecraft#func_147121_ag(),
- * NetHandlerPlayServer#processPlayerBlockPlacement(C08PacketPlayerBlockPlacement),
+ * NetServerHandler#processPlayerBlockPlacement(C08PacketPlayerBlockPlacement),
  * ItemInWorldManager#activateBlockOrUseItem(EntityPlayer, World, ItemStack, int, int, int, int, float, float, float),
  * ItemInWorldManager#onBlockClicked(int, int, int, int). <br>
  * <br>

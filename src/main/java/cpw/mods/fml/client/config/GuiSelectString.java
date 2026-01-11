@@ -162,13 +162,13 @@ public class GuiSelectString extends GuiScreen
     {
         this.drawDefaultBackground();
         this.entriesList.drawScreen(par1, par2, par3);
-        this.drawCenteredString(this.fontRendererObj, this.title, this.width / 2, 8, 16777215);
+        this.drawCenteredString(this.fontRenderer, this.title, this.width / 2, 8, 16777215);
 
         if (this.titleLine2 != null)
-            this.drawCenteredString(this.fontRendererObj, this.titleLine2, this.width / 2, 18, 16777215);
+            this.drawCenteredString(this.fontRenderer, this.titleLine2, this.width / 2, 18, 16777215);
 
         if (this.titleLine3 != null)
-            this.drawCenteredString(this.fontRendererObj, this.titleLine3, this.width / 2, 28, 16777215);
+            this.drawCenteredString(this.fontRenderer, this.titleLine3, this.width / 2, 28, 16777215);
 
         this.btnDone.enabled = currentValue != null;
         this.btnDefault.enabled = enabled && !this.entriesList.isDefault();

@@ -7,8 +7,8 @@ import net.minecraft.src.ChatComponentTranslation;
 
 /**
  * ServerChatEvent is fired whenever a C01PacketChatMessage is processed. <br>
- * This event is fired via {@link ForgeHooks#onServerChatEvent(net.minecraft.network.NetHandlerPlayServer, String, ChatComponentTranslation)}, 
- * which is executed by the NetHandlerPlayServer#processChatMessage(net.minecraft.network.play.client.C01PacketChatMessage)<br>
+ * This event is fired via {@link ForgeHooks#onServerChatEvent(net.minecraft.network.NetServerHandler, String, ChatComponentTranslation)}, 
+ * which is executed by the NetServerHandler#processChatMessage(net.minecraft.network.play.client.C01PacketChatMessage)<br>
  * <br>
  * {@link #username} contains the username of the player sending the chat message.<br>
  * {@link #message} contains the message being sent.<br>

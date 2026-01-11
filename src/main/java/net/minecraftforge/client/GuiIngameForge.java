@@ -4,7 +4,7 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraft.src.Material;
 import net.minecraft.src.Minecraft;
 import net.minecraft.client.gui.*;
-import net.minecraft.src.NetHandlerPlayClient;
+import net.minecraft.src.NetClientHandler;
 import net.minecraft.src.OpenGlHelper;
 import net.minecraft.src.RenderHelper;
 import net.minecraft.src.I18n;
@@ -759,7 +759,7 @@ public class GuiIngameForge extends GuiIngame
     protected void renderPlayerList(int width, int height)
     {
         ScoreObjective scoreobjective = this.mc.theWorld.getScoreboard().func_96539_a(0);
-        NetHandlerPlayClient handler = mc.thePlayer.sendQueue;
+        NetClientHandler handler = mc.thePlayer.sendQueue;
 
         if (mc.gameSettings.keyBindPlayerList.getIsKeyPressed() && (!mc.isIntegratedServerRunning() || handler.playerInfoList.size() > 1 || scoreobjective != null))
         {

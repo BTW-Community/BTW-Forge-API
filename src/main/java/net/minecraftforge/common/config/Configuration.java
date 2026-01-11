@@ -10,7 +10,6 @@ import com.google.common.collect.ImmutableSet;
 import cpw.mods.fml.client.config.GuiConfigEntries.IConfigEntry;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.relauncher.FMLInjectionData;
 
 import java.io.*;
 import java.text.SimpleDateFormat;

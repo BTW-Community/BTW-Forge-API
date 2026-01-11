@@ -1,9 +1,9 @@
 package cpw.mods.fml.common.eventhandler;
 
 import com.google.common.base.Preconditions;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
@@ -131,7 +131,7 @@ public class Event
         return this.phase;
     }
 
-    public void setPhase(@Nonnull EventPriority value)
+    public void setPhase(@NotNull EventPriority value)
     {
         Preconditions.checkArgument(value != null, "setPhase argument must not be null");
         int prev = phase == null ? -1 : phase.ordinal();

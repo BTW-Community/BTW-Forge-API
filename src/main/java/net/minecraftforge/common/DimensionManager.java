@@ -7,7 +7,7 @@ import com.google.common.collect.Multiset;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.MinecraftServer;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.*;
 import net.minecraft.src.ISaveHandler;
 import net.minecraft.src.SaveHandler;

@@ -47,3 +47,4 @@ accessible method net/minecraft/src/TextureUtil copyToBufferPos ([III)V
 accessible field net/minecraft/src/TextureUtil dataBuffer Ljava/nio/IntBuffer;
 accessible class api/achievement/AchievementProvider$AchievementBuilder
 accessible method api/achievement/AchievementProvider$AchievementBuilder <init> (Ljava/lang/Class;)V
+accessible field net/minecraft/src/SaveFormatOld savesDirectory Ljava/io/File;

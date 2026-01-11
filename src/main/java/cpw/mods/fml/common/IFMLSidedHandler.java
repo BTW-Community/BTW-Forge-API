@@ -14,9 +14,9 @@ package cpw.mods.fml.common;
 
 import cpw.mods.fml.common.eventhandler.EventBus;
 import cpw.mods.fml.relauncher.Side;
-import net.minecraft.src.INetHandler;
-import net.minecraft.src.NetworkManager;
-import net.minecraft.src.MinecraftServer;
+import net.minecraft.src.NetHandler;
+import net.minecraft.src.INetworkManager;
+import net.minecraft.server.MinecraftServer;
 
 import java.io.File;
 import java.util.List;
@@ -50,13 +50,13 @@ public interface IFMLSidedHandler
 
     void serverStopped();
 
-    NetworkManager getClientToServerNetworkManager();
+    INetworkManager getClientToServerNetworkManager();
 
-    INetHandler getClientPlayHandler();
+    NetHandler getClientPlayHandler();
 
     void waitForPlayClient();
 
-    void fireNetRegistrationEvent(EventBus bus, NetworkManager manager, Set<String> channelSet, String channel, Side side);
+    void fireNetRegistrationEvent(EventBus bus, INetworkManager manager, Set<String> channelSet, String channel, Side side);
 
     boolean shouldAllowPlayerLogins();
 

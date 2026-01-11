@@ -20,10 +20,10 @@ import cpw.mods.fml.common.network.FMLNetworkEvent;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.src.ServerCommand;
-import net.minecraft.src.INetHandler;
-import net.minecraft.src.NetHandlerPlayServer;
-import net.minecraft.src.NetworkManager;
-import net.minecraft.src.MinecraftServer;
+import net.minecraft.src.NetHandler;
+import net.minecraft.src.NetServerHandler;
+import net.minecraft.src.INetworkManager;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.DedicatedServer;
 import net.minecraft.src.SaveFormatOld;
 
@@ -226,12 +226,12 @@ public class FMLServerHandler implements IFMLSidedHandler
         // NOOP
     }
     @Override
-    public NetworkManager getClientToServerNetworkManager()
+    public INetworkManager getClientToServerNetworkManager()
     {
         throw new RuntimeException("Missing");
     }
     @Override
-    public INetHandler getClientPlayHandler()
+    public NetHandler getClientPlayHandler()
     {
         return null;
     }
@@ -242,9 +242,9 @@ public class FMLServerHandler implements IFMLSidedHandler
     }
 
     @Override
-    public void fireNetRegistrationEvent(EventBus bus, NetworkManager manager, Set<String> channelSet, String channel, Side side)
+    public void fireNetRegistrationEvent(EventBus bus, INetworkManager manager, Set<String> channelSet, String channel, Side side)
     {
-        bus.post(new FMLNetworkEvent.CustomPacketRegistrationEvent<NetHandlerPlayServer>(manager, channelSet, channel, side, NetHandlerPlayServer.class));
+        bus.post(new FMLNetworkEvent.CustomPacketRegistrationEvent<NetServerHandler>(manager, channelSet, channel, side, NetServerHandler.class));
     }
 
     @Override

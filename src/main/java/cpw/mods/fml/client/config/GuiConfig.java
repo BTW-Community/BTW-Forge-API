@@ -340,7 +340,7 @@ public class GuiConfig extends GuiScreen
     {
         this.drawDefaultBackground();
         this.entryList.drawScreen(mouseX, mouseY, partialTicks);
-        this.drawCenteredString(this.fontRendererObj, this.title, this.width / 2, 8, 16777215);
+        this.drawCenteredString(this.fontRenderer, this.title, this.width / 2, 8, 16777215);
         String title2 = this.titleLine2;
 
         if (title2 != null)
@@ -349,7 +349,7 @@ public class GuiConfig extends GuiScreen
             int elipsisWidth = mc.fontRenderer.getStringWidth("...");
             if (strWidth > width - 6 && strWidth > elipsisWidth)
                 title2 = mc.fontRenderer.trimStringToWidth(title2, width - 6 - elipsisWidth).trim() + "...";
-            this.drawCenteredString(this.fontRendererObj, title2, this.width / 2, 18, 16777215);
+            this.drawCenteredString(this.fontRenderer, title2, this.width / 2, 18, 16777215);
         }
 
         this.btnUndoAll.enabled = this.entryList.areAnyEntriesEnabled(this.chkApplyGlobally.isChecked()) && this.entryList.hasChangedEntry(this.chkApplyGlobally.isChecked());

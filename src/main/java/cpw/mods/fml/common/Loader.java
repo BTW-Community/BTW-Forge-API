@@ -25,14 +25,11 @@ import com.google.gson.JsonParser;
 import cpw.mods.fml.common.LoaderState.ModState;
 import cpw.mods.fml.common.ModContainer.Disableable;
 import cpw.mods.fml.common.ProgressManager.ProgressBar;
-import cpw.mods.fml.common.discovery.ModDiscoverer;
 import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLLoadEvent;
 import cpw.mods.fml.common.event.FMLMissingMappingsEvent;
 import cpw.mods.fml.common.event.FMLMissingMappingsEvent.MissingMapping;
 import cpw.mods.fml.common.event.FMLModIdMappingEvent;
-import cpw.mods.fml.common.functions.ArtifactVersionNameFunction;
-import cpw.mods.fml.common.functions.ModIdFunction;
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry.Type;
 import cpw.mods.fml.common.registry.ItemStackHolderInjector;
@@ -43,7 +40,6 @@ import cpw.mods.fml.common.toposort.ModSortingException.SortingExceptionData;
 import cpw.mods.fml.common.toposort.TopologicalSort;
 import cpw.mods.fml.common.versioning.ArtifactVersion;
 import cpw.mods.fml.common.versioning.VersionParser;
-import cpw.mods.fml.relauncher.ModListHelper;
 import cpw.mods.fml.relauncher.Side;
 import org.apache.logging.log4j.Level;
 
@@ -133,7 +129,6 @@ public class Loader
     private static List<String> injectedContainers;
     private ImmutableMap<String, String> fmlBrandingProperties;
     private File forcedModFile;
-    private ModDiscoverer discoverer;
     private ProgressBar progressBar;
 
     public static Loader instance()
@@ -294,46 +289,46 @@ public class Loader
      * Finally, if they are successfully loaded as classes, they are then added
      * to the available mod list.
      */
-    private ModDiscoverer identifyMods()
-    {
-        FMLLog.fine("Building injected Mod Containers %s", injectedContainers);
-        // Add in the MCP mod container
-        mods.add(new InjectedModContainer(mcp,new File("minecraft.jar")));
-        for (String cont : injectedContainers)
-        {
-            ModContainer mc;
-            try
-            {
-                mc = (ModContainer) Class.forName(cont,true,modClassLoader).newInstance();
-            }
-            catch (Exception e)
-            {
-                FMLLog.log(Level.ERROR, e, "A problem occured instantiating the injected mod container %s", cont);
-                throw new LoaderException(e);
-            }
-            mods.add(new InjectedModContainer(mc,mc.getSource()));
-        }
-        ModDiscoverer discoverer = new ModDiscoverer();
-        FMLLog.fine("Attempting to load mods contained in the minecraft jar file and associated classes");
-        discoverer.findClasspathMods(modClassLoader);
-        FMLLog.fine("Minecraft jar mods loaded successfully");
-
-        FMLLog.getLogger().log(Level.INFO, "Found {} mods from the command line. Injecting into mod discoverer",ModListHelper.additionalMods.size());
-        FMLLog.info("Searching %s for mods", canonicalModsDir.getAbsolutePath());
-        discoverer.findModDirMods(canonicalModsDir, ModListHelper.additionalMods.values().toArray(new File[0]));
-        File versionSpecificModsDir = new File(canonicalModsDir,mccversion);
-        if (versionSpecificModsDir.isDirectory())
-        {
-            FMLLog.info("Also searching %s for mods", versionSpecificModsDir);
-            discoverer.findModDirMods(versionSpecificModsDir);
-        }
-
-        mods.addAll(discoverer.identifyMods());
-        identifyDuplicates(mods);
-        namedMods = Maps.uniqueIndex(mods, new ModIdFunction());
-        FMLLog.info("Forge Mod Loader has identified %d mod%s to load", mods.size(), mods.size() != 1 ? "s" : "");
-        return discoverer;
-    }
+//    private ModDiscoverer identifyMods()
+//    {
+//        FMLLog.fine("Building injected Mod Containers %s", injectedContainers);
+//        // Add in the MCP mod container
+//        mods.add(new InjectedModContainer(mcp,new File("minecraft.jar")));
+//        for (String cont : injectedContainers)
+//        {
+//            ModContainer mc;
+//            try
+//            {
+//                mc = (ModContainer) Class.forName(cont,true,modClassLoader).newInstance();
+//            }
+//            catch (Exception e)
+//            {
+//                FMLLog.log(Level.ERROR, e, "A problem occured instantiating the injected mod container %s", cont);
+//                throw new LoaderException(e);
+//            }
+//            mods.add(new InjectedModContainer(mc,mc.getSource()));
+//        }
+//        ModDiscoverer discoverer = new ModDiscoverer();
+//        FMLLog.fine("Attempting to load mods contained in the minecraft jar file and associated classes");
+//        discoverer.findClasspathMods(modClassLoader);
+//        FMLLog.fine("Minecraft jar mods loaded successfully");
+//
+//        FMLLog.getLogger().log(Level.INFO, "Found {} mods from the command line. Injecting into mod discoverer",ModListHelper.additionalMods.size());
+//        FMLLog.info("Searching %s for mods", canonicalModsDir.getAbsolutePath());
+//        discoverer.findModDirMods(canonicalModsDir, ModListHelper.additionalMods.values().toArray(new File[0]));
+//        File versionSpecificModsDir = new File(canonicalModsDir,mccversion);
+//        if (versionSpecificModsDir.isDirectory())
+//        {
+//            FMLLog.info("Also searching %s for mods", versionSpecificModsDir);
+//            discoverer.findModDirMods(versionSpecificModsDir);
+//        }
+//
+//        mods.addAll(discoverer.identifyMods());
+//        identifyDuplicates(mods);
+//        namedMods = Maps.uniqueIndex(mods, new ModIdFunction());
+//        FMLLog.info("Forge Mod Loader has identified %d mod%s to load", mods.size(), mods.size() != 1 ? "s" : "");
+//        return discoverer;
+//    }
 
     private class ModIdComparator implements Comparator<ModContainer>
     {
@@ -518,8 +513,8 @@ public class Loader
             FMLLog.warning("There were errors previously. Not beginning mod initialization phase");
             return;
         }
-        ObjectHolderRegistry.INSTANCE.findObjectHolders(discoverer.getASMTable());
-        ItemStackHolderInjector.INSTANCE.findHolders(discoverer.getASMTable());
+//        ObjectHolderRegistry.INSTANCE.findObjectHolders(discoverer.getASMTable());
+//        ItemStackHolderInjector.INSTANCE.findHolders(discoverer.getASMTable());
         modController.distributeStateMessage(LoaderState.PREINITIALIZATION, discoverer.getASMTable(), canonicalConfigDir);
         ObjectHolderRegistry.INSTANCE.applyObjectHolders();
         ItemStackHolderInjector.INSTANCE.inject();

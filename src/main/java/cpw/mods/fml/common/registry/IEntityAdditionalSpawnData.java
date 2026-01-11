@@ -12,7 +12,8 @@
 
 package cpw.mods.fml.common.registry;
 
-import io.netty.buffer.ByteBuf;
+import com.google.common.io.ByteArrayDataInput;
+import com.google.common.io.ByteArrayDataOutput;
 
 /**
  * A interface for Entities that need extra information to be communicated
@@ -26,13 +27,13 @@ public interface IEntityAdditionalSpawnData
      *
      * @param buffer The packet data stream
      */
-    public void writeSpawnData(ByteBuf buffer);
+    public void writeSpawnData(ByteArrayDataOutput buffer);
 
     /**
      * Called by the client when it receives a Entity spawn packet.
      * Data should be read out of the stream in the same way as it was written.
      *
-     * @param data The packet data stream
+     * @param additionalData The packet data stream
      */
-    public void readSpawnData(ByteBuf additionalData);
+    public void readSpawnData(ByteArrayDataInput additionalData);
 }

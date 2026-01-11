@@ -78,7 +78,7 @@ public class MinecraftForge
            "net.minecraft.server.MinecraftServer$5",
            "net.minecraft.nbt.NBTTagCompound$1",
            "net.minecraft.nbt.NBTTagCompound$2",
-           "net.minecraft.network.NetHandlerPlayServer$2",
+           "net.minecraft.network.NetServerHandler$2",
            "net.minecraft.network.NetworkSystem$3",
            "net.minecraft.tileentity.TileEntity$1",
            "net.minecraft.tileentity.TileEntity$2",
