@@ -317,23 +317,24 @@ public class FMLClientHandler implements IFMLSidedHandler
 //    }
     public void onInitializationComplete()
     {
-        if (wrongMC != null)
-        {
-            showGuiScreen(new GuiWrongMinecraft(wrongMC));
-        }
-        else if (modsMissing != null)
-        {
-            showGuiScreen(new GuiModsMissing(modsMissing));
-        }
-        else if (dupesFound != null)
-        {
-            showGuiScreen(new GuiDupesFound(dupesFound));
-        }
-        else if (modSorting != null)
-        {
-            showGuiScreen(new GuiSortingProblem(modSorting));
-        }
-        else if (customError != null)
+//        if (wrongMC != null)
+//        {
+//            showGuiScreen(new GuiWrongMinecraft(wrongMC));
+//        }
+//        else if (modsMissing != null)
+//        {
+//            showGuiScreen(new GuiModsMissing(modsMissing));
+//        }
+//        else if (dupesFound != null)
+//        {
+//            showGuiScreen(new GuiDupesFound(dupesFound));
+//        }
+//        else if (modSorting != null)
+//        {
+//            showGuiScreen(new GuiSortingProblem(modSorting));
+//        }
+//        else
+            if (customError != null)
         {
             showGuiScreen(new GuiCustomModLoadingErrorScreen(customError));
         }
@@ -622,13 +623,13 @@ public class FMLClientHandler implements IFMLSidedHandler
                 return;
             }
         }
-        NBTTagCompound fmlData = leveldat.getCompoundTag("FML");
-        if (fmlData.hasKey("ModItemData"))
-        {
-            showGuiScreen(new GuiOldSaveLoadConfirm(dirName, saveName, selectWorldGUI));
-        }
-        else
-        {
+//        NBTTagCompound fmlData = leveldat.getCompoundTag("FML");
+//        if (fmlData.hasKey("ModItemData"))
+//        {
+//            showGuiScreen(new GuiOldSaveLoadConfirm(dirName, saveName, selectWorldGUI));
+//        }
+//        else
+//        {
             try
             {
                 client.launchIntegratedServer(dirName, saveName, (WorldSettings)null);
@@ -637,7 +638,7 @@ public class FMLClientHandler implements IFMLSidedHandler
             {
                 // ignore
             }
-        }
+//        }
     }
 
     public void showInGameModOptions(GuiIngameMenu guiIngameMenu)
