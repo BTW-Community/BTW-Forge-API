@@ -5,6 +5,7 @@ import api.BTWAddon;
 
 public class BTNForgeAddon extends BTWAddon {
     public static BTNForgeAddon INSTANCE = new BTNForgeAddon();
+    public static final String MOD_ID = "betterthannothing";
 
     public BTNForgeAddon() {
         super();
@@ -12,7 +13,6 @@ public class BTNForgeAddon extends BTWAddon {
 
     @Override
     public void postSetup() {
-        this.modID = "btn";
         BTWAddon.addResourcePackDomain("forge");
     }
 
