@@ -86,7 +86,7 @@ public class ForgeGuiFactory implements IModGuiFactory
     {
         public ForgeConfigGui(GuiScreen parentScreen)
         {
-            super(parentScreen, getConfigElements(), "Forge", false, false, I18n.format("forge.configgui.forgeConfigTitle"));
+            super(parentScreen, getConfigElements(), "Forge", false, false, I18n.getString("forge.configgui.forgeConfigTitle"));
         }
         
         private static List<IConfigElement> getConfigElements()
@@ -147,7 +147,7 @@ public class ForgeGuiFactory implements IModGuiFactory
                         this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart, 
                         this.configElement.requiresMcRestart() || this.owningScreen.allRequireMcRestart,
                         GuiConfig.getAbridgedConfigPath(ForgeChunkManager.getConfig().toString()),
-                        I18n.format("forge.configgui.ctgy.forgeChunkLoadingConfig"));
+                        I18n.getString("forge.configgui.ctgy.forgeChunkLoadingConfig"));
             }
         }
         
@@ -179,7 +179,7 @@ public class ForgeGuiFactory implements IModGuiFactory
                 return new GuiConfig(this.owningScreen, list, this.owningScreen.modID,
                         this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart,
                         this.configElement.requiresMcRestart() || this.owningScreen.allRequireMcRestart, this.owningScreen.title, 
-                        I18n.format("forge.configgui.ctgy.forgeChunkLoadingModConfig"));
+                        I18n.getString("forge.configgui.ctgy.forgeChunkLoadingModConfig"));
             }
             
             /**
@@ -255,7 +255,7 @@ public class ForgeGuiFactory implements IModGuiFactory
                 return new GuiConfig(this.owningScreen, list, this.owningScreen.modID,
                         this.configElement.requiresWorldRestart() || this.owningScreen.allRequireWorldRestart,
                         this.configElement.requiresMcRestart() || this.owningScreen.allRequireMcRestart, this.owningScreen.title,
-                        I18n.format("forge.configgui.ctgy.forgeChunkLoadingAddModConfig"));
+                        I18n.getString("forge.configgui.ctgy.forgeChunkLoadingAddModConfig"));
             }
             
             @Override

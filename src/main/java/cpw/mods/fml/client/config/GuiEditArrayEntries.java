@@ -484,7 +484,7 @@ public class GuiEditArrayEntries extends GuiListExtended
         {
             super(owningScreen, owningEntryList, configElement);
             this.value = value;
-            this.btnValue = new GuiButtonExt(0, 0, 0, owningEntryList.controlWidth, 18, I18n.format(String.valueOf(value)));
+            this.btnValue = new GuiButtonExt(0, 0, 0, owningEntryList.controlWidth, 18, I18n.getString(String.valueOf(value)));
             this.btnValue.enabled = owningScreen.enabled;
             this.isValidated = false;
         }
@@ -496,7 +496,7 @@ public class GuiEditArrayEntries extends GuiListExtended
             this.btnValue.xPosition = listWidth / 4;
             this.btnValue.yPosition = y;
 
-            String trans = I18n.format(String.valueOf(value));
+            String trans = I18n.getString(String.valueOf(value));
             if (!trans.equals(String.valueOf(value)))
                 this.btnValue.displayString = trans;
             else
@@ -569,8 +569,8 @@ public class GuiEditArrayEntries extends GuiListExtended
             this.removeEntryHoverChecker = new HoverChecker(this.btnRemoveEntry, 800);
             this.addNewToolTip = new ArrayList();
             this.removeToolTip = new ArrayList();
-            addNewToolTip.add(I18n.format("fml.configgui.tooltip.addNewEntryAbove"));
-            removeToolTip.add(I18n.format("fml.configgui.tooltip.removeEntry"));
+            addNewToolTip.add(I18n.getString("fml.configgui.tooltip.addNewEntryAbove"));
+            removeToolTip.add(I18n.getString("fml.configgui.tooltip.removeEntry"));
         }
 
         @Override

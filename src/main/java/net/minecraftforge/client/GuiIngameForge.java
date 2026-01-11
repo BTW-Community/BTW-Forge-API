@@ -620,11 +620,11 @@ public class GuiIngameForge extends GuiIngame
             long time = mc.theWorld.getTotalWorldTime();
             if (time >= 120500L)
             {
-                right.add(I18n.format("demo.demoExpired"));
+                right.add(I18n.getString("demo.demoExpired"));
             }
             else
             {
-                right.add(I18n.format("demo.remainingTime", StringUtils.ticksToElapsedTime((int)(120500L - time))));
+                right.add(I18n.getString("demo.remainingTime", StringUtils.ticksToElapsedTime((int)(120500L - time))));
             }
         }
 

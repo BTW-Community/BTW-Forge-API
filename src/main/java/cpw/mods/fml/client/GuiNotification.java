@@ -19,7 +19,7 @@ public class GuiNotification extends GuiScreen
     @Override
     public void initGui()
     {
-        this.buttonList.add(new GuiButton(0, this.width / 2 - 100, this.height - 38, I18n.format("gui.done")));
+        this.buttonList.add(new GuiButton(0, this.width / 2 - 100, this.height - 38, I18n.getString("gui.done")));
     }
 
     @Override

@@ -196,18 +196,18 @@ public class GuiConfig extends GuiScreen
 
         int undoGlyphWidth = mc.fontRenderer.getStringWidth(UNDO_CHAR) * 2;
         int resetGlyphWidth = mc.fontRenderer.getStringWidth(RESET_CHAR) * 2;
-        int doneWidth = Math.max(mc.fontRenderer.getStringWidth(I18n.format("gui.done")) + 20, 100);
-        int undoWidth = mc.fontRenderer.getStringWidth(" " + I18n.format("fml.configgui.tooltip.undoChanges")) + undoGlyphWidth + 20;
-        int resetWidth = mc.fontRenderer.getStringWidth(" " + I18n.format("fml.configgui.tooltip.resetToDefault")) + resetGlyphWidth + 20;
-        int checkWidth = mc.fontRenderer.getStringWidth(I18n.format("fml.configgui.applyGlobally")) + 13;
+        int doneWidth = Math.max(mc.fontRenderer.getStringWidth(I18n.getString("gui.done")) + 20, 100);
+        int undoWidth = mc.fontRenderer.getStringWidth(" " + I18n.getString("fml.configgui.tooltip.undoChanges")) + undoGlyphWidth + 20;
+        int resetWidth = mc.fontRenderer.getStringWidth(" " + I18n.getString("fml.configgui.tooltip.resetToDefault")) + resetGlyphWidth + 20;
+        int checkWidth = mc.fontRenderer.getStringWidth(I18n.getString("fml.configgui.applyGlobally")) + 13;
         int buttonWidthHalf = (doneWidth + 5 + undoWidth + 5 + resetWidth + 5 + checkWidth) / 2;
-        this.buttonList.add(new GuiButtonExt(2000, this.width / 2 - buttonWidthHalf, this.height - 29, doneWidth, 20, I18n.format("gui.done")));
+        this.buttonList.add(new GuiButtonExt(2000, this.width / 2 - buttonWidthHalf, this.height - 29, doneWidth, 20, I18n.getString("gui.done")));
         this.buttonList.add(this.btnDefaultAll = new GuiUnicodeGlyphButton(2001, this.width / 2 - buttonWidthHalf + doneWidth + 5 + undoWidth + 5,
-                this.height - 29, resetWidth, 20, " " + I18n.format("fml.configgui.tooltip.resetToDefault"), RESET_CHAR, 2.0F));
+                this.height - 29, resetWidth, 20, " " + I18n.getString("fml.configgui.tooltip.resetToDefault"), RESET_CHAR, 2.0F));
         this.buttonList.add(btnUndoAll = new GuiUnicodeGlyphButton(2002, this.width / 2 - buttonWidthHalf + doneWidth + 5,
-                this.height - 29, undoWidth, 20, " " + I18n.format("fml.configgui.tooltip.undoChanges"), UNDO_CHAR, 2.0F));
+                this.height - 29, undoWidth, 20, " " + I18n.getString("fml.configgui.tooltip.undoChanges"), UNDO_CHAR, 2.0F));
         this.buttonList.add(chkApplyGlobally = new GuiCheckBox(2003, this.width / 2 - buttonWidthHalf + doneWidth + 5 + undoWidth + 5 + resetWidth + 5,
-                this.height - 24, I18n.format("fml.configgui.applyGlobally"), false));
+                this.height - 24, I18n.getString("fml.configgui.applyGlobally"), false));
 
         this.undoHoverChecker = new HoverChecker(this.btnUndoAll, 800);
         this.resetHoverChecker = new HoverChecker(this.btnDefaultAll, 800);
@@ -258,7 +258,7 @@ public class GuiConfig extends GuiScreen
                         {
                             flag = false;
                             mc.displayGuiScreen(new GuiMessageDialog(parentScreen, "fml.configgui.gameRestartTitle", 
-                                    new ChatComponentText(I18n.format("fml.configgui.gameRestartRequired")), "fml.configgui.confirmRestartMessage"));
+                                    new ChatComponentText(I18n.getString("fml.configgui.gameRestartRequired")), "fml.configgui.confirmRestartMessage"));
                         }
                         
                         if (this.parentScreen instanceof GuiConfig)
@@ -357,11 +357,11 @@ public class GuiConfig extends GuiScreen
         super.drawScreen(mouseX, mouseY, partialTicks);
         this.entryList.drawScreenPost(mouseX, mouseY, partialTicks);
         if (this.undoHoverChecker.checkHover(mouseX, mouseY))
-            this.drawToolTip(this.mc.fontRenderer.listFormattedStringToWidth(I18n.format("fml.configgui.tooltip.undoAll"), 300), mouseX, mouseY);
+            this.drawToolTip(this.mc.fontRenderer.listFormattedStringToWidth(I18n.getString("fml.configgui.tooltip.undoAll"), 300), mouseX, mouseY);
         if (this.resetHoverChecker.checkHover(mouseX, mouseY))
-            this.drawToolTip(this.mc.fontRenderer.listFormattedStringToWidth(I18n.format("fml.configgui.tooltip.resetAll"), 300), mouseX, mouseY);
+            this.drawToolTip(this.mc.fontRenderer.listFormattedStringToWidth(I18n.getString("fml.configgui.tooltip.resetAll"), 300), mouseX, mouseY);
         if (this.checkBoxHoverChecker.checkHover(mouseX, mouseY))
-            this.drawToolTip(this.mc.fontRenderer.listFormattedStringToWidth(I18n.format("fml.configgui.tooltip.applyGlobally"), 300), mouseX, mouseY);
+            this.drawToolTip(this.mc.fontRenderer.listFormattedStringToWidth(I18n.getString("fml.configgui.tooltip.applyGlobally"), 300), mouseX, mouseY);
     }
 
     @SuppressWarnings("rawtypes")

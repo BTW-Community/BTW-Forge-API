@@ -25,7 +25,7 @@ public class GuiIngameModOptions extends GuiScreen
     {
         this.optionList=new GuiModOptionList(this);
         this.optionList.registerScrollButtons(this.buttonList, 7, 8);
-        this.buttonList.add(new GuiButton(200, this.width / 2 - 100, this.height / 6 + 168, I18n.format("gui.done", new Object[0])));
+        this.buttonList.add(new GuiButton(200, this.width / 2 - 100, this.height / 6 + 168, I18n.getString("gui.done", new Object[0])));
     }
 
     @Override

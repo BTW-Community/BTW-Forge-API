@@ -61,10 +61,10 @@ public class GuiEditArray extends GuiScreen
         this.currentValues = currentValues;
         this.toolTip = new ArrayList();
         this.enabled = enabled;
-        String propName = I18n.format(configElement.getLanguageKey());
+        String propName = I18n.getString(configElement.getLanguageKey());
         String comment;
         
-        comment = I18n.format(configElement.getLanguageKey() + ".tooltip",
+        comment = I18n.getString(configElement.getLanguageKey() + ".tooltip",
                 "\n" + EnumChatFormatting.AQUA, configElement.getDefault(), configElement.getMinValue(), configElement.getMaxValue());
         
         if (!comment.equals(configElement.getLanguageKey() + ".tooltip"))
@@ -83,15 +83,15 @@ public class GuiEditArray extends GuiScreen
             if (((GuiConfig) parentScreen).titleLine2 != null)
             {
                 this.titleLine2 = ((GuiConfig) parentScreen).titleLine2;
-                this.titleLine3 = I18n.format(configElement.getLanguageKey());
+                this.titleLine3 = I18n.getString(configElement.getLanguageKey());
             }
             else
-                this.titleLine2 = I18n.format(configElement.getLanguageKey());
+                this.titleLine2 = I18n.getString(configElement.getLanguageKey());
             this.tooltipHoverChecker = new HoverChecker(28, 37, 0, parentScreen.width, 800);
         }
         else
         {
-            this.title = I18n.format(configElement.getLanguageKey());
+            this.title = I18n.getString(configElement.getLanguageKey());
             this.tooltipHoverChecker = new HoverChecker(8, 17, 0, parentScreen.width, 800);
         }
     }
@@ -107,15 +107,15 @@ public class GuiEditArray extends GuiScreen
 
         int undoGlyphWidth = mc.fontRenderer.getStringWidth(UNDO_CHAR) * 2;
         int resetGlyphWidth = mc.fontRenderer.getStringWidth(RESET_CHAR) * 2;
-        int doneWidth = Math.max(mc.fontRenderer.getStringWidth(I18n.format("gui.done")) + 20, 100);
-        int undoWidth = mc.fontRenderer.getStringWidth(" " + I18n.format("fml.configgui.tooltip.undoChanges")) + undoGlyphWidth + 20;
-        int resetWidth = mc.fontRenderer.getStringWidth(" " + I18n.format("fml.configgui.tooltip.resetToDefault")) + resetGlyphWidth + 20;
+        int doneWidth = Math.max(mc.fontRenderer.getStringWidth(I18n.getString("gui.done")) + 20, 100);
+        int undoWidth = mc.fontRenderer.getStringWidth(" " + I18n.getString("fml.configgui.tooltip.undoChanges")) + undoGlyphWidth + 20;
+        int resetWidth = mc.fontRenderer.getStringWidth(" " + I18n.getString("fml.configgui.tooltip.resetToDefault")) + resetGlyphWidth + 20;
         int buttonWidthHalf = (doneWidth + 5 + undoWidth + 5 + resetWidth) / 2;
-        this.buttonList.add(btnDone = new GuiButtonExt(2000, this.width / 2 - buttonWidthHalf, this.height - 29, doneWidth, 20, I18n.format("gui.done")));
+        this.buttonList.add(btnDone = new GuiButtonExt(2000, this.width / 2 - buttonWidthHalf, this.height - 29, doneWidth, 20, I18n.getString("gui.done")));
         this.buttonList.add(btnDefault = new GuiUnicodeGlyphButton(2001, this.width / 2 - buttonWidthHalf + doneWidth + 5 + undoWidth + 5,
-                this.height - 29, resetWidth, 20, " " + I18n.format("fml.configgui.tooltip.resetToDefault"), RESET_CHAR, 2.0F));
+                this.height - 29, resetWidth, 20, " " + I18n.getString("fml.configgui.tooltip.resetToDefault"), RESET_CHAR, 2.0F));
         this.buttonList.add(btnUndoChanges = new GuiUnicodeGlyphButton(2002, this.width / 2 - buttonWidthHalf + doneWidth + 5,
-                this.height - 29, undoWidth, 20, " " + I18n.format("fml.configgui.tooltip.undoChanges"), UNDO_CHAR, 2.0F));
+                this.height - 29, undoWidth, 20, " " + I18n.getString("fml.configgui.tooltip.undoChanges"), UNDO_CHAR, 2.0F));
     }
     
     @Override

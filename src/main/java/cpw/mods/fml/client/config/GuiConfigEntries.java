@@ -89,8 +89,8 @@ public class GuiConfigEntries extends GuiListExtended
                     int length;
 
                     // protects against language keys that are not defined in the .lang file
-                    if (!I18n.format(configElement.getLanguageKey()).equals(configElement.getLanguageKey()))
-                        length = mc.fontRenderer.getStringWidth(I18n.format(configElement.getLanguageKey()));
+                    if (!I18n.getString(configElement.getLanguageKey()).equals(configElement.getLanguageKey()))
+                        length = mc.fontRenderer.getStringWidth(I18n.getString(configElement.getLanguageKey()));
                     else
                         length = mc.fontRenderer.getStringWidth(configElement.getName());
 
@@ -384,7 +384,7 @@ public class GuiConfigEntries extends GuiListExtended
         @Override
         public void updateValueButtonText()
         {
-            this.btnValue.displayString = I18n.format(String.valueOf(currentValue));
+            this.btnValue.displayString = I18n.getString(String.valueOf(currentValue));
             btnValue.packedFGColour = currentValue ? GuiUtils.getColorCode('2', true) : GuiUtils.getColorCode('4', true);
         }
 
@@ -488,7 +488,7 @@ public class GuiConfigEntries extends GuiListExtended
         @Override
         public void updateValueButtonText()
         {
-            this.btnValue.displayString = I18n.format(configElement.getValidValues()[currentIndex]);
+            this.btnValue.displayString = I18n.getString(configElement.getValidValues()[currentIndex]);
         }
 
         @Override
@@ -584,7 +584,7 @@ public class GuiConfigEntries extends GuiListExtended
         @Override
         public void updateValueButtonText()
         {
-            this.btnValue.displayString = I18n.format(configElement.getValidValues()[currentIndex]) + " - " + I18n.format("fml.configgui.sampletext");
+            this.btnValue.displayString = I18n.getString(configElement.getValidValues()[currentIndex]) + " - " + I18n.getString("fml.configgui.sampletext");
         }
     }
 
@@ -907,7 +907,7 @@ public class GuiConfigEntries extends GuiListExtended
         public ButtonEntry(GuiConfig owningScreen, GuiConfigEntries owningEntryList, IConfigElement<?> configElement)
         {
             this(owningScreen, owningEntryList, configElement, new GuiButtonExt(0, owningEntryList.controlX, 0, owningEntryList.controlWidth, 18,
-                    configElement.get() != null ? I18n.format(String.valueOf(configElement.get())) : ""));
+                    configElement.get() != null ? I18n.getString(String.valueOf(configElement.get())) : ""));
         }
 
         public ButtonEntry(GuiConfig owningScreen, GuiConfigEntries owningEntryList, IConfigElement<?> configElement, GuiButtonExt button)
@@ -1337,7 +1337,7 @@ public class GuiConfigEntries extends GuiListExtended
 
             this.childScreen = this.buildChildScreen();
 
-            this.btnSelectCategory = new GuiButtonExt(0, 0, 0, 300, 18, I18n.format(name));
+            this.btnSelectCategory = new GuiButtonExt(0, 0, 0, 300, 18, I18n.getString(name));
             this.tooltipHoverChecker = new HoverChecker(this.btnSelectCategory, 800);
 
             this.drawLabel = false;
@@ -1524,7 +1524,7 @@ public class GuiConfigEntries extends GuiListExtended
             this.owningEntryList = owningEntryList;
             this.configElement = configElement;
             this.mc = Minecraft.getMinecraft();
-            String trans = I18n.format(configElement.getLanguageKey());
+            String trans = I18n.getString(configElement.getLanguageKey());
             if (!trans.equals(configElement.getLanguageKey()))
                 this.name = trans;
             else
@@ -1534,14 +1534,14 @@ public class GuiConfigEntries extends GuiListExtended
 
             this.undoHoverChecker = new HoverChecker(this.btnUndoChanges, 800);
             this.defaultHoverChecker = new HoverChecker(this.btnDefault, 800);
-            this.undoToolTip = Arrays.asList(new String[] { I18n.format("fml.configgui.tooltip.undoChanges") });
-            this.defaultToolTip = Arrays.asList(new String[] { I18n.format("fml.configgui.tooltip.resetToDefault") });
+            this.undoToolTip = Arrays.asList(new String[] { I18n.getString("fml.configgui.tooltip.undoChanges") });
+            this.defaultToolTip = Arrays.asList(new String[] { I18n.getString("fml.configgui.tooltip.resetToDefault") });
 
             this.drawLabel = true;
 
             String comment;
 
-            comment = I18n.format(configElement.getLanguageKey() + ".tooltip").replace("\\n", "\n");
+            comment = I18n.getString(configElement.getLanguageKey() + ".tooltip").replace("\\n", "\n");
 
             if (!comment.equals(configElement.getLanguageKey() + ".tooltip"))
                 toolTip = new ArrayList<String>(this.mc.fontRenderer.listFormattedStringToWidth(
@@ -1558,12 +1558,12 @@ public class GuiConfigEntries extends GuiListExtended
                     || (configElement.getType() == ConfigGuiType.DOUBLE
                     && (Double.valueOf(configElement.getMinValue().toString()) != -Double.MAX_VALUE || Double.valueOf(configElement.getMaxValue().toString()) != Double.MAX_VALUE)))
                 toolTip.addAll(this.mc.fontRenderer.listFormattedStringToWidth(
-                        EnumChatFormatting.AQUA + I18n.format("fml.configgui.tooltip.defaultNumeric", configElement.getMinValue(), configElement.getMaxValue(), configElement.getDefault()), 300));
+                        EnumChatFormatting.AQUA + I18n.getString("fml.configgui.tooltip.defaultNumeric", configElement.getMinValue(), configElement.getMaxValue(), configElement.getDefault()), 300));
             else if (configElement.getType() != ConfigGuiType.CONFIG_CATEGORY)
-                toolTip.addAll(this.mc.fontRenderer.listFormattedStringToWidth(EnumChatFormatting.AQUA + I18n.format("fml.configgui.tooltip.default", configElement.getDefault()),300));
+                toolTip.addAll(this.mc.fontRenderer.listFormattedStringToWidth(EnumChatFormatting.AQUA + I18n.getString("fml.configgui.tooltip.default", configElement.getDefault()),300));
 
             if (configElement.requiresMcRestart() || owningScreen.allRequireMcRestart)
-                toolTip.add(EnumChatFormatting.RED + "[" + I18n.format("fml.configgui.gameRestartTitle") + "]");
+                toolTip.add(EnumChatFormatting.RED + "[" + I18n.getString("fml.configgui.gameRestartTitle") + "]");
         }
 
         @Override

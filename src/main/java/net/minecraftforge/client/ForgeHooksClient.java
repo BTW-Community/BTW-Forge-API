@@ -425,9 +425,9 @@ public class ForgeHooksClient
         if (status == BETA || status == BETA_OUTDATED)
         {
             // render a warning at the top of the screen,
-            String line = I18n.format("forge.update.beta.1", EnumChatFormatting.RED, EnumChatFormatting.RESET);
+            String line = I18n.getString("forge.update.beta.1", EnumChatFormatting.RED, EnumChatFormatting.RESET);
             gui.drawString(font, line, (width - font.getStringWidth(line)) / 2, 4 + (0 * (font.FONT_HEIGHT + 1)), -1);
-            line = I18n.format("forge.update.beta.2");
+            line = I18n.getString("forge.update.beta.2");
             gui.drawString(font, line, (width - font.getStringWidth(line)) / 2, 4 + (1 * (font.FONT_HEIGHT + 1)), -1);
         }
 
@@ -438,7 +438,7 @@ public class ForgeHooksClient
             //case UP_TO_DATE:    line = "Forge up to date"}; break;
             //case AHEAD:         line = "Using non-recommended Forge build, issues may arise."}; break;
             case OUTDATED:
-            case BETA_OUTDATED: line = I18n.format("forge.update.newversion", ForgeVersion.getTarget()); break;
+            case BETA_OUTDATED: line = I18n.getString("forge.update.newversion", ForgeVersion.getTarget()); break;
             default: break;
         }
 

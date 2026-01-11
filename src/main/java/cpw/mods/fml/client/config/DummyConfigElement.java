@@ -273,7 +273,7 @@ public class DummyConfigElement<T> implements IConfigElement<T>
     @Override
     public String getComment()
     {
-        return I18n.format(langKey + ".tooltip");
+        return I18n.getString(langKey + ".tooltip");
     }
 
     @SuppressWarnings("rawtypes")

@@ -95,7 +95,7 @@ public class GuiModList extends GuiScreen
             listWidth=Math.max(listWidth,getFontRenderer().getStringWidth(mod.getVersion()) + 10);
         }
         listWidth=Math.min(listWidth, 150);
-        this.buttonList.add(new GuiButton(6, this.width / 2 - 75, this.height - 38, I18n.format("gui.done")));
+        this.buttonList.add(new GuiButton(6, this.width / 2 - 75, this.height - 38, I18n.getString("gui.done")));
         configModButton = new GuiButton(20, 10, this.height - 60, this.listWidth, 20, "Config");
         disableModButton = new GuiButton(21, 10, this.height - 38, this.listWidth, 20, "Disable");
         this.buttonList.add(configModButton);

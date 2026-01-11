@@ -34,7 +34,7 @@ public class GuiAccessDenied extends GuiScreen
     @Override
     public void initGui()
     {
-        this.buttonList.add(new GuiButton(1, this.width / 2 - 75, this.height - 38, I18n.format("gui.done")));
+        this.buttonList.add(new GuiButton(1, this.width / 2 - 75, this.height - 38, I18n.getString("gui.done")));
     }
 
     @Override

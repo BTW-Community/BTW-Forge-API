@@ -26,7 +26,7 @@ public class FMLConfigGuiFactory implements IModGuiFactory
 
         public FMLConfigGuiScreen(GuiScreen parent)
         {
-            super(parent, getConfigElements(), "FML", false, false, I18n.format("fml.config.sample.title"));
+            super(parent, getConfigElements(), "FML", false, false, I18n.getString("fml.config.sample.title"));
         }
         
         @SuppressWarnings({ "rawtypes", "unchecked" })
