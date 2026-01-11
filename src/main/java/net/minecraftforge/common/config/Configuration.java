@@ -10,6 +10,7 @@ import com.google.common.collect.ImmutableSet;
 import cpw.mods.fml.client.config.GuiConfigEntries.IConfigEntry;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
+import net.fabricmc.loader.api.FabricLoader;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -73,7 +74,7 @@ public class Configuration
     {
         this.file = file;
         this.definedConfigVersion = configVersion;
-        String basePath = ((File)(FMLInjectionData.data()[6])).getAbsolutePath().replace(File.separatorChar, '/').replace("/.", "");
+        String basePath = FabricLoader.getInstance().getGameDir().toFile().getAbsolutePath().replace(File.separatorChar, '/').replace("/.", "");
         String path = file.getAbsolutePath().replace(File.separatorChar, '/').replace("/./", "/").replace(basePath, "");
         if (PARENT != null)
         {
@@ -1538,7 +1539,7 @@ public class Configuration
      * 
      * @param name Name of the property.
      * @param category Category of the property.
-     * @param defaultValue Default value of the property.
+     * @param defaultValues Default value of the property.
      * @param comment A brief description what the property does.
      * @return The value of the new string property.
      */

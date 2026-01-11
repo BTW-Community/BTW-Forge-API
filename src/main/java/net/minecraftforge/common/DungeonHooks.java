@@ -1,6 +1,7 @@
 package net.minecraftforge.common;
 
 import net.minecraft.src.WeightedRandom;
+import net.minecraft.src.WeightedRandomItem;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -77,7 +78,7 @@ public class DungeonHooks
     }
 
 
-    public static class DungeonMob extends WeightedRandom.Item
+    public static class DungeonMob extends WeightedRandomItem
     {
         public String type;
         public DungeonMob(int weight, String type)

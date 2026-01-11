@@ -45,7 +45,7 @@ public class BlockSnapshot implements Serializable
         this.blockIdentifier = GameRegistry.findUniqueIdentifierFor(block);
         this.meta = meta;
         this.flag = 3;
-        TileEntity te = world.getTileEntity(x, y, z);
+        TileEntity te = world.getBlockTileEntity(x, y, z);
         if (te != null)
         {
             nbt = new NBTTagCompound();

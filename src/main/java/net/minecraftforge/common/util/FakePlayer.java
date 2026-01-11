@@ -27,7 +27,7 @@ public class FakePlayer extends EntityPlayerMP
         return new ChunkCoordinates(0,0,0);
     }
 
-    @Override public void addChatComponentMessage(IChatComponent chatmessagecomponent){}
+    @Override public void addChatMessage(String par1Str){}
     @Override public void addStat(StatBase par1StatBase, int par2){}
     @Override public void openGui(Object mod, int modGuiId, World world, int x, int y, int z){}
     @Override public boolean isEntityInvulnerable(){ return true; }

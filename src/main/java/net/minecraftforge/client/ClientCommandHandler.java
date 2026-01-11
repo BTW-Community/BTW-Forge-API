@@ -3,15 +3,14 @@ package net.minecraftforge.client;
 import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.src.Minecraft;
 import net.minecraft.src.GuiChat;
-import net.minecraft.command.*;
-import net.minecraft.src.ChatComponentTranslation;
+import net.minecraft.src.*;
 import net.minecraft.src.EnumChatFormatting;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CommandEvent;
 
 import java.util.List;
 
-import static net.minecraft.util.EnumChatFormatting.*;
+import static net.minecraft.src.EnumChatFormatting.*;
 
 /**
  * The class that handles client-side chat commands. You should register any
@@ -71,20 +70,20 @@ public class ClientCommandHandler extends CommandHandler
             }
             else
             {
-                sender.addChatMessage(format(RED, "commands.generic.permission"));
+                sender.sendChatToPlayer(format(RED, "commands.generic.permission"));
             }
         }
         catch (WrongUsageException wue)
         {
-            sender.addChatMessage(format(RED, "commands.generic.usage", format(RED, wue.getMessage(), wue.getErrorOjbects())));
+            sender.sendChatToPlayer(format(RED, "commands.generic.usage", format(RED, wue.getMessage(), wue.getErrorOjbects())));
         }
         catch (CommandException ce)
         {
-            sender.addChatMessage(format(RED, ce.getMessage(), ce.getErrorOjbects()));
+            sender.sendChatToPlayer(format(RED, ce.getMessage(), ce.getErrorOjbects()));
         }
         catch (Throwable t)
         {
-            sender.addChatMessage(format(RED, "commands.generic.exception"));
+            sender.sendChatToPlayer(format(RED, "commands.generic.exception"));
             t.printStackTrace();
         }
 
@@ -92,10 +91,10 @@ public class ClientCommandHandler extends CommandHandler
     }
 
     //Couple of helpers because the mcp names are stupid and long...
-    private ChatComponentTranslation format(EnumChatFormatting color, String str, Object... args)
+    private ChatMessageComponent format(EnumChatFormatting color, String str, Object... args)
     {
-        ChatComponentTranslation ret = new ChatComponentTranslation(str, args);
-        ret.getChatStyle().setColor(color);
+        ChatMessageComponent ret = new ChatMessageComponent().addFormatted(str, args);
+        ret.setColor(color);
         return ret;
     }
 

@@ -6,7 +6,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.src.Minecraft;
 import net.minecraft.src.ModelBase;
 import net.minecraft.src.ModelRenderer;
-import net.minecraft.src.IResource;
+import net.minecraft.src.Resource;
 import net.minecraft.src.ResourceLocation;
 import net.minecraftforge.client.model.IModelCustom;
 import net.minecraftforge.client.model.ModelFormatException;
@@ -52,15 +52,15 @@ public class TechneModel extends ModelBase implements IModelCustom {
     {
         this.fileName = resource.toString();
 
-        try
-        {
-            IResource res = Minecraft.getMinecraft().getResourceManager().getResource(resource);
+//        try
+//        {
+            Resource res = Minecraft.getMinecraft().getResourceManager().getResource(resource);
             loadTechneModel(res.getInputStream());
-        }
-        catch (IOException e)
-        {
-            throw new ModelFormatException("IO Exception reading model format", e);
-        }
+//        }
+//        catch (IOException e)
+//        {
+//            throw new ModelFormatException("IO Exception reading model format", e);
+//        }
     }
     
     private void loadTechneModel(InputStream stream) throws ModelFormatException

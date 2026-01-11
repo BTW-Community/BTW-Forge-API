@@ -1,12 +1,7 @@
 package net.minecraftforge.oredict;
 
-import net.minecraft.src.Block;
-import net.minecraft.src.InventoryCrafting;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.IRecipe;
-import net.minecraft.src.ShapelessRecipes;
-import net.minecraft.src.World;
+import api.item.tag.TagOrStack;
+import net.minecraft.src.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -61,7 +56,7 @@ public class ShapelessOreRecipe implements IRecipe
     {
         output = recipe.getRecipeOutput();
 
-        for(ItemStack ingred : ((List<ItemStack>)recipe.recipeItems))
+        for(TagOrStack ingred : ((List<TagOrStack>) recipe.getRecipeItems()))
         {
             Object finalObj = ingred;
             for(Entry<ItemStack, String> replace : replacements.entrySet())
@@ -84,6 +79,21 @@ public class ShapelessOreRecipe implements IRecipe
 
     @Override
     public ItemStack getRecipeOutput(){ return output; }
+
+    @Override
+    public boolean matches(IRecipe iRecipe) {
+        return false;
+    }
+
+    @Override
+    public boolean hasSecondaryOutput() {
+        return false;
+    }
+
+    @Override
+    public ItemStack[] getSecondaryOutput(IInventory iInventory) {
+        return null;
+    }
 
     /**
      * Returns an Item that is the result of this recipe

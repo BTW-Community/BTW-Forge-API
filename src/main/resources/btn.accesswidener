@@ -48,3 +48,7 @@ accessible field net/minecraft/src/TextureUtil dataBuffer Ljava/nio/IntBuffer;
 accessible class api/achievement/AchievementProvider$AchievementBuilder
 accessible method api/achievement/AchievementProvider$AchievementBuilder <init> (Ljava/lang/Class;)V
 accessible field net/minecraft/src/SaveFormatOld savesDirectory Ljava/io/File;
+accessible field net/minecraft/src/GuiIngame mc Lnet/minecraft/src/Minecraft;
+accessible method net/minecraft/src/GuiIngame renderInventorySlot (IIIF)V
+accessible method net/minecraft/src/GuiIngame renderBossHealth ()V
+accessible field net/minecraft/src/ChunkProviderServer currentChunkLoader Lnet/minecraft/src/IChunkLoader;

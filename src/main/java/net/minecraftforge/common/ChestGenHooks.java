@@ -1,19 +1,6 @@
 package net.minecraftforge.common;
 
-import net.minecraft.src.Items;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.WeightedRandom;
-import net.minecraft.src.WeightedRandomChestContent;
-import net.minecraft.src.WorldServer;
-import net.minecraft.src.WorldGenDungeons;
-import net.minecraft.world.gen.structure.*;
-import net.minecraft.world.gen.structure.ComponentScatteredFeaturePieces.DesertPyramid;
-import net.minecraft.world.gen.structure.ComponentScatteredFeaturePieces.JunglePyramid;
-import net.minecraft.world.gen.structure.StructureStrongholdPieces.ChestCorridor;
-import net.minecraft.world.gen.structure.StructureStrongholdPieces.Library;
-import net.minecraft.world.gen.structure.StructureStrongholdPieces.RoomCrossing;
-import net.minecraft.world.gen.structure.StructureVillagePieces.House2;
+import net.minecraft.src.*;
 import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.ArrayList;
@@ -52,17 +39,17 @@ public class ChestGenHooks
         hasInit = true;
 
         addInfo(MINESHAFT_CORRIDOR,       StructureMineshaftPieces.mineshaftChestContents,   3,  7);
-        addInfo(PYRAMID_DESERT_CHEST,     DesertPyramid.itemsToGenerateInTemple,             2,  7);
-        addInfo(PYRAMID_JUNGLE_CHEST,     JunglePyramid.junglePyramidsChestContents,         2,  7);
-        addInfo(PYRAMID_JUNGLE_DISPENSER, JunglePyramid.junglePyramidsDispenserContents,     2,  2);
-        addInfo(STRONGHOLD_CORRIDOR,      ChestCorridor.strongholdChestContents,             2,  4);
-        addInfo(STRONGHOLD_LIBRARY,       Library.strongholdLibraryChestContents,            1,  5);
-        addInfo(STRONGHOLD_CROSSING,      RoomCrossing.strongholdRoomCrossingChestContents,  1,  5);
-        addInfo(VILLAGE_BLACKSMITH,       House2.villageBlacksmithChestContents,             3,  9);
+        addInfo(PYRAMID_DESERT_CHEST,     ComponentScatteredFeatureDesertPyramid.itemsToGenerateInTemple,             2,  7);
+        addInfo(PYRAMID_JUNGLE_CHEST,     ComponentScatteredFeatureJunglePyramid.junglePyramidsChestContents,         2,  7);
+        addInfo(PYRAMID_JUNGLE_DISPENSER, ComponentScatteredFeatureJunglePyramid.junglePyramidsDispenserContents,     2,  2);
+        addInfo(STRONGHOLD_CORRIDOR,      ComponentStrongholdChestCorridor.strongholdChestContents,             2,  4);
+        addInfo(STRONGHOLD_LIBRARY,       ComponentStrongholdLibrary.strongholdLibraryChestContents,            1,  5);
+        addInfo(STRONGHOLD_CROSSING,      ComponentStrongholdRoomCrossing.strongholdRoomCrossingChestContents,  1,  5);
+        addInfo(VILLAGE_BLACKSMITH,       ComponentVillageHouse2.villageBlacksmithChestContents,             3,  9);
         addInfo(BONUS_CHEST,              WorldServer.bonusChestContent,                    10, 10);
         addInfo(DUNGEON_CHEST,            WorldGenDungeons.field_111189_a,                   8,  8);
 
-        ItemStack book = new ItemStack(Items.enchanted_book, 1, 0);
+        ItemStack book = new ItemStack(Item.enchantedBook, 1, 0);
         WeightedRandomChestContent tmp = new WeightedRandomChestContent(book, 1, 1, 1);
         getInfo(MINESHAFT_CORRIDOR  ).addItem(tmp);
         getInfo(PYRAMID_DESERT_CHEST).addItem(tmp);

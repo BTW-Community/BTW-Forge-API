@@ -7,24 +7,17 @@ import net.minecraft.src.EntityLivingBase;
 import net.minecraft.src.EntityItem;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.EntityPlayerMP;
-import net.minecraft.src.ClickEvent;
-import net.minecraft.src.Blocks;
-import net.minecraft.src.Items;
 import net.minecraft.src.Container;
 import net.minecraft.src.ContainerRepair;
 import net.minecraft.src.IInventory;
-import net.minecraft.item.*;
+import net.minecraft.src.*;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.NetServerHandler;
 import net.minecraft.src.Packet;
-import net.minecraft.src.S23PacketBlockChange;
 import net.minecraft.src.StatList;
 import net.minecraft.src.TileEntity;
 import net.minecraft.src.TileEntityNote;
-import net.minecraft.util.*;
-import net.minecraft.src.MovingObjectType;
 import net.minecraft.src.World;
-import net.minecraft.src.GameType;
 import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.event.ServerChatEvent;
@@ -44,10 +37,10 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static net.minecraft.init.Blocks.*;
+import static net.minecraft.src.Block.*;
 public class ForgeHooks
 {
-    static class SeedEntry extends WeightedRandom.Item
+    static class SeedEntry extends WeightedRandomItem
     {
         public final ItemStack seed;
         public SeedEntry(ItemStack seed, int weight)
@@ -73,7 +66,7 @@ public class ForgeHooks
 
     public static boolean canHarvestBlock(Block block, EntityPlayer player, int metadata)
     {
-        if (block.getMaterial().isToolNotRequired())
+        if (block.blockMaterial.isToolNotRequired())
         {
             return true;
         }

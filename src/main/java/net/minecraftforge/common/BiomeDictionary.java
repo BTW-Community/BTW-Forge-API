@@ -1,8 +1,7 @@
 package net.minecraftforge.common;
 
 import cpw.mods.fml.common.FMLLog;
-import net.minecraft.src.Blocks;
-import net.minecraft.world.biome.*;
+import net.minecraft.src.*;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.terraingen.DeferredBiomeDecorator;
 
@@ -11,7 +10,7 @@ import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.List;
 
-import static net.minecraft.world.biome.BiomeGenBase.*;
+import static net.minecraft.src.BiomeGenBase.*;
 import static net.minecraftforge.common.BiomeDictionary.Type.*;
 
 public class BiomeDictionary
@@ -402,20 +401,20 @@ public class BiomeDictionary
             BiomeDictionary.registerBiomeType(biome, SNOWY);
         }
 
-        if (biome.topBlock != Blocks.sand && biome.temperature >= 1.0f && biome.rainfall < 0.2f)
+        if (biome.topBlock != Block.sand.blockID && biome.temperature >= 1.0f && biome.rainfall < 0.2f)
         {
             BiomeDictionary.registerBiomeType(biome, SAVANNA);
         }
 
-        if (biome.topBlock == Blocks.sand )
+        if (biome.topBlock == Block.sand.blockID )
         {
             BiomeDictionary.registerBiomeType(biome, SANDY);
         }
-        else if (biome.topBlock == Blocks.hardened_clay)
+        else if (biome.topBlock == Block.hardenedClay.blockID)
         {
             BiomeDictionary.registerBiomeType(biome, MESA);
         }
-        else if (biome.topBlock == Blocks.mycelium)
+        else if (biome.topBlock == Block.mycelium.blockID)
         {
             BiomeDictionary.registerBiomeType(biome, MUSHROOM);
         }
@@ -483,22 +482,22 @@ public class BiomeDictionary
         registerBiomeType(mushroomIsland,      MUSHROOM                                     );
         registerBiomeType(extremeHillsEdge,    MOUNTAIN                                     );
         registerBiomeType(mushroomIslandShore, MUSHROOM, BEACH                              );
-        registerBiomeType(jungleEdge,          HOT,      WET,        JUNGLE,   FOREST       );
-        registerBiomeType(deepOcean,           OCEAN                                        );
-        registerBiomeType(stoneBeach,          BEACH                                        );
-        registerBiomeType(coldBeach,           COLD,     BEACH,      SNOWY                  );
-        registerBiomeType(birchForest,         FOREST                                       );
-        registerBiomeType(birchForestHills,    FOREST,   HILLS                              );
-        registerBiomeType(roofedForest,        SPOOKY,   DENSE,      FOREST                 );
-        registerBiomeType(coldTaiga,           COLD,     CONIFEROUS, FOREST,   SNOWY        );
-        registerBiomeType(coldTaigaHills,      COLD,     CONIFEROUS, FOREST,   SNOWY,  HILLS);
-        registerBiomeType(megaTaiga,           COLD,     CONIFEROUS, FOREST                 );
-        registerBiomeType(megaTaigaHills,      COLD,     CONIFEROUS, FOREST,   HILLS        );
-        registerBiomeType(extremeHillsPlus,    MOUNTAIN, FOREST,     SPARSE                 );
-        registerBiomeType(savanna,             HOT,      SAVANNA,    PLAINS,   SPARSE       );
-        registerBiomeType(savannaPlateau,      HOT,      SAVANNA,    PLAINS,   SPARSE       );
-        registerBiomeType(mesa,                MESA,     SANDY                              );
-        registerBiomeType(mesaPlateau_F,       MESA,     SPARSE,     SANDY                  );
-        registerBiomeType(mesaPlateau,         MESA,     SANDY                              );
+//        registerBiomeType(jungleEdge,          HOT,      WET,        JUNGLE,   FOREST       );
+//        registerBiomeType(deepOcean,           OCEAN                                        );
+//        registerBiomeType(stoneBeach,          BEACH                                        );
+//        registerBiomeType(coldBeach,           COLD,     BEACH,      SNOWY                  );
+//        registerBiomeType(birchForest,         FOREST                                       );
+//        registerBiomeType(birchForestHills,    FOREST,   HILLS                              );
+//        registerBiomeType(roofedForest,        SPOOKY,   DENSE,      FOREST                 );
+//        registerBiomeType(coldTaiga,           COLD,     CONIFEROUS, FOREST,   SNOWY        );
+//        registerBiomeType(coldTaigaHills,      COLD,     CONIFEROUS, FOREST,   SNOWY,  HILLS);
+//        registerBiomeType(megaTaiga,           COLD,     CONIFEROUS, FOREST                 );
+//        registerBiomeType(megaTaigaHills,      COLD,     CONIFEROUS, FOREST,   HILLS        );
+//        registerBiomeType(extremeHillsPlus,    MOUNTAIN, FOREST,     SPARSE                 );
+//        registerBiomeType(savanna,             HOT,      SAVANNA,    PLAINS,   SPARSE       );
+//        registerBiomeType(savannaPlateau,      HOT,      SAVANNA,    PLAINS,   SPARSE       );
+//        registerBiomeType(mesa,                MESA,     SANDY                              );
+//        registerBiomeType(mesaPlateau_F,       MESA,     SPARSE,     SANDY                  );
+//        registerBiomeType(mesaPlateau,         MESA,     SANDY                              );
     }
 }

@@ -16,11 +16,7 @@ import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import net.minecraft.src.Blocks;
-import net.minecraft.src.NBTBase;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.SaveHandler;
-import net.minecraft.src.WorldInfo;
+import net.minecraft.src.*;
 import net.minecraftforge.classloading.FMLForgePlugin;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
@@ -238,7 +234,7 @@ public class ForgeModContainer extends DummyModContainer implements WorldAccessC
     @SubscribeEvent
     public void playerLogin(PlayerEvent.PlayerLoggedInEvent event)
     {
-        UsernameCache.setUsername(event.player.getGameProfile().getId(), event.player.getGameProfile().getName());
+        UsernameCache.setUsername(event.player.getUniqueID(), event.player.username);
     }
 
     @Override
@@ -251,7 +247,7 @@ public class ForgeModContainer extends DummyModContainer implements WorldAccessC
     @Subscribe
     public void modConstruction(FMLConstructionEvent evt)
     {
-        NetworkRegistry.INSTANCE.register(this, this.getClass(), "*", evt.getASMHarvestedData());
+//        NetworkRegistry.instance().register(this, this.getClass(), "*", evt.getASMHarvestedData());
         ForgeNetworkHandler.registerChannel(this, evt.getSide());
     }
 
@@ -310,7 +306,7 @@ public class ForgeModContainer extends DummyModContainer implements WorldAccessC
     @Subscribe
     public void mappingChanged(FMLModIdMappingEvent evt)
     {
-        Blocks.fire.rebuildFireInfo();
+//        ((BlockFire) Block.fire).rebuildFireInfo();
         OreDictionary.rebakeMap();
     }
 

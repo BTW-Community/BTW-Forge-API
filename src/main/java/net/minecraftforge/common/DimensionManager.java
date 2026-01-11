@@ -8,7 +8,7 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.*;
+import net.minecraft.src.*;
 import net.minecraft.src.ISaveHandler;
 import net.minecraft.src.SaveHandler;
 import net.minecraftforge.event.world.WorldEvent;

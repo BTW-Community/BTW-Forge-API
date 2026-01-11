@@ -1,13 +1,6 @@
 package net.minecraftforge.common;
 
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.MinecraftException;
-import net.minecraft.src.WorldProvider;
-import net.minecraft.src.WorldServer;
-import net.minecraft.src.IChunkLoader;
-import net.minecraft.src.IPlayerFileData;
-import net.minecraft.src.ISaveHandler;
-import net.minecraft.src.WorldInfo;
+import net.minecraft.src.*;
 
 import java.io.File;
 
@@ -23,7 +16,7 @@ public class WorldSpecificSaveHandler implements ISaveHandler
     {
         this.world = world;
         this.parent = parent;
-        dataDir = new File(world.getChunkSaveLocation(), "data");
+        dataDir = new File(((AnvilChunkLoader)world.theChunkProviderServer.currentChunkLoader).chunkSaveLocation, "data");
         dataDir.mkdirs();
     }
 
@@ -35,7 +28,18 @@ public class WorldSpecificSaveHandler implements ISaveHandler
     @Override public IPlayerFileData getSaveHandler() { return parent.getSaveHandler(); }
     @Override public void flush() { parent.flush(); }
     @Override public String getWorldDirectoryName() { return parent.getWorldDirectoryName(); }
-    @Override public File getWorldDirectory() { return parent.getWorldDirectory(); }
+
+    @Override
+    public void loadModSpecificData(WorldServer worldServer) {
+        parent.loadModSpecificData(worldServer);
+    }
+
+    @Override
+    public void saveModSpecificData(WorldServer worldServer) {
+        parent.saveModSpecificData(worldServer);
+    }
+
+//    @Override public File getWorldDirectory() { return parent.getWorldDirectory(); }
 
     /**
      * Gets the file location of the given map

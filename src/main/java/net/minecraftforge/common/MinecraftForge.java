@@ -56,11 +56,11 @@ public class MinecraftForge
        CrashReport fake = new CrashReport("ThisIsFake", new Exception("Not real"));
        //Lets init World's crash report inner classes to prevent them from hiding errors.
        String[] handlers = {
-           "net.minecraft.world.World$1",
-           "net.minecraft.world.World$2",
-           "net.minecraft.world.World$3",
-           "net.minecraft.world.World$4",
-           "net.minecraft.world.chunk.Chunk$1",
+           "net.minecraft.src.World$1",
+           "net.minecraft.src.World$2",
+           "net.minecraft.src.World$3",
+           "net.minecraft.src.World$4",
+           "net.minecraft.src.Chunk$1",
            "net.minecraft.crash.CrashReportCategory$1",
            "net.minecraft.crash.CrashReportCategory$2",
            "net.minecraft.crash.CrashReportCategory$3",
@@ -162,8 +162,8 @@ public class MinecraftForge
 
 
 
-   public static String getBrandingVersion()
-   {
-       return "Minecraft Forge "+ ForgeVersion.getVersion();
-   }
+//   public static String getBrandingVersion()
+//   {
+//       return "Minecraft Forge "+ ForgeVersion.getVersion();
+//   }
 }

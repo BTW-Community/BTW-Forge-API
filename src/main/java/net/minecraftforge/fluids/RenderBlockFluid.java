@@ -6,7 +6,7 @@ import net.minecraft.src.Minecraft;
 import net.minecraft.src.RenderBlocks;
 import net.minecraft.src.Tessellator;
 import net.minecraft.src.TextureMap;
-import net.minecraft.src.IIcon;
+import net.minecraft.src.Icon;
 import net.minecraft.src.MathHelper;
 import net.minecraft.src.IBlockAccess;
 

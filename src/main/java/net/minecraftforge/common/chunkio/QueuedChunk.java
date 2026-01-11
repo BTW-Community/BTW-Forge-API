@@ -4,12 +4,12 @@ package net.minecraftforge.common.chunkio;
 class QueuedChunk {
     final int x;
     final int z;
-    final net.minecraft.world.chunk.storage.AnvilChunkLoader loader;
-    final net.minecraft.world.World world;
-    final net.minecraft.world.gen.ChunkProviderServer provider;
-    net.minecraft.nbt.NBTTagCompound compound;
+    final net.minecraft.src.AnvilChunkLoader loader;
+    final net.minecraft.src.World world;
+    final net.minecraft.src.ChunkProviderServer provider;
+    net.minecraft.src.NBTTagCompound compound;
 
-    public QueuedChunk(int x, int z, net.minecraft.world.chunk.storage.AnvilChunkLoader loader, net.minecraft.world.World world, net.minecraft.world.gen.ChunkProviderServer provider) {
+    public QueuedChunk(int x, int z, net.minecraft.src.AnvilChunkLoader loader, net.minecraft.src.World world, net.minecraft.src.ChunkProviderServer provider) {
         this.x = x;
         this.z = z;
         this.loader = loader;

@@ -7,7 +7,7 @@ import com.google.common.collect.Sets;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.toposort.TopologicalSort;
 import cpw.mods.fml.common.toposort.TopologicalSort.DirectedGraph;
-import net.minecraft.item.crafting.*;
+import net.minecraft.src.*;
 
 import java.util.*;
 
@@ -103,7 +103,7 @@ public class RecipeSorter implements Comparator<IRecipe>
         register("minecraft:shaped",       ShapedRecipes.class,       SHAPED,    "before:minecraft:shapeless");
         register("minecraft:mapextending", RecipesMapExtending.class, SHAPED,    "after:minecraft:shaped before:minecraft:shapeless");
         register("minecraft:shapeless",    ShapelessRecipes.class,    SHAPELESS, "after:minecraft:shaped");
-        register("minecraft:bookcloning",  RecipeBookCloning.class,   SHAPELESS, "after:minecraft:shapeless"); //Size 9
+//        register("minecraft:bookcloning",  RecipeBookCloning.class,   SHAPELESS, "after:minecraft:shapeless"); //Size 9
         register("minecraft:fireworks",    RecipeFireworks.class,     SHAPELESS, "after:minecraft:shapeless"); //Size 10
         register("minecraft:armordyes",    RecipesArmorDyes.class,    SHAPELESS, "after:minecraft:shapeless"); //Size 10
         register("minecraft:mapcloning",   RecipesMapCloning.class,   SHAPELESS, "after:minecraft:shapeless"); //Size 10

@@ -33,7 +33,7 @@ import net.minecraft.network.packet.Packet1Login;
 import net.minecraft.network.packet.Packet250CustomPayload;
 import net.minecraft.network.packet.Packet3Chat;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.World;
+import net.minecraft.src.World;
 
 public class NetworkRegistry {
     private static final NetworkRegistry INSTANCE = new NetworkRegistry();

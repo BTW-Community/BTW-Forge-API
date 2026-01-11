@@ -9,12 +9,12 @@ import net.minecraftforge.event.world.ChunkDataEvent;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicInteger;
 
-class ChunkIOProvider implements AsynchronousExecutor.CallBackProvider<QueuedChunk, net.minecraft.world.chunk.Chunk, Runnable, RuntimeException> {
+class ChunkIOProvider implements AsynchronousExecutor.CallBackProvider<QueuedChunk, net.minecraft.src.Chunk, Runnable, RuntimeException> {
     private final AtomicInteger threadNumber = new AtomicInteger(1);
 
     // async stuff
-    public net.minecraft.world.chunk.Chunk callStage1(QueuedChunk queuedChunk) throws RuntimeException {
-        net.minecraft.world.chunk.storage.AnvilChunkLoader loader = queuedChunk.loader;
+    public net.minecraft.src.Chunk callStage1(QueuedChunk queuedChunk) throws RuntimeException {
+        net.minecraft.src.AnvilChunkLoader loader = queuedChunk.loader;
         Object[] data = null;
         try {
             data = loader.loadChunk__Async(queuedChunk.world, queuedChunk.x, queuedChunk.z);
@@ -23,15 +23,15 @@ class ChunkIOProvider implements AsynchronousExecutor.CallBackProvider<QueuedChu
         }
 
         if (data != null) {
-            queuedChunk.compound = (net.minecraft.nbt.NBTTagCompound) data[1];
-            return (net.minecraft.world.chunk.Chunk) data[0];
+            queuedChunk.compound = (net.minecraft.src.NBTTagCompound) data[1];
+            return (net.minecraft.src.Chunk) data[0];
         }
 
         return null;
     }
 
     // sync stuff
-    public void callStage2(QueuedChunk queuedChunk, net.minecraft.world.chunk.Chunk chunk) throws RuntimeException {
+    public void callStage2(QueuedChunk queuedChunk, net.minecraft.src.Chunk chunk) throws RuntimeException {
         if(chunk == null) {
             // If the chunk loading failed just do it synchronously (may generate)
             queuedChunk.provider.originalLoadChunk(queuedChunk.x, queuedChunk.z);
@@ -52,7 +52,7 @@ class ChunkIOProvider implements AsynchronousExecutor.CallBackProvider<QueuedChu
         chunk.populateChunk(queuedChunk.provider, queuedChunk.provider, queuedChunk.x, queuedChunk.z);
     }
 
-    public void callStage3(QueuedChunk queuedChunk, net.minecraft.world.chunk.Chunk chunk, Runnable runnable) throws RuntimeException {
+    public void callStage3(QueuedChunk queuedChunk, net.minecraft.src.Chunk chunk, Runnable runnable) throws RuntimeException {
         runnable.run();
     }
 

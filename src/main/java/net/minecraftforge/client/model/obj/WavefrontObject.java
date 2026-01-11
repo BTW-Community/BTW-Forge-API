@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.src.Minecraft;
 import net.minecraft.src.Tessellator;
-import net.minecraft.src.IResource;
+import net.minecraft.src.Resource;
 import net.minecraft.src.ResourceLocation;
 import net.minecraftforge.client.model.IModelCustom;
 import net.minecraftforge.client.model.ModelFormatException;
@@ -48,15 +48,15 @@ public class WavefrontObject implements IModelCustom
     {
         this.fileName = resource.toString();
 
-        try
-        {
-            IResource res = Minecraft.getMinecraft().getResourceManager().getResource(resource);
+//        try
+//        {
+            Resource res = Minecraft.getMinecraft().getResourceManager().getResource(resource);
             loadObjModel(res.getInputStream());
-        }
-        catch (IOException e)
-        {
-            throw new ModelFormatException("IO Exception reading model format", e);
-        }
+//        }
+//        catch (IOException e)
+//        {
+//            throw new ModelFormatException("IO Exception reading model format", e);
+//        }
     }
 
     public WavefrontObject(String filename, InputStream inputStream) throws ModelFormatException

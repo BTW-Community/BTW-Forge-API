@@ -3,7 +3,7 @@ package net.minecraftforge.fluids;
 import cpw.mods.fml.common.FMLLog;
 import net.minecraft.src.Block;
 import net.minecraft.src.EnumRarity;
-import net.minecraft.src.IIcon;
+import net.minecraft.src.Icon;
 import net.minecraft.src.StatCollector;
 import net.minecraft.src.World;
 

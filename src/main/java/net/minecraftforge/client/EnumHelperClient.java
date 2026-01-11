@@ -1,27 +1,27 @@
 package net.minecraftforge.client;
 
-import net.minecraft.src.Options;
+import net.minecraft.src.EnumOptions;
 import net.minecraft.src.EnumOS;
-import net.minecraft.src.GameType;
+import net.minecraft.src.EnumGameType;
 import net.minecraftforge.common.util.EnumHelper;
 public class EnumHelperClient extends EnumHelper
 {
     @SuppressWarnings("rawtypes")
     private static Class[][] clentTypes =
     {
-        {GameType.class, int.class, String.class},
-        {Options.class, String.class, boolean.class, boolean.class},
+        {EnumGameType.class, int.class, String.class},
+        {EnumOptions.class, String.class, boolean.class, boolean.class},
         {EnumOS.class}
     };
     
-    public static GameType addGameType(String name, int id, String displayName)
+    public static EnumGameType addGameType(String name, int id, String displayName)
     {
-        return addEnum(GameType.class, name, id, displayName);
+        return addEnum(EnumGameType.class, name, id, displayName);
     }
     
-    public static Options addOptions(String name, String langName, boolean isSlider, boolean isToggle)
+    public static EnumOptions addOptions(String name, String langName, boolean isSlider, boolean isToggle)
     {
-        return addEnum(Options.class, name, langName, isSlider, isToggle);
+        return addEnum(EnumOptions.class, name, langName, isSlider, isToggle);
     }
     
     public static EnumOS addOS2(String name)

@@ -1,12 +1,7 @@
 package net.minecraftforge.oredict;
 
-import net.minecraft.src.Block;
-import net.minecraft.src.InventoryCrafting;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.IRecipe;
-import net.minecraft.src.ShapedRecipes;
-import net.minecraft.src.World;
+import api.item.tag.TagOrStack;
+import net.minecraft.src.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -128,18 +123,18 @@ public class ShapedOreRecipe implements IRecipe
     ShapedOreRecipe(ShapedRecipes recipe, Map<ItemStack, String> replacements)
     {
         output = recipe.getRecipeOutput();
-        width = recipe.recipeWidth;
-        height = recipe.recipeHeight;
+        width = recipe.getRecipeWidth();
+        height = recipe.getRecipeHeight();
 
-        input = new Object[recipe.recipeItems.length];
+        input = new Object[recipe.getRecipeItems().length];
 
         for(int i = 0; i < input.length; i++)
         {
-            ItemStack ingred = recipe.recipeItems[i];
+            TagOrStack ingred = recipe.getRecipeItems()[i];
 
             if(ingred == null) continue;
 
-            input[i] = recipe.recipeItems[i];
+            input[i] = recipe.getRecipeItems()[i];
 
             for(Entry<ItemStack, String> replace : replacements.entrySet())
             {
@@ -166,6 +161,21 @@ public class ShapedOreRecipe implements IRecipe
 
     @Override
     public ItemStack getRecipeOutput(){ return output; }
+
+    @Override
+    public boolean matches(IRecipe iRecipe) {
+        return false;
+    }
+
+    @Override
+    public boolean hasSecondaryOutput() {
+        return false;
+    }
+
+    @Override
+    public ItemStack[] getSecondaryOutput(IInventory iInventory) {
+        return null;
+    }
 
     /**
      * Used to check if a recipe matches current crafting inventory

@@ -37,8 +37,8 @@ import net.minecraft.network.packet.Packet3Chat;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.ServerConfigurationManager;
 import net.minecraft.world.EnumGameType;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldType;
+import net.minecraft.src.World;
+import net.minecraft.src.WorldType;
 
 public class FMLNetworkHandler {
     private static final int FML_HASH = Hashing.murmur3_32().hashString("FML").asInt();
