@@ -1,24 +1,17 @@
 package cpw.mods.fml.common.eventhandler;
 
-import api.AddonHandler;
-import api.BTWAddon;
+import btw.community.forge.BTNForgeAddon;
 import com.google.common.base.Preconditions;
-import com.google.common.base.Throwables;
-import com.google.common.collect.MapMaker;
-import com.google.common.reflect.TypeToken;
 import cpw.mods.fml.common.FMLLog;
-import net.fabricmc.loader.api.FabricLoader;
-import net.fabricmc.loader.api.ModContainer;
 import org.apache.logging.log4j.Level;
 import org.jetbrains.annotations.NotNull;
 
-import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Consumer;
 
 public class EventBus implements IEventExceptionHandler
 {
@@ -42,122 +35,180 @@ public class EventBus implements IEventExceptionHandler
         exceptionHandler = handler;
     }
 
-    /**
-     * Now requires the {@link BTWAddon} context, can be obtained by passing your addon class
-     * */
-    public void register(Object target, Class<? extends BTWAddon> caller) {
-        register(target, AddonHandler.modList.get(caller));
-    }
-
-    /**
-     * Now requires the {@link BTWAddon} context, can be obtained by passing the instance
-     * */
-    public void register(Object target, BTWAddon caller)
-    {
-        if (listeners.containsKey(target))
-        {
-            return;
-        }
-
-        ModContainer activeModContainer = FabricLoader.getInstance().getModContainer(caller.getModID()).orElse(null);
-        if (activeModContainer == null)
-        {
-            FMLLog.log(Level.ERROR, new Throwable(), "Unable to determine registrant mod for %s. This is a critical error and should be impossible", target);
-//            activeModContainer = Loader.instance().getMinecraftModContainer();
-            activeModContainer = FabricLoader.getInstance().getModContainer("minecraft").orElse(null);
-        }
-//        listenerOwners.put(target, activeModContainer);
-        Set<? extends Class<?>> supers = TypeToken.of(target.getClass()).getTypes().rawTypes();
-        for (Method method : target.getClass().getMethods())
-        {
-            for (Class<?> cls : supers)
-            {
-                try
-                {
-                    Method real = cls.getDeclaredMethod(method.getName(), method.getParameterTypes());
-                    if (real.isAnnotationPresent(SubscribeEvent.class))
-                    {
-                        Class<?>[] parameterTypes = method.getParameterTypes();
-                        if (parameterTypes.length != 1)
-                        {
-                            throw new IllegalArgumentException(
-                                "Method " + method + " has @SubscribeEvent annotation, but requires " + parameterTypes.length +
-                                " arguments.  Event handler methods must require a single argument."
-                            );
-                        }
-
-                        Class<?> eventType = parameterTypes[0];
-
-                        if (!Event.class.isAssignableFrom(eventType))
-                        {
-                            throw new IllegalArgumentException("Method " + method + " has @SubscribeEvent annotation, but takes a argument that is not an Event " + eventType);
-                        }
-
-                        register(eventType, target, method, activeModContainer);
-                        break;
-                    }
+    public void registerNew(Object target) {
+        for (Method method : target.getClass().getDeclaredMethods()) {
+            if (method.isAnnotationPresent(SubscribeEvent.class)) {
+                Class<?>[] parameterTypes = method.getParameterTypes();
+                if (parameterTypes.length != 1) {
+                    throw new IllegalArgumentException(
+                            "Method " + method + " has @SubscribeEvent annotation, but has " + parameterTypes.length +
+                                    " arguments.  Event handler methods require a single argument."
+                    );
                 }
-                catch (NoSuchMethodException e)
-                {
-                    ;
+
+                Class<?> eventType = parameterTypes[0];
+
+                if (!Event.class.isAssignableFrom(eventType)) {
+                    throw new IllegalArgumentException("Method " + method + " has @SubscribeEvent annotation, but takes a argument that is not an Event " + eventType);
                 }
+
+                //noinspection unchecked Silence compiler
+                register((Class<? extends Event>) eventType, method, target);
             }
-        }
-    }
-
-    private void register(Class<?> eventType, Object target, Method method, ModContainer owner)
-    {
-        try
-        {
-            Constructor<?> ctr = eventType.getConstructor();
-            ctr.setAccessible(true);
-            Event event = (Event)ctr.newInstance();
-            ASMEventHandler listener = new ASMEventHandler(target, method, owner);
-            event.getListenerList().register(busID, listener.getPriority(), listener);
-
-            ArrayList<IEventListener> others = listeners.get(target);
-            if (others == null)
-            {
-                others = new ArrayList<IEventListener>();
-                listeners.put(target, others);
-            }
-            others.add(listener);
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
-
-    public void unregister(Object object)
-    {
-        ArrayList<IEventListener> list = listeners.remove(object);
-        if (list == null)
-            return;
-        for (IEventListener listener : list)
-        {
-            ListenerList.unregisterAll(busID, listener);
         }
     }
 
     public boolean post(Event event)
     {
-        IEventListener[] listeners = event.getListenerList().getListeners(busID);
-        int index = 0;
-        try
-        {
-            for (; index < listeners.length; index++)
-            {
-                listeners[index].invoke(event);
-            }
+        var fabricEvent = BTNForgeAddon.EVENT_FACTORY_TO_CLASS.get(event.getClass());
+        if (fabricEvent == null) {
+            FMLLog.warning("No fabric event found for " + event.getClass().getSimpleName());
+            return false;
         }
-        catch (Throwable throwable)
-        {
-            exceptionHandler.handleException(this, event, listeners, index, throwable);
-            Throwables.propagate(throwable);
-        }
+        ((Consumer<Event>) fabricEvent.invoker()).accept(event);
         return (event.isCancelable() ? event.isCanceled() : false);
     }
+
+    private void register(Class<? extends Event> eventType, Method method, Object target) {
+        net.legacyfabric.fabric.api.event.Event<Consumer<?>> event = BTNForgeAddon.EVENT_FACTORY_TO_CLASS.get(eventType);
+        try {
+            if (event == null) {
+                Field eventField = eventType.getDeclaredField("EVENT");
+                eventField.setAccessible(true);
+                event = (net.legacyfabric.fabric.api.event.Event<Consumer<?>>) eventField.get(null);
+            }
+        } catch (NoSuchFieldException | IllegalAccessException ignored) {
+            event = BTNForgeAddon.EVENT_FACTORY_TO_CLASS.get(eventType);
+        }
+        if (event == null) {
+            throw new IllegalArgumentException("This event is not registered: " + eventType.getSimpleName());
+        }
+        event.register((eventObj) -> {
+            try {
+                method.invoke(target, eventObj);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+
+//    /**
+//     * Now requires the {@link BTWAddon} context, can be obtained by passing your addon class
+//     * */
+//    public void register(Object target, Class<? extends BTWAddon> caller) {
+//        register(target, AddonHandler.modList.get(caller));
+//    }
+//
+//    /**
+//     * Now requires the {@link BTWAddon} context, can be obtained by passing the instance
+//     * */
+//    public void register(Object target, BTWAddon caller)
+//    {
+//        if (listeners.containsKey(target))
+//        {
+//            return;
+//        }
+//
+//        ModContainer activeModContainer = FabricLoader.getInstance().getModContainer(caller.getModID()).orElse(null);
+//        if (activeModContainer == null)
+//        {
+//            FMLLog.log(Level.ERROR, new Throwable(), "Unable to determine registrant mod for %s. This is a critical error and should be impossible", target);
+////            activeModContainer = Loader.instance().getMinecraftModContainer();
+//            activeModContainer = FabricLoader.getInstance().getModContainer("minecraft").orElse(null);
+//        }
+////        listenerOwners.put(target, activeModContainer);
+//        Set<? extends Class<?>> supers = TypeToken.of(target.getClass()).getTypes().rawTypes();
+//        for (Method method : target.getClass().getMethods())
+//        {
+//            for (Class<?> cls : supers)
+//            {
+//                try
+//                {
+//                    Method real = cls.getDeclaredMethod(method.getName(), method.getParameterTypes());
+//                    if (real.isAnnotationPresent(SubscribeEvent.class))
+//                    {
+//                        Class<?>[] parameterTypes = method.getParameterTypes();
+//                        if (parameterTypes.length != 1)
+//                        {
+//                            throw new IllegalArgumentException(
+//                                "Method " + method + " has @SubscribeEvent annotation, but requires " + parameterTypes.length +
+//                                " arguments.  Event handler methods must require a single argument."
+//                            );
+//                        }
+//
+//                        Class<?> eventType = parameterTypes[0];
+//
+//                        if (!Event.class.isAssignableFrom(eventType))
+//                        {
+//                            throw new IllegalArgumentException("Method " + method + " has @SubscribeEvent annotation, but takes a argument that is not an Event " + eventType);
+//                        }
+//
+//                        register(eventType, target, method, activeModContainer);
+//                        break;
+//                    }
+//                }
+//                catch (NoSuchMethodException e)
+//                {
+//                    ;
+//                }
+//            }
+//        }
+//    }
+//
+//    private void register(Class<?> eventType, Object target, Method method, ModContainer owner)
+//    {
+//        try
+//        {
+//            Constructor<?> ctr = eventType.getConstructor();
+//            ctr.setAccessible(true);
+//            Event event = (Event)ctr.newInstance();
+//            ASMEventHandler listener = new ASMEventHandler(target, method, owner);
+//            event.getListenerList().register(busID, listener.getPriority(), listener);
+//
+//            ArrayList<IEventListener> others = listeners.get(target);
+//            if (others == null)
+//            {
+//                others = new ArrayList<IEventListener>();
+//                listeners.put(target, others);
+//            }
+//            others.add(listener);
+//        }
+//        catch (Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//    }
+
+    @Deprecated(since = "Currently NOOP")
+    public void unregister(Object object)
+    {
+//        ArrayList<IEventListener> list = listeners.remove(object);
+//        if (list == null)
+//            return;
+//        for (IEventListener listener : list)
+//        {
+//            ListenerList.unregisterAll(busID, listener);
+//        }
+    }
+
+//    public boolean post(Event event)
+//    {
+//        IEventListener[] listeners = event.getListenerList().getListeners(busID);
+//        int index = 0;
+//        try
+//        {
+//            for (; index < listeners.length; index++)
+//            {
+//                listeners[index].invoke(event);
+//            }
+//        }
+//        catch (Throwable throwable)
+//        {
+//            exceptionHandler.handleException(this, event, listeners, index, throwable);
+//            Throwables.propagate(throwable);
+//        }
+//        return (event.isCancelable() ? event.isCanceled() : false);
+//    }
 
     @Override
     public void handleException(EventBus bus, Event event, IEventListener[] listeners, int index, Throwable throwable)

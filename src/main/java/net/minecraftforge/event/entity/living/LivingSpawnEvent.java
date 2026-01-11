@@ -1,9 +1,12 @@
 package net.minecraftforge.event.entity.living;
 
+import btw.community.forge.BTNForgeAddon;
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import cpw.mods.fml.common.eventhandler.Event.HasResult;
+import net.legacyfabric.fabric.api.event.Event;
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.World;
+
+import java.util.function.Consumer;
 
 /**
  * LivingSpawnEvent is fired whenever a living Entity is spawned. <br>
@@ -42,12 +45,19 @@ public class LivingSpawnEvent extends LivingEvent
      *    DENY:    deny the spawn
      *
      */
-    @HasResult
+//    @HasResult
     public static class CheckSpawn extends LivingSpawnEvent
     {
+        public static final Event<Consumer<CheckSpawn>> EVENT = BTNForgeAddon.createNoResult(CheckSpawn.class);
+
         public CheckSpawn(EntityLiving entity, World world, float x, float y, float z)
         {
             super(entity, world, x, y, z);
+        }
+
+        @Override
+        public boolean hasResult() {
+            return true;
         }
     }
 
@@ -87,13 +97,17 @@ public class LivingSpawnEvent extends LivingEvent
      * @author cpw
      *
      */
-    @HasResult
+//    @HasResult
     public static class AllowDespawn extends LivingSpawnEvent
     {
         public AllowDespawn(EntityLiving entity)
         {
             super(entity, entity.worldObj, (float)entity.posX, (float)entity.posY, (float)entity.posZ);
         }
-        
+
+        @Override
+        public boolean hasResult() {
+            return true;
+        }
     }
 }

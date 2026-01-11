@@ -53,11 +53,11 @@ public class ForgeEventFactory
         return event.success;
     }
 
-    @Deprecated // Location version below
-    public static float getBreakSpeed(EntityPlayer player, Block block, int metadata, float original)
-    {
-        return getBreakSpeed(player, block, metadata, original, 0, -1, 0);
-    }
+//    @Deprecated // Location version below
+//    public static float getBreakSpeed(EntityPlayer player, Block block, int metadata, float original)
+//    {
+//        return getBreakSpeed(player, block, metadata, original, 0, -1, 0);
+//    }
 
     public static float getBreakSpeed(EntityPlayer player, Block block, int metadata, float original, int x, int y, int z)
     {
@@ -65,11 +65,11 @@ public class ForgeEventFactory
         return (MinecraftForge.EVENT_BUS.post(event) ? -1 : event.newSpeed);
     }
 
-    @Deprecated
-    public static PlayerInteractEvent onPlayerInteract(EntityPlayer player, Action action, int x, int y, int z, int face)
-    {
-        return onPlayerInteract(player, action, x, y, z, face, null);
-    }
+//    @Deprecated
+//    public static PlayerInteractEvent onPlayerInteract(EntityPlayer player, Action action, int x, int y, int z, int face)
+//    {
+//        return onPlayerInteract(player, action, x, y, z, face, null);
+//    }
     public static PlayerInteractEvent onPlayerInteract(EntityPlayer player, Action action, int x, int y, int z, int face, World world)
     {
         PlayerInteractEvent event = new PlayerInteractEvent(player, action, x, y, z, face, world);

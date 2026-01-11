@@ -4,6 +4,7 @@
   "package": "btw.community.forge.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "eventimpl.SpawnerAnimalsMixin",
     "extensions.IBlockAccessExtensionMixin",
     "extensions.WorldExtensionsMixin"
   ],
