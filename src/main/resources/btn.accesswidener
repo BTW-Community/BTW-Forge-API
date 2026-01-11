@@ -52,3 +52,16 @@ accessible field net/minecraft/src/GuiIngame mc Lnet/minecraft/src/Minecraft;
 accessible method net/minecraft/src/GuiIngame renderInventorySlot (IIIF)V
 accessible method net/minecraft/src/GuiIngame renderBossHealth ()V
 accessible field net/minecraft/src/ChunkProviderServer currentChunkLoader Lnet/minecraft/src/IChunkLoader;
+accessible field net/minecraft/src/BiomeDecorator bigMushroomsPerChunk I
+accessible field net/minecraft/src/BiomeDecorator cactiPerChunk I
+accessible field net/minecraft/src/BiomeDecorator clayPerChunk I
+accessible field net/minecraft/src/BiomeDecorator deadBushPerChunk I
+accessible field net/minecraft/src/BiomeDecorator flowersPerChunk I
+accessible field net/minecraft/src/BiomeDecorator grassPerChunk I
+accessible field net/minecraft/src/BiomeDecorator mushroomsPerChunk I
+accessible field net/minecraft/src/BiomeDecorator reedsPerChunk I
+accessible field net/minecraft/src/BiomeDecorator sandPerChunk I
+accessible field net/minecraft/src/BiomeDecorator sandPerChunk2 I
+accessible field net/minecraft/src/BiomeDecorator treesPerChunk I
+accessible field net/minecraft/src/BiomeDecorator waterlilyPerChunk I
+accessible field net/minecraft/src/TileEntity nameToClassMap Ljava/util/Map;

@@ -1,16 +1,17 @@
 package net.minecraftforge.common;
 
 import com.google.common.collect.ObjectArrays;
-import cpw.mods.fml.common.FMLCommonHandler;
+//import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.Loader;
+//import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.eventhandler.EventBus;
 import cpw.mods.fml.relauncher.Side;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.src.CrashReport;
 import net.minecraft.src.ItemStack;
-import net.minecraftforge.common.ForgeHooks.SeedEntry;
-import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.oredict.OreDictionary;
+//import net.minecraftforge.common.ForgeHooks.SeedEntry;
+//import net.minecraftforge.fluids.FluidRegistry;
+//import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.concurrent.Callable;
 
@@ -27,30 +28,30 @@ public class MinecraftForge
     public static final EventBus EVENT_BUS = new EventBus();
     public static final EventBus TERRAIN_GEN_BUS = new EventBus();
     public static final EventBus ORE_GEN_BUS = new EventBus();
-    public static final String MC_VERSION = Loader.MC_VERSION;
+    public static final String MC_VERSION = FabricLoader.getInstance().getModContainer("minecraft").orElseThrow().getMetadata().getVersion().getFriendlyString();
 
-    static final ForgeInternalHandler INTERNAL_HANDLER = new ForgeInternalHandler();
-
-    /**
-     * Register a new seed to be dropped when breaking tall grass.
-     *
-     * @param seed The item to drop as a seed.
-     * @param weight The relative probability of the seeds,
-     *               where wheat seeds are 10.
-     */
-    public static void addGrassSeed(ItemStack seed, int weight)
-    {
-        ForgeHooks.seedList.add(new SeedEntry(seed, weight));
-    }
+//    static final ForgeInternalHandler INTERNAL_HANDLER = new ForgeInternalHandler();
+// todo forgehooks
+//    /**
+//     * Register a new seed to be dropped when breaking tall grass.
+//     *
+//     * @param seed The item to drop as a seed.
+//     * @param weight The relative probability of the seeds,
+//     *               where wheat seeds are 10.
+//     */
+//    public static void addGrassSeed(ItemStack seed, int weight)
+//    {
+//        ForgeHooks.seedList.add(new SeedEntry(seed, weight));
+//    }
 
    /**
     * Method invoked by FML before any other mods are loaded.
     */
    public static void initialize()
    {
-       FMLLog.info("MinecraftForge v%s Initialized", ForgeVersion.getVersion());
+//       FMLLog.info("MinecraftForge v%s Initialized", ForgeVersion.getVersion());
 
-       OreDictionary.getOreName(0);
+//       OreDictionary.getOreName(0);
 
        //Force these classes to be defined, Should prevent derp error hiding.
        CrashReport fake = new CrashReport("ThisIsFake", new Exception("Not real"));
@@ -135,7 +136,7 @@ public class MinecraftForge
            "net.minecraft.server.dedicated.DedicatedServer$3",
            "net.minecraft.server.dedicated.DedicatedServer$4"
        };
-       if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
+       if (Side.current() == Side.CLIENT)
            handlers = ObjectArrays.concat(handlers, client, String.class);
        else
            handlers = ObjectArrays.concat(handlers, server, String.class);
@@ -157,7 +158,8 @@ public class MinecraftForge
 
        UsernameCache.load();
        // Load before all the mods, so MC owns the MC fluids
-       FluidRegistry.validateFluidRegistry();
+       //todo fluid registry
+//       FluidRegistry.validateFluidRegistry();
    }
 
 

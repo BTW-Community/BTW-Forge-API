@@ -1,7 +1,8 @@
 package cpw.mods.fml.common.eventhandler;
 
 import com.google.common.collect.Maps;
-import cpw.mods.fml.common.ModContainer;
+//import cpw.mods.fml.common.ModContainer;
+import net.fabricmc.loader.api.ModContainer;
 import org.apache.logging.log4j.ThreadContext;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.MethodVisitor;
@@ -40,7 +41,7 @@ public class ASMEventHandler implements IEventListener
     {
         if (owner != null && GETCONTEXT)
         {
-            ThreadContext.put("mod", owner.getName());
+            ThreadContext.put("mod", owner.getMetadata().getName());
         }
         else if (GETCONTEXT)
         {

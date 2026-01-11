@@ -8,6 +8,7 @@ import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
+import net.fabricmc.loader.api.FabricLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.Nullable;
@@ -35,7 +36,7 @@ public final class UsernameCache {
 
     private static final Charset charset = Charsets.UTF_8;
 
-    private static final File saveFile = new File( /* The minecraft dir */(File) FMLInjectionData.data()[6], "usernamecache.json");
+    private static final File saveFile = new File( /* The minecraft dir */FabricLoader.getInstance().getGameDir().toString(), "usernamecache.json");
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     private static final Logger log = LogManager.getLogger(UsernameCache.class);

@@ -7,7 +7,7 @@ import net.minecraft.src.Block;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.TileEntity;
 import net.minecraft.src.World;
-import net.minecraftforge.common.DimensionManager;
+//import net.minecraftforge.common.DimensionManager;
 
 import java.io.Serializable;
 
@@ -132,7 +132,8 @@ public class BlockSnapshot implements Serializable
     {
         if (this.world == null) 
         {
-            this.world = DimensionManager.getWorld(dimId);
+            //todo this may cause issues
+//            this.world = DimensionManager.getWorld(dimId);
         }
         return this.world;
     }

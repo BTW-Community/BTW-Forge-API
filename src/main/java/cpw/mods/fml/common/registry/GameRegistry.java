@@ -12,6 +12,8 @@
 
 package cpw.mods.fml.common.registry;
 
+import btw.community.forge.shim.nbt.JsonToNBT;
+import btw.community.forge.shim.nbt.NBTException;
 import com.google.common.base.Objects;
 import com.google.common.base.Strings;
 import com.google.common.base.Throwables;
@@ -38,7 +40,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import java.lang.reflect.Constructor;
 import java.util.*;
-
+//todo everything commeted out here
 public class GameRegistry
 {
     private static Set<IWorldGenerator> worldGenerators = Sets.newHashSet();
@@ -125,26 +127,27 @@ public class GameRegistry
      */
     public static Item registerItem(Item item, String name, String modId)
     {
-        GameData.getMain().registerItem(item, name);
+        //todo item name
+//        GameData.getMain().registerItem(item, name);
         return item;
     }
 
 
-    /**
-     * Add a forced persistent substitution alias for the block or item to another block or item. This will have
-     * the effect of using the substituted block or item instead of the original, where ever it is
-     * referenced.
-     *
-     * @param nameToSubstitute The name to link to (this is the NEW block or item)
-     * @param type The type (Block or Item)
-     * @param object a NEW instance that is type compatible with the existing instance
-     * @throws ExistingSubstitutionException if someone else has already registered an alias either from or to one of the names
-     * @throws IncompatibleSubstitutionException if the substitution is incompatible
-     */
-    public static void addSubstitutionAlias(String nameToSubstitute, Type type, Object object) throws ExistingSubstitutionException
-    {
-        GameData.getMain().registerSubstitutionAlias(nameToSubstitute, type, object);
-    }
+//    /**
+//     * Add a forced persistent substitution alias for the block or item to another block or item. This will have
+//     * the effect of using the substituted block or item instead of the original, where ever it is
+//     * referenced.
+//     *
+//     * @param nameToSubstitute The name to link to (this is the NEW block or item)
+//     * @param type The type (Block or Item)
+//     * @param object a NEW instance that is type compatible with the existing instance
+//     * @throws ExistingSubstitutionException if someone else has already registered an alias either from or to one of the names
+//     * @throws IncompatibleSubstitutionException if the substitution is incompatible
+//     */
+//    public static void addSubstitutionAlias(String nameToSubstitute, Type type, Object object) throws ExistingSubstitutionException
+//    {
+//        GameData.getMain().registerSubstitutionAlias(nameToSubstitute, type, object);
+//    }
 
     /**
      * Register a block with the specified mod specific name
@@ -185,10 +188,10 @@ public class GameRegistry
      */
     public static Block registerBlock(Block block, Class<? extends ItemBlock> itemclass, String name, Object... itemCtorArgs)
     {
-        if (Loader.instance().isInState(LoaderState.CONSTRUCTING))
-        {
-            FMLLog.warning("The mod %s is attempting to register a block whilst it it being constructed. This is bad modding practice - please use a proper mod lifecycle event.", Loader.instance().activeModContainer());
-        }
+//        if (Loader.instance().isInState(LoaderState.CONSTRUCTING))
+//        {
+//            FMLLog.warning("The mod %s is attempting to register a block whilst it it being constructed. This is bad modding practice - please use a proper mod lifecycle event.", Loader.instance().activeModContainer());
+//        }
         try
         {
             assert block != null : "registerBlock: block cannot be null";
@@ -205,18 +208,19 @@ public class GameRegistry
                 i = itemCtor.newInstance(ObjectArrays.concat(block, itemCtorArgs));
             }
             // block registration has to happen first
-            GameData.getMain().registerBlock(block, name);
+//            GameData.getMain().registerBlock(block, name);
             if (i != null)
             {
-                GameData.getMain().registerItem(i, name);
+//                GameData.getMain().registerItem(i, name);
             }
             return block;
         }
         catch (Exception e)
         {
             FMLLog.log(Level.ERROR, e, "Caught an exception during block registration");
-            throw new LoaderException(e);
+//            throw new LoaderException(e);
         }
+        return null;
     }
 
     public static void addRecipe(ItemStack output, Object... params)
@@ -271,7 +275,7 @@ public class GameRegistry
     public static void registerTileEntityWithAlternatives(Class<? extends TileEntity> tileEntityClass, String id, String... alternatives)
     {
         TileEntity.addMapping(tileEntityClass, id);
-        Map<String,Class<?>> teMappings = ObfuscationReflectionHelper.getPrivateValue(TileEntity.class, null, "field_" + "145855_i", "nameToClassMap");
+        Map<String,Class<?>> teMappings = TileEntity.nameToClassMap;
         for (String s: alternatives)
         {
             if (!teMappings.containsKey(s))
@@ -303,7 +307,8 @@ public class GameRegistry
      */
     public static Block findBlock(String modId, String name)
     {
-        return GameData.findBlock(modId, name);
+//        return GameData.findBlock(modId, name);
+        return null;
     }
 
     /**
@@ -314,19 +319,20 @@ public class GameRegistry
      */
     public static Item findItem(String modId, String name)
     {
-        return GameData.findItem(modId, name);
+//        return GameData.findItem(modId, name);
+        return null;
     }
 
-    /**
-     * Manually register a custom item stack with FML for later tracking. It is automatically scoped with the active modid
-     *
-     * @param name The name to register it under
-     * @param itemStack The itemstack to register
-     */
-    public static void registerCustomItemStack(String name, ItemStack itemStack)
-    {
-        GameData.registerCustomItemStack(name, itemStack);
-    }
+//    /**
+//     * Manually register a custom item stack with FML for later tracking. It is automatically scoped with the active modid
+//     *
+//     * @param name The name to register it under
+//     * @param itemStack The itemstack to register
+//     */
+//    public static void registerCustomItemStack(String name, ItemStack itemStack)
+//    {
+//        GameData.registerCustomItemStack(name, itemStack);
+//    }
     /**
      * Lookup an itemstack based on mod and name. It will create "default" itemstacks from blocks and items if no
      * explicit itemstack is found.
@@ -343,13 +349,13 @@ public class GameRegistry
      */
     public static ItemStack findItemStack(String modId, String name, int stackSize)
     {
-        ItemStack foundStack = GameData.findItemStack(modId, name);
-        if (foundStack != null)
-        {
-            ItemStack is = foundStack.copy();
-            is.stackSize = Math.min(stackSize, is.getMaxStackSize());
-            return is;
-        }
+//        ItemStack foundStack = GameData.findItemStack(modId, name);
+//        if (foundStack != null)
+//        {
+//            ItemStack is = foundStack.copy();
+//            is.stackSize = Math.min(stackSize, is.getMaxStackSize());
+//            return is;
+//        }
         return null;
     }
 
@@ -394,21 +400,23 @@ public class GameRegistry
 
     public static enum Type {
         BLOCK
-        {
-            @Override
-            public FMLControlledNamespacedRegistry<?> getRegistry() {
-                return GameData.getBlockRegistry();
-            }
-        },
+//        {
+//            @Override
+//            public FMLControlledNamespacedRegistry<?> getRegistry() {
+//                return GameData.getBlockRegistry();
+//            }
+//        }
+        ,
         ITEM
-        {
-            @Override
-            public FMLControlledNamespacedRegistry<?> getRegistry() {
-                return GameData.getItemRegistry();
-            }
-        };
+//        {
+//            @Override
+//            public FMLControlledNamespacedRegistry<?> getRegistry() {
+//                return GameData.getItemRegistry();
+//            }
+//        }
+        ;
 
-        public abstract FMLControlledNamespacedRegistry<?> getRegistry();
+//        public abstract FMLControlledNamespacedRegistry<?> getRegistry();
     }
     /**
      * Look up the mod identifier data for a block.
@@ -423,7 +431,8 @@ public class GameRegistry
      */
     public static UniqueIdentifier findUniqueIdentifierFor(Block block)
     {
-        return GameData.getUniqueName(block);
+//        return GameData.getUniqueName(block);
+        return new UniqueIdentifier(block.getModId(), block.getUnlocalizedName());
     }
     /**
      * Look up the mod identifier data for an item.
@@ -438,7 +447,8 @@ public class GameRegistry
      */
     public static UniqueIdentifier findUniqueIdentifierFor(Item item)
     {
-        return GameData.getUniqueName(item);
+        return new UniqueIdentifier(item.getModId(), item.getUnlocalizedName());
+//        return GameData.getUniqueName(item);
     }
 
 
@@ -501,7 +511,8 @@ public class GameRegistry
     public static ItemStack makeItemStack(String itemName, int meta, int stackSize, String nbtString)
     {
         if (itemName == null) throw new IllegalArgumentException("The itemName cannot be null");
-        Item item = GameData.getItemRegistry().getObject(itemName);
+//        Item item = GameData.getItemRegistry().getObject(itemName);
+        Item item = null;
         if (item == null) {
             FMLLog.getLogger().log(Level.TRACE, "Unable to find item with name {}", itemName);
             return null;

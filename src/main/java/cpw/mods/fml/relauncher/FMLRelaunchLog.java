@@ -13,6 +13,7 @@
 package cpw.mods.fml.relauncher;
 
 import cpw.mods.fml.common.TracingPrintStream;
+import net.fabricmc.loader.api.FabricLoader;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -34,7 +35,7 @@ public class FMLRelaunchLog {
 
     private Logger myLog;
 
-    static Side side;
+    static Side side = Side.current();
 
     private FMLRelaunchLog()
     {

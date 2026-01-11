@@ -10,19 +10,20 @@ import java.util.Random;
 public class DeferredBiomeDecorator extends BiomeDecorator {
     private BiomeDecorator wrapped;
 
-    public DeferredBiomeDecorator(BiomeDecorator wrappedOriginal)
+    public DeferredBiomeDecorator(BiomeGenBase biomeGenBase, BiomeDecorator wrappedOriginal)
     {
+        super(biomeGenBase);
         this.wrapped = wrappedOriginal;
     }
 
     @Override
-    public void decorateChunk(World par1World, Random par2Random, BiomeGenBase biome, int par3, int par4)
+    public void decorate(World par1World, Random par2Random, int par3, int par4)
     {
-        fireCreateEventAndReplace(biome);
+        fireCreateEventAndReplace();
         // On first call to decorate, we fire and substitute ourselves, if we haven't already done so
-        biome.theBiomeDecorator.decorateChunk(par1World, par2Random, biome, par3, par4);
+        biome.theBiomeDecorator.decorate(par1World, par2Random, par3, par4);
     }
-    public void fireCreateEventAndReplace(BiomeGenBase biome)
+    public void fireCreateEventAndReplace()
     {
         // Copy any configuration from us to the real instance.
         wrapped.bigMushroomsPerChunk = bigMushroomsPerChunk;
@@ -39,8 +40,8 @@ public class DeferredBiomeDecorator extends BiomeDecorator {
         wrapped.treesPerChunk = treesPerChunk;
         wrapped.waterlilyPerChunk = waterlilyPerChunk;
         
-        BiomeEvent.CreateDecorator event = new BiomeEvent.CreateDecorator(biome, wrapped);
+        BiomeEvent.CreateDecorator event = new BiomeEvent.CreateDecorator(this.biome, wrapped);
         MinecraftForge.TERRAIN_GEN_BUS.post(event);
-        biome.theBiomeDecorator = event.newBiomeDecorator;
+        this.biome.theBiomeDecorator = event.newBiomeDecorator;
     }
 }

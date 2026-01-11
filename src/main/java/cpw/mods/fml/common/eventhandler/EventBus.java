@@ -1,18 +1,21 @@
 package cpw.mods.fml.common.eventhandler;
 
+import api.AddonHandler;
+import api.BTWAddon;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Throwables;
 import com.google.common.collect.MapMaker;
 import com.google.common.reflect.TypeToken;
 import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.ModContainer;
+import net.fabricmc.loader.api.FabricLoader;
+import net.fabricmc.loader.api.ModContainer;
 import org.apache.logging.log4j.Level;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -22,7 +25,7 @@ public class EventBus implements IEventExceptionHandler
     private static int maxID = 0;
 
     private ConcurrentHashMap<Object, ArrayList<IEventListener>> listeners = new ConcurrentHashMap<Object, ArrayList<IEventListener>>();
-    private Map<Object,ModContainer> listenerOwners = new MapMaker().weakKeys().weakValues().makeMap();
+//    private Map<Object, ModContainer> listenerOwners = new MapMaker().weakKeys().weakValues().makeMap();
     private final int busID = maxID++;
     private IEventExceptionHandler exceptionHandler;
 
@@ -39,20 +42,31 @@ public class EventBus implements IEventExceptionHandler
         exceptionHandler = handler;
     }
 
-    public void register(Object target)
+    /**
+     * Now requires the {@link BTWAddon} context, can be obtained by passing your addon class
+     * */
+    public void register(Object target, Class<? extends BTWAddon> caller) {
+        register(target, AddonHandler.modList.get(caller));
+    }
+
+    /**
+     * Now requires the {@link BTWAddon} context, can be obtained by passing the instance
+     * */
+    public void register(Object target, BTWAddon caller)
     {
         if (listeners.containsKey(target))
         {
             return;
         }
 
-        ModContainer activeModContainer = Loader.instance().activeModContainer();
+        ModContainer activeModContainer = FabricLoader.getInstance().getModContainer(caller.getModID()).orElse(null);
         if (activeModContainer == null)
         {
             FMLLog.log(Level.ERROR, new Throwable(), "Unable to determine registrant mod for %s. This is a critical error and should be impossible", target);
-            activeModContainer = Loader.instance().getMinecraftModContainer();
+//            activeModContainer = Loader.instance().getMinecraftModContainer();
+            activeModContainer = FabricLoader.getInstance().getModContainer("minecraft").orElse(null);
         }
-        listenerOwners.put(target, activeModContainer);
+//        listenerOwners.put(target, activeModContainer);
         Set<? extends Class<?>> supers = TypeToken.of(target.getClass()).getTypes().rawTypes();
         for (Method method : target.getClass().getMethods())
         {

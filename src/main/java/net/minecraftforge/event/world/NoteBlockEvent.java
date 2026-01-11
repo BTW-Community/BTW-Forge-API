@@ -2,7 +2,7 @@ package net.minecraftforge.event.world;
 
 import com.google.common.base.Preconditions;
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import net.minecraft.src.Blocks;
+import net.minecraft.src.Block;
 import net.minecraft.src.World;
 
 /**
@@ -15,7 +15,7 @@ public class NoteBlockEvent extends BlockEvent
 
     NoteBlockEvent(World world, int x, int y, int z, int meta, int note)
     {
-        super(x, y, z, world, Blocks.noteblock, meta);
+        super(x, y, z, world, Block.music, meta);
         this.noteId = note;
     }
     

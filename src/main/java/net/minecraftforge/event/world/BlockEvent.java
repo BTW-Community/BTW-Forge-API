@@ -8,7 +8,7 @@ import net.minecraft.src.EnchantmentHelper;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.World;
-import net.minecraftforge.common.ForgeHooks;
+//import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.util.BlockSnapshot;
 
 import java.util.ArrayList;
@@ -78,17 +78,18 @@ public class BlockEvent extends Event {
             super(x, y, z, world, block, blockMetadata);
             this.player = player;
 
-            if (block == null || !ForgeHooks.canHarvestBlock(block, player, blockMetadata) || // Handle empty block or player unable to break block scenario
-                block.canSilkHarvest(world, player, x, y, z, blockMetadata) && EnchantmentHelper.getSilkTouchModifier(player)) // If the block is being silk harvested, the exp dropped is 0
-            {
-                this.exp = 0;
-            }
-            else
-            {
-                int meta = block.getDamageValue(world, x, y, z);
-                int bonusLevel = EnchantmentHelper.getFortuneModifier(player);
-                this.exp = block.getExpDrop(world, meta, bonusLevel);
-            }
+            //todo break event
+//            if (block == null || !ForgeHooks.canHarvestBlock(block, player, blockMetadata) || // Handle empty block or player unable to break block scenario
+//                block.canSilkHarvest(world, player, x, y, z, blockMetadata) && EnchantmentHelper.getSilkTouchModifier(player)) // If the block is being silk harvested, the exp dropped is 0
+//            {
+//                this.exp = 0;
+//            }
+//            else
+//            {
+//                int meta = block.getDamageValue(world, x, y, z);
+//                int bonusLevel = EnchantmentHelper.getFortuneModifier(player);
+//                this.exp = block.getExpDrop(world, meta, bonusLevel);
+//            }
         }
 
         public EntityPlayer getPlayer()

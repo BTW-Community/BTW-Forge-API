@@ -1,23 +1,8 @@
 package net.minecraftforge.event;
 
-import cpw.mods.fml.common.ObfuscationReflectionHelper;
+//import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.eventhandler.Event.Result;
-import net.minecraft.src.Block;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityLiving;
-import net.minecraft.src.EntityLivingBase;
-import net.minecraft.src.EnumCreatureType;
-import net.minecraft.src.EntityLightningBolt;
-import net.minecraft.src.EntityZombie;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.Explosion;
-import net.minecraft.src.World;
-import net.minecraft.src.WorldServer;
-import net.minecraft.src.WorldSettings;
-import net.minecraft.src.BiomeGenBase;
-import net.minecraft.src.IPlayerFileData;
-import net.minecraft.src.SaveHandler;
+import net.minecraft.src.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.BlockSnapshot;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -116,7 +101,7 @@ public class ForgeEventFactory
         return event.getResult();
     }
 
-    public static List<BiomeGenBase.SpawnListEntry> getPotentialSpawns(WorldServer world, EnumCreatureType type, int x, int y, int z, List<BiomeGenBase.SpawnListEntry> oldList)
+    public static List<SpawnListEntry> getPotentialSpawns(WorldServer world, EnumCreatureType type, int x, int y, int z, List<SpawnListEntry> oldList)
     {
         WorldEvent.PotentialSpawns event = new WorldEvent.PotentialSpawns(world, type, x, y, z, oldList);
         if (MinecraftForge.EVENT_BUS.post(event))
@@ -220,7 +205,7 @@ public class ForgeEventFactory
     public static void firePlayerLoadingEvent(EntityPlayer player, IPlayerFileData playerFileData, String uuidString)
     {
         SaveHandler sh = (SaveHandler) playerFileData;
-        File dir = ObfuscationReflectionHelper.getPrivateValue(SaveHandler.class, sh, "playersDirectory", "field_"+"75771_c");
+        File dir = sh.playersDirectory;
         MinecraftForge.EVENT_BUS.post(new PlayerEvent.LoadFromFile(player, dir, uuidString));
     }
 

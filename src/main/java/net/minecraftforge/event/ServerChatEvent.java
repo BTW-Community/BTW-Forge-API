@@ -2,8 +2,8 @@ package net.minecraftforge.event;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import cpw.mods.fml.common.eventhandler.Event;
+import net.minecraft.src.ChatMessageComponent;
 import net.minecraft.src.EntityPlayerMP;
-import net.minecraft.src.ChatComponentTranslation;
 
 /**
  * ServerChatEvent is fired whenever a C01PacketChatMessage is processed. <br>
@@ -27,13 +27,13 @@ public class ServerChatEvent extends Event
 {
     public final String message, username;
     public final EntityPlayerMP player;
-    public ChatComponentTranslation component;
-    public ServerChatEvent(EntityPlayerMP player, String message, ChatComponentTranslation component)
+    public ChatMessageComponent component;
+    public ServerChatEvent(EntityPlayerMP player, String message, ChatMessageComponent component)
     {
         super();
         this.message = message;
         this.player = player;
-        this.username = player.getGameProfile().getName();
+        this.username = player.username;
         this.component = component;
     }
 }

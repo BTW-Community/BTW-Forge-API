@@ -28,5 +28,11 @@
   "depends": {
     "fabricloader": ">=0.14.19",
     "minecraft": "1.6.4"
+  },
+  "custom": {
+    "loom:injected_interfaces": {
+      "net/minecraft/class_1150": ["btw/community/forge/extensions/IBlockAccessExtensions"],
+      "net/minecraft/class_1158": ["btw/community/forge/extensions/IBlockAccessExtensions"]
+    }
   }
 }

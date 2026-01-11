@@ -12,6 +12,9 @@
 
 package cpw.mods.fml.relauncher;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.loader.api.FabricLoader;
+
 public enum Side {
 
     /**
@@ -39,5 +42,11 @@ public enum Side {
     public boolean isClient()
     {
         return this == CLIENT;
+    }
+
+    public static Side current() {
+        if (FabricLoader.getInstance().getEnvironmentType().equals(EnvType.CLIENT))
+            return CLIENT;
+        return SERVER;
     }
 }
