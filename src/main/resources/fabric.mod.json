@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "forge",
+  "id": "betterthannothing",
   "version": "${version}",
-  "name": "Forge API",
-  "description": "A port of the Forge API to Better Than Wolves",
+  "name": "Better Than Nothing: Forge API Port",
+  "description": "The Forge API, allowing mod devs to more easily port Forge mods to BTW",
   "authors": [
     "All of the Forge maintainers at the time of 1.7.10",
     "TheWinABagel (Port)"
@@ -18,13 +18,13 @@
   "environment": "*",
   "entrypoints": {
     "btw:addon": [
-      "btw.community.forge.ForgeAPIAddon"
+      "btw.community.forge.BTNForgeAddon"
     ]
   },
   "mixins": [
-    "forge.mixins.json"
+    "btn.mixins.json"
   ],
-  "accessWidener": "forge.accesswidener",
+  "accessWidener": "btn.accesswidener",
   "depends": {
     "fabricloader": ">=0.14.19",
     "minecraft": "1.6.4"

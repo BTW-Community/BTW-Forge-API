@@ -126,7 +126,7 @@ jar {
 loom {
 	sourceCompatibility = JavaVersion.VERSION_17
 	targetCompatibility = JavaVersion.VERSION_17
-    accessWidenerPath = file('src/main/resources/forge.accesswidener')
+    accessWidenerPath = file('src/main/resources/btn.accesswidener')
 }
 
 tasks.register('copyBtwJar', Copy) {
