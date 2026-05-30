@@ -34,10 +34,14 @@ public class LivingEvent extends EntityEvent
      * <br>
      * This event is fired on the {@link MinecraftForge#EVENT_BUS}.
      **/
-    @Cancelable
     public static class LivingUpdateEvent extends LivingEvent
     {
         public LivingUpdateEvent(EntityLivingBase e){ super(e); }
+
+        @Override
+        public boolean isCancelable() {
+            return true;
+        }
     }
     
     /**

@@ -18,7 +18,6 @@ import net.minecraft.src.World;
  * <br>
  * This event is fired on the {@link MinecraftForge#EVENT_BUS}.
  **/
-@Cancelable
 public class EntityJoinWorldEvent extends EntityEvent
 {
 
@@ -28,5 +27,10 @@ public class EntityJoinWorldEvent extends EntityEvent
     {
         super(entity);
         this.world = world;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

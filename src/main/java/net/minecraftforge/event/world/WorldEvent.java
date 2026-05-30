@@ -87,7 +87,6 @@ public class WorldEvent extends ForgeEvent
      * Called by WorldServer to gather a list of all possible entities that can spawn at the specified location.
      * Canceling the event will result in a empty list, meaning no entity will be spawned.
      */
-    @Cancelable
     public static class PotentialSpawns extends WorldEvent
     {
         public final EnumCreatureType type;
@@ -112,13 +111,18 @@ public class WorldEvent extends ForgeEvent
                 this.list = new ArrayList<SpawnListEntry>();
             }
         }
+
+        @Override
+        public boolean isCancelable() {
+            return true;
+        }
+
     }
 
     /**
      * Called by WorldServer when it attempts to create a spawnpoint for a dimension.
      * Canceling the event will prevent the vanilla code from running.
      */
-    @Cancelable
     public static class CreateSpawnPosition extends WorldEvent
     {
         public final WorldSettings settings;
@@ -126,6 +130,11 @@ public class WorldEvent extends ForgeEvent
         {
             super(world);
             this.settings = ws;
+        }
+
+        @Override
+        public boolean isCancelable() {
+            return true;
         }
     }
 }

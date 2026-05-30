@@ -19,7 +19,6 @@ import net.minecraft.src.EntityLivingBase;
  * <br>
  * This event is fired on the {@link MinecraftForge#EVENT_BUS}.
  **/
-@Cancelable
 public class LivingFallEvent extends LivingEvent
 {
     public float distance;
@@ -27,5 +26,10 @@ public class LivingFallEvent extends LivingEvent
     {
         super(entity);
         this.distance = distance;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

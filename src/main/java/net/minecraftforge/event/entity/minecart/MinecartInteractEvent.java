@@ -21,7 +21,6 @@ import net.minecraft.src.EntityPlayer;
  * <br>
  * This event is fired on the {@link MinecraftForge#EVENT_BUS}.
  **/
-@Cancelable
 public class MinecartInteractEvent extends MinecartEvent
 {
     public final EntityPlayer player;
@@ -30,5 +29,10 @@ public class MinecartInteractEvent extends MinecartEvent
     {
         super(minecart);
         this.player = player;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

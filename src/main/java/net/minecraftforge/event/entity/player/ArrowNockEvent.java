@@ -18,7 +18,6 @@ import net.minecraft.src.ItemStack;
  * <br>
  * This event is fired on the {@link MinecraftForge#EVENT_BUS}.
  **/
-@Cancelable
 public class ArrowNockEvent extends PlayerEvent
 {
     public ItemStack result;
@@ -27,5 +26,10 @@ public class ArrowNockEvent extends PlayerEvent
     {
         super(player);
         this.result = result;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

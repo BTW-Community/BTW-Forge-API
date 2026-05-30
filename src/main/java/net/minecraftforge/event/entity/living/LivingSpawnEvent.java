@@ -45,7 +45,6 @@ public class LivingSpawnEvent extends LivingEvent
      *    DENY:    deny the spawn
      *
      */
-//    @HasResult
     public static class CheckSpawn extends LivingSpawnEvent
     {
         public static final Event<Consumer<CheckSpawn>> EVENT = BTNEventUtil.createNoResult(CheckSpawn.class);
@@ -75,12 +74,16 @@ public class LivingSpawnEvent extends LivingEvent
      * <br>
      * This event is fired on the {@link MinecraftForge#EVENT_BUS}.
      **/
-    @Cancelable
     public static class SpecialSpawn extends LivingSpawnEvent
     {
         public SpecialSpawn(EntityLiving entity, World world, float x, float y, float z)
         {
             super(entity, world, x, y, z);
+        }
+
+        @Override
+        public boolean isCancelable() {
+            return true;
         }
     }
     
@@ -97,7 +100,6 @@ public class LivingSpawnEvent extends LivingEvent
      * @author cpw
      *
      */
-//    @HasResult
     public static class AllowDespawn extends LivingSpawnEvent
     {
         public AllowDespawn(EntityLiving entity)

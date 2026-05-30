@@ -21,7 +21,6 @@ import net.minecraft.src.Entity;
  * <br>
  * This event is fired on the {@link MinecraftForge#EVENT_BUS}.<br>
  **/
-@Cancelable
 public class PlaySoundAtEntityEvent extends EntityEvent
 { 
     public String name;
@@ -34,5 +33,10 @@ public class PlaySoundAtEntityEvent extends EntityEvent
         this.name = name;
         this.volume = volume;
         this.pitch = pitch;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

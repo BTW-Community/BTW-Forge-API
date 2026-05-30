@@ -10,7 +10,6 @@ import net.minecraft.src.EntityPlayer;
  * stop the items from entering the world, but will not prevent them being
  * removed from the inventory - and thus removed from the system.
  */
-@Cancelable
 public class ItemTossEvent extends ItemEvent
 {
 
@@ -29,5 +28,10 @@ public class ItemTossEvent extends ItemEvent
     {
         super(entityItem);
         this.player = player;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

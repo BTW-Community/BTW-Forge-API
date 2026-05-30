@@ -6,8 +6,6 @@ import net.minecraft.src.Block;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.World;
 
-@Cancelable
-@ForgeEvent.HasResult
 public class BonemealEvent extends PlayerEvent
 {
     /**
@@ -34,5 +32,15 @@ public class BonemealEvent extends PlayerEvent
         this.x = x;
         this.y = y;
         this.z = z;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
+    }
+
+    @Override
+    public boolean hasResult() {
+        return true;
     }
 }

@@ -8,7 +8,6 @@ import net.minecraft.src.EntityPlayer;
  * This event is called when a player collides with a EntityXPOrb on the ground.
  * The event can be canceled, and no further processing will be done.  
  */
-@Cancelable
 public class PlayerPickupXpEvent extends PlayerEvent
 {
     public final EntityXPOrb orb;
@@ -17,5 +16,10 @@ public class PlayerPickupXpEvent extends PlayerEvent
     {
         super(player);
         this.orb = orb;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

@@ -8,7 +8,6 @@ import net.minecraft.src.EntityLivingBase;
  * @author Mithion
  *
  */
-@Cancelable
 public class EnderTeleportEvent extends LivingEvent
 {
 
@@ -24,5 +23,10 @@ public class EnderTeleportEvent extends LivingEvent
         this.targetY = targetY;
         this.targetZ = targetZ;
         this.attackDamage = attackDamage;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

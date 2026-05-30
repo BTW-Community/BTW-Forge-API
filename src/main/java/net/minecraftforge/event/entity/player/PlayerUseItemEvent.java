@@ -27,12 +27,16 @@ public abstract class PlayerUseItemEvent extends PlayerEvent
      * Cancel the event, or set the duration or <= 0 to prevent it from processing.
      *
      */
-    @Cancelable
     public static class Start extends PlayerUseItemEvent
     {
         public Start(EntityPlayer player, ItemStack item, int duration)
         {
             super(player, item, duration);
+        }
+
+        @Override
+        public boolean isCancelable() {
+            return true;
         }
     }
 
@@ -42,12 +46,16 @@ public abstract class PlayerUseItemEvent extends PlayerEvent
      * Cancel the event, or set the duration or <= 0 to cause the player to stop using the item.
      *
      */
-    @Cancelable
     public static class Tick extends PlayerUseItemEvent
     {
         public Tick(EntityPlayer player, ItemStack item, int duration)
         {
             super(player, item, duration);
+        }
+
+        @Override
+        public boolean isCancelable() {
+            return true;
         }
     }
 
@@ -63,12 +71,16 @@ public abstract class PlayerUseItemEvent extends PlayerEvent
      * Canceling this event will prevent the Item from being notified that it has stopped being used, 
      * The only vanilla item this would effect are bows, and it would cause them NOT to fire there arrow.
      */
-    @Cancelable
     public static class Stop extends PlayerUseItemEvent
     {
         public Stop(EntityPlayer player, ItemStack item, int duration)
         {
             super(player, item, duration);
+        }
+
+        @Override
+        public boolean isCancelable() {
+            return true;
         }
     }
 

@@ -27,7 +27,6 @@ import java.util.ArrayList;
  * <br>
  * This event is fired on the {@link MinecraftForge#EVENT_BUS}.
  **/
-@Cancelable
 public class LivingDropsEvent extends LivingEvent
 {
     public final DamageSource source;
@@ -44,5 +43,10 @@ public class LivingDropsEvent extends LivingEvent
         this.lootingLevel = lootingLevel;
         this.recentlyHit = recentlyHit;
         this.specialDropValue = specialDropValue;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

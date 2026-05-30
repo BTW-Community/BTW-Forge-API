@@ -65,7 +65,6 @@ public class BlockEvent extends ForgeEvent {
      * Event that is fired when an Block is about to be broken by a player
      * Canceling this event will prevent the Block from being broken.
      */
-    @Cancelable
     public static class BreakEvent extends BlockEvent 
     {
         /** Reference to the Player who broke the block. If no player is available, use a EntityFakePlayer */
@@ -115,6 +114,12 @@ public class BlockEvent extends ForgeEvent {
         {
             this.exp = exp;
         }
+
+        @Override
+        public boolean isCancelable() {
+            return true;
+        }
+
     }
 
     /**
@@ -122,7 +127,6 @@ public class BlockEvent extends ForgeEvent {
      *
      * If a Block Place event is cancelled, the block will not be placed.
      */
-    @Cancelable
     public static class PlaceEvent extends BlockEvent {
 
         public final EntityPlayer player;
@@ -143,6 +147,12 @@ public class BlockEvent extends ForgeEvent {
                 System.out.printf("Created PlaceEvent - [PlacedBlock: %s ][PlacedAgainst: %s ][ItemStack: %s ][Player: %s ]\n", placedBlock, placedAgainst, player.getCurrentEquippedItem(), player);
             }
         }
+
+        @Override
+        public boolean isCancelable() {
+            return true;
+        }
+
     }
 
     /**
@@ -152,7 +162,6 @@ public class BlockEvent extends ForgeEvent {
      * the placed block would exist if the placement only affected a single
      * block.
      */
-    @Cancelable
     public static class MultiPlaceEvent extends PlaceEvent {
         private final List<BlockSnapshot> blockSnapshots;
 
@@ -174,5 +183,11 @@ public class BlockEvent extends ForgeEvent {
         public List<BlockSnapshot> getReplacedBlockSnapshots() {
             return blockSnapshots;
         }
+
+        @Override
+        public boolean isCancelable() {
+            return true;
+        }
+
     }
 }

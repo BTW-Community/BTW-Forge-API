@@ -75,7 +75,6 @@ public class PlayerEvent extends LivingEvent
      * <br>
      * This event is fired on the {@link MinecraftForge#EVENT_BUS}.
      **/
-    @Cancelable
     public static class BreakSpeed extends PlayerEvent
     {
         public final Block block;
@@ -102,6 +101,11 @@ public class PlayerEvent extends LivingEvent
             this.x = x;
             this.y = y;
             this.z = z;
+        }
+
+        @Override
+        public boolean isCancelable() {
+            return true;
         }
     }
 

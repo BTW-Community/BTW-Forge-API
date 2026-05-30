@@ -14,7 +14,6 @@ import java.util.ArrayList;
  * player dies.  Canceling the event will prevent ALL drops from entering the
  * world.
  */
-@Cancelable
 public class PlayerDropsEvent extends LivingDropsEvent
 {
     public final EntityPlayer entityPlayer;

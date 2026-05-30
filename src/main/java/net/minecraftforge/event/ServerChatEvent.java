@@ -22,7 +22,6 @@ import net.minecraft.src.EntityPlayerMP;
  * <br>
  * This event is fired on the {@link MinecraftForge#EVENT_BUS}.
  **/
-@Cancelable
 public class ServerChatEvent extends ForgeEvent
 {
     public final String message, username;
@@ -35,5 +34,10 @@ public class ServerChatEvent extends ForgeEvent
         this.player = player;
         this.username = player.username;
         this.component = component;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

@@ -18,7 +18,6 @@ import net.minecraft.src.EntityPlayer;
  * <br>
  * This event is fired on the {@link MinecraftForge#EVENT_BUS}.
  **/
-@Cancelable
 public class EntityInteractEvent extends PlayerEvent
 {
     public final Entity target;
@@ -26,5 +25,10 @@ public class EntityInteractEvent extends PlayerEvent
     {
         super(player);
         this.target = target;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

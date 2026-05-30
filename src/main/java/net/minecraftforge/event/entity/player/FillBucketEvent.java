@@ -7,8 +7,6 @@ import net.minecraft.src.ItemStack;
 import net.minecraft.src.MovingObjectPosition;
 import net.minecraft.src.World;
 
-@Cancelable
-@ForgeEvent.HasResult
 public class FillBucketEvent extends PlayerEvent
 {
     /**
@@ -33,5 +31,16 @@ public class FillBucketEvent extends PlayerEvent
         this.current = current;
         this.world = world;
         this.target = target;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
+    }
+
+
+    @Override
+    public boolean hasResult() {
+        return true;
     }
 }

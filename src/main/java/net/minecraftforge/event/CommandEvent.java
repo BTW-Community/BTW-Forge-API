@@ -22,7 +22,6 @@ import net.minecraft.src.ICommandSender;
  * <br>
  * This event is fired on the {@link MinecraftForge#EVENT_BUS}.<br>
  **/
-@Cancelable
 public class CommandEvent extends ForgeEvent
 {
 
@@ -36,5 +35,10 @@ public class CommandEvent extends ForgeEvent
         this.command = command;
         this.sender = sender;
         this.parameters = parameters;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

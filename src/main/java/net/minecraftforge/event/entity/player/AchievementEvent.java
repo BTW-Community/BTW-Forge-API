@@ -7,7 +7,6 @@ import net.minecraft.src.Achievement;
 /**
  * When the player receives an achievement. If canceled the player will not receive anything.
  */
-@Cancelable
 public class AchievementEvent extends PlayerEvent {
 
     public final Achievement achievement;
@@ -15,5 +14,10 @@ public class AchievementEvent extends PlayerEvent {
     {
         super(player);
         this.achievement = achievement;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

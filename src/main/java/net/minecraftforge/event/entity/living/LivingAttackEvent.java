@@ -22,7 +22,6 @@ import net.minecraft.src.DamageSource;
  *<br>
  * This event is fired on the {@link MinecraftForge#EVENT_BUS}.
  **/
-@Cancelable
 public class LivingAttackEvent extends LivingEvent
 {
     public final DamageSource source;
@@ -32,5 +31,10 @@ public class LivingAttackEvent extends LivingEvent
         super(entity);
         this.source = source;
         this.ammount = ammount;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

@@ -62,7 +62,6 @@ public class NoteBlockEvent extends BlockEvent
      * Fired when a Noteblock plays it's note. You can override the note and instrument
      * Canceling this event will stop the note from playing.
      */
-    @Cancelable
     public static class Play extends NoteBlockEvent
     {
         public Instrument instrument;
@@ -72,13 +71,18 @@ public class NoteBlockEvent extends BlockEvent
             super(world, x, y, z, meta, note);
             this.instrument = Instrument.fromId(instrument);
         }
+
+        @Override
+        public boolean isCancelable() {
+            return true;
+        }
+
     }
     
     /**
      * Fired when a Noteblock is changed. You can adjust the note it will change to via {@link #setNote(Note, Octave)}.
      * Canceling this event will not change the note and also stop the Noteblock from playing it's note.
      */
-    @Cancelable
     public static class Change extends NoteBlockEvent
     {
         public final Note oldNote;
@@ -89,7 +93,13 @@ public class NoteBlockEvent extends BlockEvent
             super(world, x, y, z, meta, newNote);
             this.oldNote = Note.fromId(oldNote);
             this.oldOctave = Octave.fromId(oldNote);
-        }        
+        }
+
+        @Override
+        public boolean isCancelable() {
+            return true;
+        }
+
     }
     
     /**

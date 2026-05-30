@@ -50,12 +50,16 @@ public class PotionBrewEvent extends ForgeEvent
      * <br>
      * If this event is canceled, and items have been modified, PotionBrewEvent.Post will automatically be fired.
      **/
-    @Cancelable
     public static class Pre extends PotionBrewEvent
     {
         public Pre(ItemStack[] stacks)
         {
             super(stacks);
+        }
+
+        @Override
+        public boolean isCancelable() {
+            return true;
         }
     }
 

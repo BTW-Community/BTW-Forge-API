@@ -32,7 +32,6 @@ import static cpw.mods.fml.common.eventhandler.ForgeEvent.Result.DENY;
  * <br>
  * This event is fired on the {@link MinecraftForge#EVENT_BUS}.
  **/
-@Cancelable
 public class PlayerInteractEvent extends PlayerEvent
 {
     public static enum Action
@@ -76,5 +75,10 @@ public class PlayerInteractEvent extends PlayerEvent
         super.setCanceled(cancel);
         useBlock = (cancel ? DENY : useBlock == DENY ? DEFAULT : useBlock);
         useItem = (cancel ? DENY : useItem == DENY ? DEFAULT : useItem);
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

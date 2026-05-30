@@ -11,7 +11,6 @@ import net.minecraft.src.ItemStack;
  * If the event is not canceled, but the output is not null, it will set the output and not run vanilla behavior.
  * if the output is null, and the event is not canceled, vanilla behavior will execute.
  */
-@Cancelable
 public class AnvilUpdateEvent extends ForgeEvent
 {
     public final ItemStack left;  // The left side of the input
@@ -28,5 +27,10 @@ public class AnvilUpdateEvent extends ForgeEvent
         this.name = name;
         this.cost = cost;
         this.materialCost = 0;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

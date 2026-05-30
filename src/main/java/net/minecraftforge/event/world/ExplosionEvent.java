@@ -36,13 +36,18 @@ public class ExplosionEvent extends ForgeEvent
      * This event does not use {@link HasResult}.<br>
      * This event is fired on the {@link MinecraftForge#EVENT_BUS}.<br>
      */
-    @Cancelable
     public static class Start extends ExplosionEvent
     {
         public Start(World world, Explosion explosion)
         {
             super(world, explosion);
         }
+
+        @Override
+        public boolean isCancelable() {
+            return true;
+        }
+
     }
 
     /** ExplosionEvent.Detonate is fired once the explosion has a list of affected blocks and entities.  These lists can be modified to change the outcome.<br>

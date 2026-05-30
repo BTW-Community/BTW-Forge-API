@@ -5,20 +5,17 @@ import cpw.mods.fml.common.eventhandler.ForgeEvent;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.World;
-
-@Cancelable
-@ForgeEvent.HasResult
+/**
+ * This event is fired when a player attempts to use a Hoe on a block, it
+ * can be canceled to completely prevent any further processing.
+ *
+ * You can also set the result to ALLOW to mark the event as processed
+ * and damage the hoe.
+ *
+ * setResult(ALLOW) is the same as the old setHandled();
+ */
 public class UseHoeEvent extends PlayerEvent
 {
-    /**
-     * This event is fired when a player attempts to use a Hoe on a block, it 
-     * can be canceled to completely prevent any further processing.
-     * 
-     * You can also set the result to ALLOW to mark the event as processed 
-     * and damage the hoe.
-     * 
-     * setResult(ALLOW) is the same as the old setHandeled();
-     */
 
     public final ItemStack current;
     public final World world;
@@ -34,5 +31,15 @@ public class UseHoeEvent extends PlayerEvent
         this.x = x;
         this.y = y;
         this.z = z;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
+    }
+
+    @Override
+    public boolean hasResult() {
+        return true;
     }
 }

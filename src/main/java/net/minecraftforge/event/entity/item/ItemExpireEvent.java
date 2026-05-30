@@ -9,7 +9,6 @@ import net.minecraft.src.EntityItem;
  * flagged as dead, thus staying it's removal from the world. If canceled
  * it will add more time to the entitie's life equal to extraLife.
  */
-@Cancelable
 public class ItemExpireEvent extends ItemEvent
 {
 
@@ -25,5 +24,10 @@ public class ItemExpireEvent extends ItemEvent
     {
         super(entityItem);
         this.extraLife = extraLife;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

@@ -18,7 +18,6 @@ import net.minecraft.src.EntityLightningBolt;
  * <br>
  * This event is fired on the {@link MinecraftForge#EVENT_BUS}.<br>
  **/
-@Cancelable
 public class EntityStruckByLightningEvent extends EntityEvent
 {
     public final EntityLightningBolt lightning;
@@ -27,5 +26,10 @@ public class EntityStruckByLightningEvent extends EntityEvent
     {
         super(entity);
         this.lightning = lightning;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

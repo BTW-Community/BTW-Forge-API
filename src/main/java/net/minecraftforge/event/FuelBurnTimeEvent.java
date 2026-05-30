@@ -18,7 +18,6 @@ import net.minecraft.src.ItemStack;
  * <br>
  * This event are fired on the {@link MinecraftForge#EVENT_BUS}.
  **/
-@HasResult
 @Deprecated //Remove in 1.8
 public class FuelBurnTimeEvent extends ForgeEvent
 {
@@ -28,5 +27,10 @@ public class FuelBurnTimeEvent extends ForgeEvent
     public FuelBurnTimeEvent(ItemStack fuel)
     {
         this.fuel = fuel;
+    }
+
+    @Override
+    public boolean hasResult() {
+        return true;
     }
 }
