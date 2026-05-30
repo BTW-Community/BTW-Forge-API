@@ -63,7 +63,6 @@ public class DecorateBiomeEvent extends ForgeEvent
      * 
      * You can set the result to DENY to prevent the default biome decoration.
      */
-    @HasResult
     public static class Decorate extends DecorateBiomeEvent
     {
         /** Use CUSTOM to filter custom event types
@@ -76,6 +75,11 @@ public class DecorateBiomeEvent extends ForgeEvent
         {
             super(world, rand, worldX, worldZ);
             this.type = type;
+        }
+
+        @Override
+        public boolean hasResult() {
+            return true;
         }
     }
 }

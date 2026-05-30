@@ -74,7 +74,6 @@ public class BiomeEvent extends ForgeEvent
      * 
      * You can cancel the event to override default values
      */
-    @HasResult
     public static class GetVillageBlockID extends BiomeEvent
     {
         public final Block original;
@@ -87,6 +86,11 @@ public class BiomeEvent extends ForgeEvent
             this.original = original;
             this.type = type;
         }
+
+        @Override
+        public boolean hasResult() {
+            return true;
+        }
     }
     
     /**
@@ -95,7 +99,6 @@ public class BiomeEvent extends ForgeEvent
      * 
      * You can set the result to DENY to prevent the default block metadata selection.
      */
-    @HasResult
     public static class GetVillageBlockMeta extends BiomeEvent
     {
         public final Block original;
@@ -107,6 +110,11 @@ public class BiomeEvent extends ForgeEvent
             super(biome);
             this.original = original;
             this.type = type;
+        }
+
+        @Override
+        public boolean hasResult() {
+            return true;
         }
     }
     

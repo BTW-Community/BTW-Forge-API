@@ -4,7 +4,6 @@ import cpw.mods.fml.common.eventhandler.ForgeEvent.HasResult;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.Container;
 
-@HasResult
 public class PlayerOpenContainerEvent extends PlayerEvent
 {
 
@@ -25,5 +24,10 @@ public class PlayerOpenContainerEvent extends PlayerEvent
     {
         super(player);
         this.canInteractWith = openContainer.canInteractWith(player);
+    }
+
+    @Override
+    public boolean hasResult() {
+        return true;
     }
 }

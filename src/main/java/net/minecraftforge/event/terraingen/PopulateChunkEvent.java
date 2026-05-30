@@ -95,7 +95,6 @@ public class PopulateChunkEvent extends ChunkProviderEvent
      * <br>
      * This event is fired on the {@link MinecraftForge#EVENT_BUS}.<br>
      **/
-    @HasResult
     public static class Populate extends PopulateChunkEvent
     {
         /** Use CUSTOM to filter custom event types
@@ -108,6 +107,11 @@ public class PopulateChunkEvent extends ChunkProviderEvent
         {
             super(chunkProvider, world, rand, chunkX, chunkZ, hasVillageGenerated);
             this.type = type;
+        }
+
+        @Override
+        public boolean hasResult() {
+            return true;
         }
     }
 }

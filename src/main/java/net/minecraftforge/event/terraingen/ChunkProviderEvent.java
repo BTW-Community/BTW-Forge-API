@@ -22,7 +22,6 @@ public class ChunkProviderEvent extends ForgeEvent
      *
      * You can set the result to DENY to prevent the default replacement.
      */
-    @HasResult
     public static class ReplaceBiomeBlocks extends ChunkProviderEvent
     {
         public final int chunkX;
@@ -55,6 +54,10 @@ public class ChunkProviderEvent extends ForgeEvent
             this.world = world;
         }
 
+        @Override
+        public boolean hasResult() {
+            return true;
+        }
     }
 
     /**
@@ -62,7 +65,6 @@ public class ChunkProviderEvent extends ForgeEvent
      *
      * You can set the result to DENY to substitute your own noise field.
      */
-    @HasResult
     public static class InitNoiseField extends ChunkProviderEvent
     {
         public double[] noisefield;
@@ -85,5 +87,9 @@ public class ChunkProviderEvent extends ForgeEvent
             this.sizeZ = sizeZ;
         }
 
+        @Override
+        public boolean hasResult() {
+            return true;
+        }
     }
 }

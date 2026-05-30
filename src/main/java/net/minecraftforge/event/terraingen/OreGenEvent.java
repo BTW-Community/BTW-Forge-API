@@ -85,8 +85,7 @@ public class OreGenEvent extends ForgeEvent
      * This result determines whether the ore is allowed to be generated.<br>
      * <br>
      * This event is fired on the {@link MinecraftForge#ORE_GEN_BUS}.<br>
-     **/ 
-    @HasResult
+     **/
     public static class GenerateMinable extends OreGenEvent
     {
         public static enum EventType { COAL, DIAMOND, DIRT, GOLD, GRAVEL, IRON, LAPIS, REDSTONE, QUARTZ, CUSTOM }
@@ -99,6 +98,11 @@ public class OreGenEvent extends ForgeEvent
             super(world, rand, worldX, worldZ);
             this.generator = generator;
             this.type = type;
+        }
+
+        @Override
+        public boolean hasResult() {
+            return true;
         }
     }
 }

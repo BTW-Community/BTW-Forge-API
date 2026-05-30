@@ -3,7 +3,6 @@ package net.minecraftforge.event.entity.living;
 import cpw.mods.fml.common.eventhandler.ForgeEvent.HasResult;
 import net.minecraft.src.EntityLiving;
 
-@HasResult
 public class LivingPackSizeEvent extends LivingEvent
 {
     /**
@@ -19,5 +18,10 @@ public class LivingPackSizeEvent extends LivingEvent
     public LivingPackSizeEvent(EntityLiving entity)
     {
         super(entity);
+    }
+
+    @Override
+    public boolean hasResult() {
+        return true;
     }
 }

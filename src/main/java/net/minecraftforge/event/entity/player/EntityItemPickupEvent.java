@@ -5,7 +5,6 @@ import cpw.mods.fml.common.eventhandler.ForgeEvent;
 import net.minecraft.src.EntityItem;
 import net.minecraft.src.EntityPlayer;
 
-@ForgeEvent.HasResult
 public class EntityItemPickupEvent extends PlayerEvent
 {
     /**
@@ -28,6 +27,11 @@ public class EntityItemPickupEvent extends PlayerEvent
 
     @Override
     public boolean isCancelable() {
+        return true;
+    }
+
+    @Override
+    public boolean hasResult() {
         return true;
     }
 }

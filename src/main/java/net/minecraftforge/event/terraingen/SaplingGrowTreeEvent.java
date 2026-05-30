@@ -23,7 +23,6 @@ import java.util.Random;
  * <br>
  * This event is fired on the {@link MinecraftForge#TERRAIN_GEN_BUS}.<br>
  **/
-@HasResult
 public class SaplingGrowTreeEvent extends WorldEvent
 {
     public final int x;
@@ -38,5 +37,10 @@ public class SaplingGrowTreeEvent extends WorldEvent
         this.x = x;
         this.y = y;
         this.z = z;
+    }
+
+    @Override
+    public boolean hasResult() {
+        return true;
     }
 }

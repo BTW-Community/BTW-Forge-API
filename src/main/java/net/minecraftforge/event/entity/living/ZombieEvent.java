@@ -47,7 +47,6 @@ public class ZombieEvent extends EntityEvent {
      * 
      * This event is fired on the {@link MinecraftForge#EVENT_BUS}.
      **/
-    @HasResult
     public static class SummonAidEvent extends ZombieEvent {
         /**
          * Populate this field to have a custom zombie instead of a normal zombie summoned
@@ -71,6 +70,10 @@ public class ZombieEvent extends EntityEvent {
             this.attacker = attacker;
             this.summonChance = summonChance;
         }
-        
+
+        @Override
+        public boolean hasResult() {
+            return true;
+        }
     }
 }
