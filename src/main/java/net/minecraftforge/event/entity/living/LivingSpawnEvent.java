@@ -1,6 +1,6 @@
 package net.minecraftforge.event.entity.living;
 
-import btw.community.forge.BTNForgeAddon;
+import btw.community.forge.util.BTNEventUtil;
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import net.legacyfabric.fabric.api.event.Event;
 import net.minecraft.src.EntityLiving;
@@ -48,7 +48,7 @@ public class LivingSpawnEvent extends LivingEvent
 //    @HasResult
     public static class CheckSpawn extends LivingSpawnEvent
     {
-        public static final Event<Consumer<CheckSpawn>> EVENT = BTNForgeAddon.createNoResult(CheckSpawn.class);
+        public static final Event<Consumer<CheckSpawn>> EVENT = BTNEventUtil.createNoResult(CheckSpawn.class);
 
         public CheckSpawn(EntityLiving entity, World world, float x, float y, float z)
         {

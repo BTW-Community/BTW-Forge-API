@@ -35,6 +35,10 @@ public class EventBus implements IEventExceptionHandler
         exceptionHandler = handler;
     }
 
+    public void register(Object target) {
+
+    }
+
     public void registerNew(Object target) {
         for (Method method : target.getClass().getDeclaredMethods()) {
             if (method.isAnnotationPresent(SubscribeEvent.class)) {
@@ -60,13 +64,7 @@ public class EventBus implements IEventExceptionHandler
 
     public boolean post(ForgeEvent event)
     {
-        var fabricEvent = BTNForgeAddon.EVENT_FACTORY_TO_CLASS.get(event.getClass());
-        if (fabricEvent == null) {
-            FMLLog.warning("No fabric event found for " + event.getClass().getSimpleName());
-            return false;
-        }
-        ((Consumer<ForgeEvent>) fabricEvent.invoker()).accept(event);
-        return (event.isCancelable() ? event.isCanceled() : false);
+        return event.isCancelable() && event.isCanceled();
     }
 
     private void register(Class<? extends ForgeEvent> eventType, Method method, Object target) {

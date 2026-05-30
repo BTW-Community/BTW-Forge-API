@@ -6,6 +6,7 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+@Deprecated(since = "Use Fabric API event initializer instead")
 @Retention(value = RUNTIME)
 @Target(value = METHOD)
 public @interface SubscribeEvent
