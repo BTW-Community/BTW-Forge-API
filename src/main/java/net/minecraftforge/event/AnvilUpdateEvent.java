@@ -1,7 +1,7 @@
 package net.minecraftforge.event;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import cpw.mods.fml.common.eventhandler.Event;
+import cpw.mods.fml.common.eventhandler.ForgeEvent;
 import net.minecraft.src.ItemStack;
 
 /**
@@ -12,7 +12,7 @@ import net.minecraft.src.ItemStack;
  * if the output is null, and the event is not canceled, vanilla behavior will execute.
  */
 @Cancelable
-public class AnvilUpdateEvent extends Event
+public class AnvilUpdateEvent extends ForgeEvent
 {
     public final ItemStack left;  // The left side of the input
     public final ItemStack right; // The right side of the input

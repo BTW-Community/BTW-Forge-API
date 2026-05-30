@@ -1,6 +1,6 @@
 package net.minecraftforge.event.terraingen;
 
-import cpw.mods.fml.common.eventhandler.Event.HasResult;
+import cpw.mods.fml.common.eventhandler.ForgeEvent.HasResult;
 import net.minecraft.src.World;
 import net.minecraftforge.event.world.WorldEvent;
 

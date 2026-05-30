@@ -1,7 +1,6 @@
 package net.minecraftforge.event.terraingen;
 
-import cpw.mods.fml.common.eventhandler.Event;
-import cpw.mods.fml.common.eventhandler.Event.HasResult;
+import cpw.mods.fml.common.eventhandler.ForgeEvent;
 import net.minecraft.src.World;
 import net.minecraft.src.IChunkProvider;
 
@@ -9,7 +8,7 @@ import java.util.Random;
 
 /**
  * PopulateChunkEvent is fired when an event involving chunk terrain feature population occurs.<br>
- * If a method utilizes this {@link Event} as its parameter, the method will
+ * If a method utilizes this {@link ForgeEvent} as its parameter, the method will
  * receive every child event of this class.<br>
  * <br>
  * {@link #world} contains the world this event is occurring in.<br>

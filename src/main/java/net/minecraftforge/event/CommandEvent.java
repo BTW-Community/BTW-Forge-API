@@ -1,7 +1,7 @@
 package net.minecraftforge.event;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import cpw.mods.fml.common.eventhandler.Event;
+import cpw.mods.fml.common.eventhandler.ForgeEvent;
 import net.minecraft.src.ICommand;
 import net.minecraft.src.ICommandSender;
 
@@ -23,7 +23,7 @@ import net.minecraft.src.ICommandSender;
  * This event is fired on the {@link MinecraftForge#EVENT_BUS}.<br>
  **/
 @Cancelable
-public class CommandEvent extends Event
+public class CommandEvent extends ForgeEvent
 {
 
     public final ICommand command;

@@ -1,19 +1,18 @@
 package net.minecraftforge.event.terraingen;
 
-import cpw.mods.fml.common.eventhandler.Event;
-import cpw.mods.fml.common.eventhandler.Event.HasResult;
+import cpw.mods.fml.common.eventhandler.ForgeEvent;
 import net.minecraft.src.Block;
 import net.minecraft.src.BiomeDecorator;
 import net.minecraft.src.BiomeGenBase;
 
 /**
  * BiomeEvent is fired whenever an event involving biomes occurs.<br>
- * If a method utilizes this {@link Event} as its parameter, the method will 
+ * If a method utilizes this {@link ForgeEvent} as its parameter, the method will
  * receive every child event of this class.<br>
  * <br>
  * All children of this event are fired on the {@link MinecraftForge#TERRAIN_GEN_BUS}.
  **/
-public class BiomeEvent extends Event
+public class BiomeEvent extends ForgeEvent
 {
     public final BiomeGenBase biome;
 
@@ -51,7 +50,7 @@ public class BiomeEvent extends Event
 
     /**
      * BiomeColor is fired whenever an event involving biome colors occurs. <br>
-     * If a method utilizes this {@link Event} as its parameter, the method will 
+     * If a method utilizes this {@link ForgeEvent} as its parameter, the method will
      * receive every child event of this class.<br>
      * <br>
      * All children of this event are fired on the {@link MinecraftForge#TERRAIN_GEN_BUS}.

@@ -1,7 +1,7 @@
 package net.minecraftforge.event.world;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import cpw.mods.fml.common.eventhandler.Event;
+import cpw.mods.fml.common.eventhandler.ForgeEvent;
 import net.minecraft.src.Entity;
 import net.minecraft.src.ChunkPosition;
 import net.minecraft.src.Explosion;
@@ -19,7 +19,7 @@ import java.util.List;
  * Children do not use {@link HasResult}.<br>
  * Children of this event are fired on the {@link MinecraftForge#EVENT_BUS}.<br>
  */
-public class ExplosionEvent extends Event
+public class ExplosionEvent extends ForgeEvent
 {
     public final World world;
     public final Explosion explosion;

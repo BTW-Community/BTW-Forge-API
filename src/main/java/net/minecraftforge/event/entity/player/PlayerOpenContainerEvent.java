@@ -1,6 +1,6 @@
 package net.minecraftforge.event.entity.player;
 
-import cpw.mods.fml.common.eventhandler.Event.HasResult;
+import cpw.mods.fml.common.eventhandler.ForgeEvent.HasResult;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.Container;
 

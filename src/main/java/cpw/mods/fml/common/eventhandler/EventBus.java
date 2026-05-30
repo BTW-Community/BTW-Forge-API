@@ -48,28 +48,28 @@ public class EventBus implements IEventExceptionHandler
 
                 Class<?> eventType = parameterTypes[0];
 
-                if (!Event.class.isAssignableFrom(eventType)) {
+                if (!ForgeEvent.class.isAssignableFrom(eventType)) {
                     throw new IllegalArgumentException("Method " + method + " has @SubscribeEvent annotation, but takes a argument that is not an Event " + eventType);
                 }
 
                 //noinspection unchecked Silence compiler
-                register((Class<? extends Event>) eventType, method, target);
+                register((Class<? extends ForgeEvent>) eventType, method, target);
             }
         }
     }
 
-    public boolean post(Event event)
+    public boolean post(ForgeEvent event)
     {
         var fabricEvent = BTNForgeAddon.EVENT_FACTORY_TO_CLASS.get(event.getClass());
         if (fabricEvent == null) {
             FMLLog.warning("No fabric event found for " + event.getClass().getSimpleName());
             return false;
         }
-        ((Consumer<Event>) fabricEvent.invoker()).accept(event);
+        ((Consumer<ForgeEvent>) fabricEvent.invoker()).accept(event);
         return (event.isCancelable() ? event.isCanceled() : false);
     }
 
-    private void register(Class<? extends Event> eventType, Method method, Object target) {
+    private void register(Class<? extends ForgeEvent> eventType, Method method, Object target) {
         net.legacyfabric.fabric.api.event.Event<Consumer<?>> event = BTNForgeAddon.EVENT_FACTORY_TO_CLASS.get(eventType);
         try {
             if (event == null) {
@@ -211,7 +211,7 @@ public class EventBus implements IEventExceptionHandler
 //    }
 
     @Override
-    public void handleException(EventBus bus, Event event, IEventListener[] listeners, int index, Throwable throwable)
+    public void handleException(EventBus bus, ForgeEvent event, IEventListener[] listeners, int index, Throwable throwable)
     {
         FMLLog.log(Level.ERROR, throwable, "Exception caught during firing event %s:", event);
         FMLLog.log(Level.ERROR, "Index: %d Listeners:", index);

@@ -16,7 +16,7 @@ public enum EventPriority implements IEventListener
 ;
 
     @Override
-    public void invoke(Event event)
+    public void invoke(ForgeEvent event)
     {
         event.setPhase(this);
     }

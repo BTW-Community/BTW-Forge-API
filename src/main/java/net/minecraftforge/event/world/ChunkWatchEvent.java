@@ -1,12 +1,12 @@
 package net.minecraftforge.event.world;
 
-import cpw.mods.fml.common.eventhandler.Event;
+import cpw.mods.fml.common.eventhandler.ForgeEvent;
 import net.minecraft.src.EntityPlayerMP;
 import net.minecraft.src.ChunkCoordIntPair;
 
 /**
  * ChunkWatchEvent is fired when an event involving a chunk being watched occurs.<br>
- * If a method utilizes this {@link Event} as its parameter, the method will 
+ * If a method utilizes this {@link ForgeEvent} as its parameter, the method will
  * receive every child event of this class.<br>
  * <br>
  * {@link #chunk} contains the ChunkCoordIntPair of the Chunk this event is affecting.<br>
@@ -14,7 +14,7 @@ import net.minecraft.src.ChunkCoordIntPair;
  * <br>
  * All children of this event are fired on the {@link MinecraftForge#EVENT_BUS}.<br>
  **/
-public class ChunkWatchEvent extends Event
+public class ChunkWatchEvent extends ForgeEvent
 {
     public final ChunkCoordIntPair chunk;
     public final EntityPlayerMP player;

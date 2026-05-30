@@ -1,12 +1,12 @@
 package net.minecraftforge.event.entity.player;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import cpw.mods.fml.common.eventhandler.Event;
+import cpw.mods.fml.common.eventhandler.ForgeEvent;
 import net.minecraft.src.EntityItem;
 import net.minecraft.src.EntityPlayer;
 
 @Cancelable
-@Event.HasResult
+@ForgeEvent.HasResult
 public class EntityItemPickupEvent extends PlayerEvent
 {
     /**

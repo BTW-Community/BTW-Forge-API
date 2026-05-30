@@ -1,6 +1,6 @@
 package net.minecraftforge.event.terraingen;
 
-import cpw.mods.fml.common.eventhandler.Event.*;
+import cpw.mods.fml.common.eventhandler.ForgeEvent.*;
 import net.minecraft.src.World;
 import net.minecraft.src.IChunkProvider;
 import net.minecraft.src.MapGenBase;

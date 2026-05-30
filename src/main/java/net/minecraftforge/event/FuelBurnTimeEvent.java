@@ -1,7 +1,7 @@
 package net.minecraftforge.event;
 
-import cpw.mods.fml.common.eventhandler.Event;
-import cpw.mods.fml.common.eventhandler.Event.HasResult;
+import cpw.mods.fml.common.eventhandler.ForgeEvent;
+import cpw.mods.fml.common.eventhandler.ForgeEvent.HasResult;
 import net.minecraft.src.ItemStack;
 
 /**
@@ -20,7 +20,7 @@ import net.minecraft.src.ItemStack;
  **/
 @HasResult
 @Deprecated //Remove in 1.8
-public class FuelBurnTimeEvent extends Event
+public class FuelBurnTimeEvent extends ForgeEvent
 {
     public final ItemStack fuel;
     public int burnTime;

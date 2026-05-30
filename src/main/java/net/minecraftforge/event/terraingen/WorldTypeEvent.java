@@ -1,19 +1,19 @@
 package net.minecraftforge.event.terraingen;
 
-import cpw.mods.fml.common.eventhandler.Event;
+import cpw.mods.fml.common.eventhandler.ForgeEvent;
 import net.minecraft.src.WorldType;
 import net.minecraft.src.GenLayer;
 
 /**
  * WorldTypeEvent is fired when an event involving the world occurs.<br>
- * If a method utilizes this {@link Event} as its parameter, the method will
+ * If a method utilizes this {@link ForgeEvent} as its parameter, the method will
  * receive every child event of this class.<br>
  * <br>
  * {@link #worldType} contains the WorldType of the world this event is occurring in.<br>
  * <br>
  * All children of this event are fired on the {@link MinecraftForge#TERRAIN_GEN_BUS}.<br>
  **/
-public class WorldTypeEvent extends Event
+public class WorldTypeEvent extends ForgeEvent
 {
     public final WorldType worldType;
 

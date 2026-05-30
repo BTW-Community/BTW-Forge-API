@@ -1,6 +1,5 @@
 package net.minecraftforge.event.entity.living;
 
-import cpw.mods.fml.common.eventhandler.Event.HasResult;
 import net.minecraft.src.EntityLivingBase;
 import net.minecraft.src.EntityZombie;
 import net.minecraft.src.World;

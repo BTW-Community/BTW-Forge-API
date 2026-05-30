@@ -1,7 +1,7 @@
 package net.minecraftforge.event.world;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import cpw.mods.fml.common.eventhandler.Event;
+import cpw.mods.fml.common.eventhandler.ForgeEvent;
 import net.minecraft.src.EnumCreatureType;
 import net.minecraft.src.World;
 import net.minecraft.src.WorldSettings;
@@ -11,14 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 /**
  * WorldEvent is fired when an event involving the world occurs.<br>
- * If a method utilizes this {@link Event} as its parameter, the method will
+ * If a method utilizes this {@link ForgeEvent} as its parameter, the method will
  * receive every child event of this class.<br>
  * <br>
  * {@link #world} contains the World this event is occuring in.<br>
  * <br>
  * All children of this event are fired on the {@link MinecraftForge#EVENT_BUS}.<br>
  **/
-public class WorldEvent extends Event
+public class WorldEvent extends ForgeEvent
 {
     public final World world;
 

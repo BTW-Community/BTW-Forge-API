@@ -1,7 +1,7 @@
 package net.minecraftforge.event;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import cpw.mods.fml.common.eventhandler.Event;
+import cpw.mods.fml.common.eventhandler.ForgeEvent;
 import net.minecraft.src.ChatMessageComponent;
 import net.minecraft.src.EntityPlayerMP;
 
@@ -23,7 +23,7 @@ import net.minecraft.src.EntityPlayerMP;
  * This event is fired on the {@link MinecraftForge#EVENT_BUS}.
  **/
 @Cancelable
-public class ServerChatEvent extends Event
+public class ServerChatEvent extends ForgeEvent
 {
     public final String message, username;
     public final EntityPlayerMP player;

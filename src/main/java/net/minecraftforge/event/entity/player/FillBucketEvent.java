@@ -1,14 +1,14 @@
 package net.minecraftforge.event.entity.player;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import cpw.mods.fml.common.eventhandler.Event;
+import cpw.mods.fml.common.eventhandler.ForgeEvent;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.MovingObjectPosition;
 import net.minecraft.src.World;
 
 @Cancelable
-@Event.HasResult
+@ForgeEvent.HasResult
 public class FillBucketEvent extends PlayerEvent
 {
     /**

@@ -14,7 +14,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 /**
  * Base Event class that all other events are derived from
  */
-public class Event
+public class ForgeEvent
 {
     @Retention(value = RUNTIME)
     @Target(value = TYPE)
@@ -32,7 +32,7 @@ public class Event
     private static ListenerList listeners = new ListenerList();
     private EventPriority phase = null;
 
-    public Event()
+    public ForgeEvent()
     {
         setup();
     }

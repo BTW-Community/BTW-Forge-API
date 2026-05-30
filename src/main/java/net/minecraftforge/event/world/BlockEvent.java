@@ -2,9 +2,8 @@ package net.minecraftforge.event.world;
 
 import com.google.common.collect.ImmutableList;
 import cpw.mods.fml.common.eventhandler.Cancelable;
-import cpw.mods.fml.common.eventhandler.Event;
+import cpw.mods.fml.common.eventhandler.ForgeEvent;
 import net.minecraft.src.Block;
-import net.minecraft.src.EnchantmentHelper;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.World;
@@ -14,7 +13,7 @@ import net.minecraftforge.common.util.BlockSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlockEvent extends Event {
+public class BlockEvent extends ForgeEvent {
     private static final boolean DEBUG = Boolean.parseBoolean(System.getProperty("forge.debugBlockEvent", "false"));
 
     public final int x;

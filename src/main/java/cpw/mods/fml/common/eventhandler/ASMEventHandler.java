@@ -37,7 +37,7 @@ public class ASMEventHandler implements IEventListener
     }
 
     @Override
-    public void invoke(Event event)
+    public void invoke(ForgeEvent event)
     {
         if (owner != null && GETCONTEXT)
         {

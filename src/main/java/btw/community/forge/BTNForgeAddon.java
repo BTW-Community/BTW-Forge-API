@@ -1,7 +1,7 @@
 package btw.community.forge;
 
 import api.BTWAddon;
-import cpw.mods.fml.common.eventhandler.Event;
+import cpw.mods.fml.common.eventhandler.ForgeEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.legacyfabric.fabric.api.event.EventFactory;
 import net.minecraftforge.common.MinecraftForge;
@@ -42,14 +42,14 @@ public class BTNForgeAddon extends BTWAddon {
         MinecraftForge.EVENT_BUS.post(testEvn);
     }
 
-    public static class TestEvent extends Event {
+    public static class TestEvent extends ForgeEvent {
         public final String message;
 
         public TestEvent(String message) {
             this.message = message;
         }
     }
-    public static Map<Class<? extends Event>, net.legacyfabric.fabric.api.event.Event<Consumer<?>>> EVENT_FACTORY_TO_CLASS = new HashMap<>();
+    public static Map<Class<? extends ForgeEvent>, net.legacyfabric.fabric.api.event.Event<Consumer<?>>> EVENT_FACTORY_TO_CLASS = new HashMap<>();
 
     public static net.legacyfabric.fabric.api.event.Event<Consumer<TestEvent>> TEST = createNoResult(TestEvent.class);
 
@@ -70,7 +70,7 @@ public class BTNForgeAddon extends BTWAddon {
         return ret;
     }
 
-    private static <T> net.legacyfabric.fabric.api.event.Event<Consumer<T>> add(Class<? extends Event> eventType, net.legacyfabric.fabric.api.event.Event<Consumer<T>> event) {
+    private static <T> net.legacyfabric.fabric.api.event.Event<Consumer<T>> add(Class<? extends ForgeEvent> eventType, net.legacyfabric.fabric.api.event.Event<Consumer<T>> event) {
         return EVENT_FACTORY_TO_CLASS.putIfAbsent(eventType, (net.legacyfabric.fabric.api.event.Event) event);
     }
 

@@ -1,7 +1,6 @@
 package net.minecraftforge.event.terraingen;
 
-import cpw.mods.fml.common.eventhandler.Event;
-import cpw.mods.fml.common.eventhandler.Event.HasResult;
+import cpw.mods.fml.common.eventhandler.ForgeEvent;
 import net.minecraft.src.World;
 
 import java.util.Random;
@@ -22,7 +21,7 @@ import java.util.Random;
  * <br>
  * This event is fired on the {@link MinecraftForge#TERRAIN_GEN_BUS}.
  **/
-public class DecorateBiomeEvent extends Event
+public class DecorateBiomeEvent extends ForgeEvent
 {
     public final World world;
     public final Random rand;

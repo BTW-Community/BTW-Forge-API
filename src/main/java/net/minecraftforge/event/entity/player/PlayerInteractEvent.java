@@ -4,8 +4,8 @@ import cpw.mods.fml.common.eventhandler.Cancelable;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.World;
 
-import static cpw.mods.fml.common.eventhandler.Event.Result.DEFAULT;
-import static cpw.mods.fml.common.eventhandler.Event.Result.DENY;
+import static cpw.mods.fml.common.eventhandler.ForgeEvent.Result.DEFAULT;
+import static cpw.mods.fml.common.eventhandler.ForgeEvent.Result.DENY;
 
 /**
  * PlayerInteractEvent is fired when a player interacts in some way.
